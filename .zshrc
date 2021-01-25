@@ -81,7 +81,6 @@ plugins=(git
 	 brew
 	 python
 	 ssh-agent
-	 thefuck
 	 zsh-navigation-tools
 	 z
 	 zsh-completions
@@ -90,6 +89,7 @@ plugins=(git
 	 ruby
 	 poetry
 	 docker-compose
+	 vi-mode
 	 )
 # zsh-completions
 autoload -U compinit && compinit
@@ -98,6 +98,9 @@ autoload -U compinit && compinit
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa id_synergeticon id_unihamburg 
 zstyle :omz:plugins:ssh-agent lifetime 4h
+
+# enable vi mode
+bindkey -v
 
 ########################
 source $ZSH/oh-my-zsh.sh
@@ -119,6 +122,17 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+
+# Install ARM compatible software 
+# if [ -d "/opt/homebrew/bin" ]; then
+#     export PATH="/opt/homebrew/bin:$PATH"
+# fi
+# If you really want to install Intel software, use ibrew
+# function ibrew() {
+#    arch --x86_64 /usr/local/bin/brew $@
+# }
+
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -137,6 +151,7 @@ alias update_comet_ml="pip3 install comet_ml --upgrade --upgrade-strategy eager"
 
 # BasicTeX
 alias texupdate="sudo tlmgr update --self && sudo tlmgr update --all"
+alias texinstall="sudo tlmgr install"
 export PATH="/usr/local/sbin:$PATH"
 export MANPATH="/Library/TeX/Distributions/.DefaultTeX/Contents/Man:$MANPATH"
 
