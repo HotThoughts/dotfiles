@@ -170,3 +170,6 @@ export PATH="$HOME/.gem/ruby/2.7.2/bin:$PATH"
 
 # Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
