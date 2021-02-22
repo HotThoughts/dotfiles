@@ -8,8 +8,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-# ZSH_THEME=$THEME
-THEME="shades-of-purple"
+THEME=""
+ZSH_THEME=$THEME
+# THEME="shades-of-purple"
 
 if [[ -n $SSH_CONNECTION ]]; then
   #ZSH_THEME="robbyrussell"
@@ -173,3 +174,9 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+autoload -U promptinit; promptinit
+prompt pure
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
