@@ -90,7 +90,7 @@ plugins=(git
 	 ruby
 	 poetry
 	 docker-compose
-	 vi-mode
+	 colored-man-pages
 	 )
 # zsh-completions
 autoload -U compinit && compinit
@@ -99,9 +99,6 @@ autoload -U compinit && compinit
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent identities id_rsa id_synergeticon id_unihamburg 
 zstyle :omz:plugins:ssh-agent lifetime 4h
-
-# enable vi mode
-bindkey -v
 
 ########################
 source $ZSH/oh-my-zsh.sh
@@ -180,3 +177,5 @@ prompt pure
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
