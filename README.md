@@ -5,18 +5,36 @@ The best practice of syncing dotfiles, follows the article [How to manage your d
 
 
 ## Sync dotfiles in a new computer
-- Clone the bare repo to the new computer home directory
-`git clone --bare https://github.com/USERNAME/dotfiles.git ~/.dotfiles`
+- Setup your dotfile repo, and clone the bare repo to the new computer home directory
+```
+git clone --bare https://github.com/<YOUR USERNAME>/dotfiles.git ~/.dotfiles
+```
+
 - Add alias to `.bashrc` or `.zshrc` so that you can use `dotfiles` as `git`
-`alias dotfiles='/usr/bin/git --git-dir=~/.dotfiles/ --work-tree=~'`
+```
+alias dotfiles='/usr/bin/git --git-dir=~/.dotfiles/ --work-tree=~'
+```
+
 - Checkout repo
 `dotfiles checkout`
 
 ##  Useage
 Same as `git`, we can use, for example
-- `dotfiles add .zshrc` to add changes to stage
-- `dotfiles commit -m "message"` to commit
-- `dotfiles push` to push commit to GitHub
+- add changes to stage
+```
+dotfiles add .zshrc
+```
+
+- commit
+```
+dotfiles commit -m "message"
+```
+
+- push commit to your remote repo
+```
+dotfiles push
+```
+
 - ...
 
 
