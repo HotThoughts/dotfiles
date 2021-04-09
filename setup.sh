@@ -9,7 +9,7 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Must-have softwares
-brew install git zsh tmux svn
+brew install git zsh tmux svn tldr
 brew intall --cask notion typora raycast iterm2 visual-studio-code zoom
 
 # DevOps tools
