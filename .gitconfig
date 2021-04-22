@@ -4,7 +4,7 @@
 [github]
 	user = hotthoughts
 [core]
-	autocrlf = true
+	autocrlf = input
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	pager = delta
