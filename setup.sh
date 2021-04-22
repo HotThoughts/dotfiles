@@ -11,6 +11,9 @@ xcode-select --install
 # CLI tools
 brew install git zsh tmux svn tldr yank parallel
 
+# QuickLook tools on MacOS
+brew install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize suspicious-package apparency quicklookase qlvideo
+
 # Must-have softwares
 brew intall --cask notion typora raycast iterm2 visual-studio-code zoom
 
