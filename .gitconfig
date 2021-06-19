@@ -23,7 +23,7 @@
 [fetch]
 	prune = true
 [push]
-	default = current
+	default = simple
 [pull]
 	rebase = false
 [diff]
