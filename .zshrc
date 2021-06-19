@@ -179,3 +179,7 @@ prompt pure
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# GPG Key
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
