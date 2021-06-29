@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'dag/vim-fish'
 
 call plug#end()
 
