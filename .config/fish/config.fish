@@ -9,7 +9,7 @@ end
 
 # Aliases
 alias dotfiles "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias fishconf "vim ~.config/fish/config.fish"
+alias fishconf "vim ~/.config/fish/config.fish"
 alias vimrc "vim ~/.vimrc"
 alias tmux.conf "vim ~/.tmux.conf"
 alias ohmyzsh "vim ~/.oh-my-zsh"
