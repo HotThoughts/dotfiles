@@ -13,8 +13,8 @@ SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/Users/hotthoughts/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/Users/hotthoughts/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/Users/hotthoughts\x24
-SETUVAR --export __ABBR_TIPS_KEYS:a__fish_key_reader\x1ea__\x1ea__\x1ea__dotfiles\x1ea__\x1ea__
-SETUVAR --export __ABBR_TIPS_VALUES:/usr/local/Cellar/fish/3\x2e2\x2e2_1/bin/fish_key_reader\x1e/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d\x7e/\x2edotfiles/\x20\x2d\x2dwork\x2dtree\x3d\x7e
+SETUVAR --export __ABBR_TIPS_KEYS:a__fish_key_reader\x1ea__\x1ea__\x1ea__dotfiles\x1ea__\x1ea__\x1ea__\x1ea__\x2d\x2dhelp\x1ea__dotfiles\x1ea__\x1ea__\x1ea__\x1ea__\x1ea__\x1ea__\x1ea__\x1ea__
+SETUVAR --export __ABBR_TIPS_VALUES:/usr/local/Cellar/fish/3\x2e2\x2e2_1/bin/fish_key_reader\x1e/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d\x7e/\x2edotfiles/\x20\x2d\x2dwork\x2dtree\x3d\x7e\x1e/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d\x7e/\x2edotfiles/\x20\x2d\x2dwork\x2dtree\x3d\x7e\x20\x2ds
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_danhper_2F_fish_2D_ssh_2D_agent_files:/Users/hotthoughts/\x2econfig/fish/functions/__ssh_agent_is_started\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__ssh_agent_start\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/conf\x2ed/fish\x2dssh\x2dagent\x2efish
 SETUVAR _fisher_edc_2F_bass_files:/Users/hotthoughts/\x2econfig/fish/functions/__bass\x2epy\x1e/Users/hotthoughts/\x2econfig/fish/functions/bass\x2efish
@@ -47,7 +47,7 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline

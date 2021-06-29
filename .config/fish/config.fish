@@ -1,12 +1,10 @@
 set -gx PATH /usr/local/bin $PATH
-
+fish_vi_key_bindings
 
 if type -q exa
   alias ll "exa -l -g --icons"
   alias lla "ll -a"
- end
-
-
+end
 
 
 # Aliases
