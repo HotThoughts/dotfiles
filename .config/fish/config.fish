@@ -23,22 +23,22 @@ alias code "code-insiders"
 # BasicTeX
 alias texupdate "sudo tlmgr update --self && sudo tlmgr update --all"
 alias texinstall "sudo tlmgr install"
-set -gx PATH "/usr/local/sbin:$PATH"
-set -gx MANPATH "/Library/TeX/Distributions/.DefaultTeX/Contents/Man:$MANPATH"
+set PATH /usr/local/sbin $PATH
+set MANPATH /Library/TeX/Distributions/.DefaultTeX/Contents/Man $MANPATH
 
 # qt
-set -gx PATH "/usr/local/opt/qt/bin:$PATH"
-set -gx LDFLAGS "-L/usr/local/opt/qt/lib"
-set -gx CPPFLAGS "-I/usr/local/opt/qt/include"
-set -gx PKG_CONFIG_PATH "/usr/local/opt/qt/lib/pkgconfig"
+set PATH /usr/local/opt/qt/bin $PATH
+set LDFLAGS "-L/usr/local/opt/qt/lib"
+set CPPFLAGS "-I/usr/local/opt/qt/include"
+set PKG_CONFIG_PATH "/usr/local/opt/qt/lib/pkgconfig"
 
 # ruby
-set -gx PATH "/usr/local/opt/ruby/bin:$PATH"
-set -gx LDFLAGS "/usr/local/opt/ruby/lib"
-set -gx CPPFLAGS "/usr/local/opt/ruby/include"
-set -gx PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
-set -gx PATH "$HOME/.gem/ruby/2.7.2/bin:$PATH"
+set PATH /usr/local/opt/ruby/bin $PATH
+set LDFLAGS "/usr/local/opt/ruby/lib"
+set CPPFLAGS "/usr/local/opt/ruby/include"
+set PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
+set PATH $HOME/.gem/ruby/2.7.2/bin $PATH
 
 # Poetry
-set -gx PATH "$HOME/.poetry/bin:$PATH"
+set PATH $HOME/.poetry/bin $PATH
 
