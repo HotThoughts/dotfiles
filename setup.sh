@@ -9,7 +9,7 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # CLI tools
-brew install git zsh tmux svn tldr yank parallel httpie exa fzf git-delta
+brew install git zsh tmux svn isacikgoz/taps/tldr yank parallel httpie exa fzf git-delta
 
 # QuickLook tools on MacOS
 brew install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize suspicious-package apparency quicklookase qlvideo
