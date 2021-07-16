@@ -5,6 +5,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'dag/vim-fish'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -26,7 +29,12 @@ highlight Normal ctermbg=None "Use terminal backgroud
 
 " Nerd Tree
 nmap <C-n> :NERDTreeToggle<CR>
-	
+
+" Lightline
+let g:lightline = { 'colorscheme': 'darcula'}
+set laststatus=2
+set noshowmode
+
 " Auto Plug-in Installation
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
