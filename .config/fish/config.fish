@@ -1,5 +1,5 @@
 set -gx PATH /usr/local/bin $PATH
-fish_vi_key_bindings
+set -gx EXA_ICON_SPACING 2
 
 function notify
     set -l job (jobs -l -g)
