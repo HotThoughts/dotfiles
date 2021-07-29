@@ -56,15 +56,15 @@ font:
     style: Light
 
   bold:
-    family: Operator Mono
+    family: OperatorMono Nerd Font
     style: Book
 
   italic:
-    family: Operator Mono
+    family: OperatorMono Nerd Font 
     style: "Light Italic"
 
   bold_italic:
-    family: Operator Mono
+    family: OperatorMono Nerd Font
     style: "Book Italic"
 
   size: 14.0
@@ -141,4 +141,4 @@ schemes:
 
 colors: *tokyo-night-storm
 
-background_opacity: 0.8
+background_opacity: 1
