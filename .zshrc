@@ -157,10 +157,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 complete -o nospace -C /usr/local/bin/terraform terraform
 
-# Pure
-autoload -U promptinit; promptinit
-prompt pure
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
@@ -169,3 +165,6 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 # GPG Key
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
+
+# Prompt
+eval "$(starship init zsh)"
