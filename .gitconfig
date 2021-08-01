@@ -1,11 +1,12 @@
 [user]
 	name = Yiyao Wei
 	email = yiyao.wei@icloud.com
+  signingkey = 5B24EE1E0D0CC51C
 [github]
 	user = hotthoughts
 [core]
 	autocrlf = input
-	editor = vim
+	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	pager = delta
 	excludesfile = ~/.gitignore
@@ -38,9 +39,9 @@
 	show = delta
 [delta]
 	features = line-numbers decorations
-  	line-numbers = true
-  	navigate = true
-	syntax-theme = Dracula
+ 	line-numbers = true
+ 	navigate = true
+	syntax-theme = Nord
 [interactive]
 	diffFilter = delta --color-only
 [filter "lfs"]
