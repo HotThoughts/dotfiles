@@ -3,6 +3,8 @@
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
+lvim.builtin.nvimtree.hide_dotfiles = 0
+vim.opt.relativenumber = true
 
 -- Color Scheme
 lvim.colorscheme = "tokyonight"
