@@ -13,34 +13,28 @@ lvim.transparent_window = true
 -- keymappings
 lvim.leader = "space"
 -- overwrite the key-mappings provided by LunarVim for any mode, or leave it empty to keep them
-lvim.keys.normal_mode = {
---   Page down/up
---   {'[d', '<PageUp>'},
---   {']d', '<PageDown>'},
---
---   Navigate buffers
-  {'<Tab>', ':bnext<CR>'},
-  {'<S-Tab>', ':bprevious<CR>'},
-  {'Y', 'y$'},
-  {'n', 'nzzzv'},
-  {'N', 'Nzzzv'},
-  {'J', 'mzJ`z'},
-}
-
-lvim.keys.insert_mode = {
-  {',', ',<c-g>u'},
-  {'.', '.<c-g>u'},
-  {'!', '!<c-g>u'},
-  {'?', '?<c-g>u'},
-  {'<C-j>', '<esc>:m .+1<CR>=='},
-  {'<C-k>', '<esc>:m .-2<CR>=='},
-}
-
-lvim.keys.visual_mode = {
-  -- move lines visually
-  {'J', ':m \'>+1<CR>gv=gv'},
-  {'K', ':m \'<-2<CR>gv=gv'},
-}
+-- lvim.keys.normal_mode = {
+-- --   Page down/up
+-- --   {'[d', '<PageUp>'},
+-- --   {']d', '<PageDown>'},
+-- --
+-- --   Navigate buffers
+--   {'<Tab>', ':bnext<CR>'},
+--   {'<S-Tab>', ':bprevious<CR>'},
+--   {'Y', 'y$'},
+--   {'n', 'nzzzv'},
+--   {'N', 'Nzzzv'},
+--   {'J', 'mzJ`z'},
+-- }
+-- lvim.keys.insert_mode = {
+--   {',', ',<c-g>u'},
+--   {'.', '.<c-g>u'},
+--   {'!', '!<c-g>u'},
+--   {'?', '?<c-g>u'},
+-- }
+-- lvim.keys.visual_mode = {
+--   -- move lines visually
+-- }
 -- if you just want to augment the existing ones then use the utility function
 -- require("utils").add_keymap_insert_mode({ silent = true }, {
 -- { "<C-s>", ":w<cr>" },
@@ -71,6 +65,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   --Enable completion triggered by <c-x><c-o>
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
+lvim.lsp.diagnostics.virtual_text.prefix = "✶"
 
 
 -- additional plugins
@@ -81,6 +76,7 @@ lvim.plugins = {
     config = function()
       vim.g.tokyonight_style = "storm"
       vim.g.tokyonight_italic_functions = true
+      vim.g.tokyonight_italic_comments = false
       vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
       -- Change the "hint" color to the "orange" color, and make the "error" color bright red
       vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
@@ -88,8 +84,8 @@ lvim.plugins = {
   },
   {
     "ray-x/lsp_signature.nvim",
-    config = function() require"lsp_signature".on_attach() end,
-    event = "insertenter"
+    event = "insertenter",
+    config = function() require"lsp_signature".on_attach() end
   },
   {"dag/vim-fish"},
   {
@@ -99,7 +95,7 @@ lvim.plugins = {
       vim.g.indentLine_enabled = 1
       vim.g.indent_blankline_char = "▏"
 
-      vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
+      vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard", "packer"}
       vim.g.indent_blankline_buftype_exclude = {"terminal"}
       vim.g.indent_blankline_show_trailing_blankline_indent = false
       vim.g.indent_blankline_show_first_indent_level = false
@@ -112,7 +108,22 @@ lvim.plugins = {
       require("hop").setup()
       vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
       vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
-      end,
+    end
+  },
+  {
+    "folke/todo-comments.nvim",
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+    }
+    end
+  },
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
   }
 }
 
@@ -132,3 +143,16 @@ lvim.plugins = {
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
 -- }
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Diagnostics (trouble + todo)",
+  t = { "<cmd>TroubleToggle<cr>", "Trouble" },
+  w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "Workspace" },
+  d = { "<cmd>TroubleToggle lsp_document_diagnostics<cr>", "Document" },
+  q = { "<cmd>TroubleToggle quickfix<cr>", "QuickFix" },
+  l = { "<cmd>TroubleToggle loclist<cr>", "LocList" },
+  r = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+  c = { "<cmd>TodoTrouble<cr>", "Todo Comments" },
+}
+lvim.builtin.which_key.mappings['s'] = {
+  t = { "<cmd>TodoTelescope<cr>", "Todo Comments" }
+}

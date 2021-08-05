@@ -1,3 +1,4 @@
+#!/bin/bash
 #######################################
 # Setup MacOS environment from scrach #
 #######################################
@@ -9,7 +10,7 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # CLI tools
-brew install git tmux svn isacikgoz/taps/tldr yank parallel httpie exa fzf git-delta
+brew install git tmux svn isacikgoz/taps/tldr yank parallel httpie exa fzf git-delta ripgrep
 
 # QuickLook tools on MacOS
 brew install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize suspicious-package apparency quicklookase qlvideo
