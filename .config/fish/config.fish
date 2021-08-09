@@ -1,6 +1,8 @@
 set -gx PATH /usr/local/bin $PATH
 set -gx EXA_ICON_SPACING 2
 
+set fzf_preview_dir_cmd exa --all --icons --color=always
+
 function notify
   set -l job (jobs -l -g)
     or begin; echo "There are no jobs" >&2; return 1; end

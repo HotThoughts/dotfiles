@@ -20,6 +20,7 @@ SETUVAR _fish_abbr_bubu:brew\x20update\x20\x26\x26\x20brew\x20outdated\x20\x26\x
 SETUVAR _fish_abbr_bubuc:brew\x20outdated\x20\x2d\x2dcask
 SETUVAR _fish_abbr_buco:brew\x20update
 SETUVAR _fish_abbr_buf:brew\x20upgrade\x20\x2d\x2dformula
+SETUVAR _fish_abbr_cat:bat
 SETUVAR _fish_abbr_dfs:dotfiles
 SETUVAR _fish_abbr_dfss:dotfiles\x20status\x20\x2ds
 SETUVAR _fish_abbr_fishconf:nvim\x20/Users/hotthoughts/\x2econfig/fish/config\x2efish
