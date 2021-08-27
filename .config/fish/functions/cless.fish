@@ -18,4 +18,3 @@ function cless -d "Configure less to colorize styled text using environment vari
 
     $argv
 end
-
