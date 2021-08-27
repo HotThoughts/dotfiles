@@ -144,6 +144,16 @@ lvim.plugins = {
           })
     end
   },
+  {
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
+  },
+  {
+    "blackCauldron7/surround.nvim",
+    config = function()
+      require "surround".setup {}
+    end
+  }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
