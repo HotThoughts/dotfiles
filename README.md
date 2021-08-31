@@ -15,15 +15,24 @@ git clone --bare https://github.com/<YOUR USERNAME>/dotfiles.git ~/.dotfiles
 ```
 
 - Add alias to `.bashrc`, `.zshrc` or `config.fish` so that you can use `dotfiles` as `git`
-```sh
-# fish
-alias -s dotfiles "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-# zsh
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-```
+  #### fish
+  ```sh
+  alias -s dotfiles "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+  ```
+  #### zsh
+  ```sh
+  alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+  ```
 
 - Checkout repo
-`dotfiles checkout`
+```sh
+dotfiles checkout
+```
+
+- Ignore untracked files
+```sh
+dotfiles config --local status.showUntrackedFiles no
+```
 
 ##  Useage
 Same as `git`, we can use, for example
