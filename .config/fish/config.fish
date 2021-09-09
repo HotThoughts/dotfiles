@@ -57,4 +57,6 @@ set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 
 # Promp
+
 starship init fish | source
+status is-interactive; and pyenv init --path | source; and pyenv init - | source
