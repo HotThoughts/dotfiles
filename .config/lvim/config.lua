@@ -88,6 +88,7 @@ lvim.plugins = {
     config = function() require"lsp_signature".on_attach() end
   },
   {"dag/vim-fish"},
+  {"fladson/vim-kitty"},
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
