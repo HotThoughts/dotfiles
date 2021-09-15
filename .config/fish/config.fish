@@ -1,7 +1,8 @@
-set -gx PATH /usr/local/bin $PATH
 set -gx EXA_ICON_SPACING 2
 
 set fzf_preview_dir_cmd exa --all --icons --color=always
+set fzf_history_opts --with-nth=4..
+
 
 function notify
   set -l job (jobs -l -g)
@@ -33,6 +34,8 @@ set PATH $HOME/.gem/ruby/2.7.2/bin $PATH
 # Poetry
 set PATH $HOME/.poetry/bin $PATH
 
+# LunarVim
+set PATH $HOME/.local/bin $PATH
 
 # Fish syntax highlighting
 set -g fish_color_autosuggestion '555'  'brblack'
