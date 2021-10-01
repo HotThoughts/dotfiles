@@ -1,12 +1,12 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export ABBR_TIPS_PROMPT:\x5cn\U0001f4a1\x20\x5ce\x5b1m\x7b\x7b\x20\x2eabbr\x20\x7d\x7d\x5ce\x5b0m\x20\x3d\x3e\x20\x7b\x7b\x20\x2ecmd\x20\x7d\x7d
-SETUVAR --export PYENV_ROOT:/Users/hotthoughts/\x2epyenv
+SETUVAR --export PYENV_ROOT:{{ .chezmoi.homeDir }}/\x2epyenv
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
-SETUVAR Z_DATA:/Users/hotthoughts/\x2elocal/share/z/data
-SETUVAR Z_DATA_DIR:/Users/hotthoughts/\x2elocal/share/z
-SETUVAR Z_EXCLUDE:\x5e/Users/hotthoughts\x24
+SETUVAR Z_DATA:{{ .chezmoi.homeDir }}/\x2elocal/share/z/data
+SETUVAR Z_DATA_DIR:{{ .chezmoi.homeDir }}/\x2elocal/share/z
+SETUVAR Z_EXCLUDE:\x5e{{ .chezmoi.homeDir }}\x24
 SETUVAR __fish_initialized:3100
 SETUVAR __git_plugin_abbreviations:g\x1ega\x1egaa\x1egapa\x1egap\x1egb\x1egba\x1egban\x1egbd\x1egbD\x1egbl\x1egbs\x1egbsb\x1egbsg\x1egbsr\x1egbss\x1egc\x1egc\x21\x1egcn\x21\x1egca\x1egca\x21\x1egcan\x21\x1egcv\x1egcav\x1egcav\x21\x1egcm\x1egcam\x1egscam\x1egcfx\x1egcf\x1egcl\x1egclean\x1egclean\x21\x1egclean\x21\x21\x1egcount\x1egcp\x1egcpa\x1egcpc\x1egd\x1egdca\x1egds\x1egdsc\x1egdw\x1egdwc\x1egdto\x1egignore\x1egf\x1egfa\x1egfm\x1egfo\x1egl\x1egll\x1eglr\x1eglg\x1eglgg\x1eglgga\x1eglo\x1eglog\x1eglom\x1eglod\x1egloo\x1egm\x1egmt\x1egp\x1egp\x21\x1egpo\x1egpo\x21\x1egpv\x1egpv\x21\x1eggp\x21\x1egpu\x1egr\x1egra\x1egrb\x1egrba\x1egrbc\x1egrbi\x1egrbm\x1egrbmi\x1egrbmia\x1egrbd\x1egrbdi\x1egrbdia\x1egrbs\x1egrev\x1egrh\x1egrhh\x1egrhpa\x1egrm\x1egrmc\x1egrmv\x1egrrm\x1egrs\x1egrset\x1egrss\x1egrup\x1egrv\x1egsh\x1egsd\x1egsr\x1egss\x1egst\x1egsta\x1egstd\x1egstp\x1egsts\x1egsu\x1egsur\x1egsuri\x1egts\x1egtv\x1egsw\x1egswc\x1egunignore\x1egup\x1egwch\x1egco\x1egcb\x1egcod\x1egcom\x1egfb\x1egff\x1egfr\x1egfh\x1egfs\x1egfbs\x1egffs\x1egfrs\x1egfhs\x1egfss\x1egfbt\x1egfft\x1egfrt\x1egfht\x1egfst\x1egfp
 SETUVAR __git_plugin_initialized:Thu\x20Aug\x2026\x2017\x3a34\x3a53\x20CEST\x202021
@@ -24,7 +24,7 @@ SETUVAR _fish_abbr_buf:brew\x20upgrade\x20\x2d\x2dformula
 SETUVAR _fish_abbr_cat:bat
 SETUVAR _fish_abbr_dfs:dotfiles
 SETUVAR _fish_abbr_dfss:dotfiles\x20status\x20\x2ds
-SETUVAR _fish_abbr_fishconf:nvim\x20/Users/hotthoughts/\x2econfig/fish/config\x2efish
+SETUVAR _fish_abbr_fishconf:nvim\x20{{ .chezmoi.homeDir }}/\x2econfig/fish/config\x2efish
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_ga:git\x20add
 SETUVAR _fish_abbr_gaa:git\x20add\x20\x2d\x2dall
@@ -109,7 +109,7 @@ SETUVAR _fish_abbr_gloo:git\x20log\x20\x2d\x2dpretty\x3dformat\x3a\x27\x25C\x28y
 SETUVAR _fish_abbr_glr:git\x20pull\x20\x2d\x2drebase
 SETUVAR _fish_abbr_gm:git\x20merge
 SETUVAR _fish_abbr_gmt:git\x20mergetool\x20\x2d\x2dno\x2dprompt
-SETUVAR _fish_abbr_golatex:docker\x20run\x20\x2d\x2dname\x20latex\x20\x2dv\x20/Users/hotthoughts/Documents/COLLEGE/IAS/Thesis/expose\x3a/workspace\x20\x2dit\x20\x2d\x2dentrypoint\x20/bin/bash\x20latex
+SETUVAR _fish_abbr_golatex:docker\x20run\x20\x2d\x2dname\x20latex\x20\x2dv\x20{{ .chezmoi.homeDir }}/Documents/COLLEGE/IAS/Thesis/expose\x3a/workspace\x20\x2dit\x20\x2d\x2dentrypoint\x20/bin/bash\x20latex
 SETUVAR _fish_abbr_gp:git\x20push
 SETUVAR _fish_abbr_gp_21_:git\x20push\x20\x2d\x2dforce\x2dwith\x2dlease
 SETUVAR _fish_abbr_gpo:git\x20push\x20origin
@@ -163,24 +163,24 @@ SETUVAR _fish_abbr_gtv:git\x20tag
 SETUVAR _fish_abbr_gunignore:git\x20update\x2dindex\x20\x2d\x2dno\x2dassume\x2dunchanged
 SETUVAR _fish_abbr_gup:git\x20pull\x20\x2d\x2drebase
 SETUVAR _fish_abbr_gwch:git\x20whatchanged\x20\x2dp\x20\x2d\x2dabbrev\x2dcommit\x20\x2d\x2dpretty\x3dmedium
-SETUVAR _fish_abbr_sshconf:nvim\x20/Users/hotthoughts/\x2essh/config
-SETUVAR _fish_abbr_starshipconf:nvim\x20/Users/hotthoughts/\x2econfig/starship\x2etoml
+SETUVAR _fish_abbr_sshconf:nvim\x20{{ .chezmoi.homeDir }}/\x2essh/config
+SETUVAR _fish_abbr_starshipconf:nvim\x20{{ .chezmoi.homeDir }}/\x2econfig/starship\x2etoml
 SETUVAR _fish_abbr_ta:tmux\x20attach\x20\x2dt
 SETUVAR _fish_abbr_texinstall:sudo\x20tlmgr\x20install
 SETUVAR _fish_abbr_texupdate:sudo\x20tlmgr\x20update\x20\x2d\x2dself
 SETUVAR _fish_abbr_tk:tmux\x20kill\x2dsession\x20\x2dt
 SETUVAR _fish_abbr_tls:tmux\x20ls
-SETUVAR _fish_abbr_tmuxconf:nvim\x20/Users/hotthoughts/\x2etmux\x2econf
+SETUVAR _fish_abbr_tmuxconf:nvim\x20{{ .chezmoi.homeDir }}/\x2etmux\x2econf
 SETUVAR _fish_abbr_tns:tmux\x20new\x20\x2ds
 SETUVAR _fish_abbr_trs:tmux\x20rename\x2dsession\x20\x2dt
-SETUVAR _fish_abbr_vimrc:nvim\x20/Users/hotthoughts/\x2evimrc
-SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/Users/hotthoughts/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
-SETUVAR _fisher_danhper_2F_fish_2D_ssh_2D_agent_files:/Users/hotthoughts/\x2econfig/fish/functions/__ssh_agent_is_started\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__ssh_agent_start\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/conf\x2ed/fish\x2dssh\x2dagent\x2efish
-SETUVAR _fisher_edc_2F_bass_files:/Users/hotthoughts/\x2econfig/fish/functions/__bass\x2epy\x1e/Users/hotthoughts/\x2econfig/fish/functions/bass\x2efish
-SETUVAR _fisher_jethrokuan_2F_z_files:/Users/hotthoughts/\x2econfig/fish/functions/__z\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__z_add\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__z_clean\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__z_complete\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/conf\x2ed/z\x2efish
-SETUVAR _fisher_jhillyerd_2F_plugin_2D_git_files:/Users/hotthoughts/\x2econfig/fish/functions/__git\x2ebranch_has_wip\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__git\x2ecurrent_branch\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__git\x2edefault_branch\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__git\x2edestroy\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__git\x2einit\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/__git\x2ereset\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/gbage\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/gbda\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/gdt\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/gdv\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/ggl\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/ggp\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/ggpnp\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/ggsup\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/ggu\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/gignored\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/glp\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/gpoat\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/grename\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/grt\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/gtl\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/gunwip\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/gwip\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/conf\x2ed/git\x2efish
-SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/hotthoughts/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_patrickf1_2F_colored__man__pages_2E_fish_files:/Users/hotthoughts/\x2econfig/fish/functions/cless\x2efish\x1e/Users/hotthoughts/\x2econfig/fish/functions/man\x2efish
+SETUVAR _fish_abbr_vimrc:nvim\x20{{ .chezmoi.homeDir }}/\x2evimrc
+SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
+SETUVAR _fisher_danhper_2F_fish_2D_ssh_2D_agent_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__ssh_agent_is_started\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__ssh_agent_start\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/conf\x2ed/fish\x2dssh\x2dagent\x2efish
+SETUVAR _fisher_edc_2F_bass_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__bass\x2epy\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/bass\x2efish
+SETUVAR _fisher_jethrokuan_2F_z_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__z\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__z_add\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__z_clean\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__z_complete\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/conf\x2ed/z\x2efish
+SETUVAR _fisher_jhillyerd_2F_plugin_2D_git_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__git\x2ebranch_has_wip\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__git\x2ecurrent_branch\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__git\x2edefault_branch\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__git\x2edestroy\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__git\x2einit\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__git\x2ereset\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/gbage\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/gbda\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/gdt\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/gdv\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/ggl\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/ggp\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/ggpnp\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/ggsup\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/ggu\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/gignored\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/glp\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/gpoat\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/grename\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/grt\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/gtl\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/gunwip\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/gwip\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/conf\x2ed/git\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/fisher\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_patrickf1_2F_colored__man__pages_2E_fish_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/cless\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/man\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z\x1eedc/bass\x1edanhper/fish\x2dssh\x2dagent\x1ejhillyerd/plugin\x2dgit\x1epatrickf1/colored_man_pages\x2efish\x1ePatrickF1/fzf\x2efish
 SETUVAR fish_color_autosuggestion:BD93F9
 SETUVAR fish_color_cancel:\x2dr
@@ -211,4 +211,4 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/Users/hotthoughts/\x2epyenv/bin\x1e/Users/hotthoughts/\x2efig/bin\x1e/usr/local/opt/fzf/bin
+SETUVAR fish_user_paths:{{ .chezmoi.homeDir }}/\x2epyenv/bin\x1e{{ .chezmoi.homeDir }}/\x2efig/bin\x1e/usr/local/opt/fzf/bin
