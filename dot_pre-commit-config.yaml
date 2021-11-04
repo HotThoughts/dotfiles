@@ -80,3 +80,10 @@ repos:
   - id: pyupgrade
     name: 🐍 Upgrade Python code
     args: [--py36-plus]
+
+# Black and flake8 for notebook
+- repo: https://github.com/nbQA-dev/nbQA
+  rev: 1.1.1
+  hooks:
+    - id: nbqa-black
+    - id: nbqa-flake8
