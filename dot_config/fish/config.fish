@@ -17,10 +17,6 @@ end
 # Editor
 set -gx EDITOR lvim	
 
-# BasicTex
-set PATH /usr/local/sbin $PATH
-set MANPATH /Library/TeX/Distributions/.DefaultTeX/Contents/Man $MANPATH
-
 # qt
 set PATH /usr/local/opt/qt/bin $PATH
 set LDFLAGS "-L/usr/local/opt/qt/lib"
@@ -68,4 +64,4 @@ starship init fish | source
 status is-interactive; and pyenv init --path | source; and pyenv init - | source
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ywei/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/ywei/Downloads/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/hotthoughts/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/hotthoughts/Downloads/google-cloud-sdk/path.fish.inc'; end
