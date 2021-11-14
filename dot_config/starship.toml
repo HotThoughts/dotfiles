@@ -25,6 +25,12 @@ format = "[$duration]($style)"
 show_notifications = true
 min_time_to_notify = 45_000
 
+[status]
+symbol = "✖"
+format = '[$symbol $common_meaning$signal_name$maybe_int]($style) '
+map_symbol = true
+disabled = false
+
 [kubernetes]
 format = 'on [⛵ $context \($namespace\)](dimmed green) '
 disabled = false
