@@ -20,9 +20,10 @@ format = "([$all_status$ahead_behind]($style) )"
 stashed = "≡"
 
 [cmd_duration]
-min_time = 500
+min_time = 2_000
 format = "[$duration]($style)"
-
+show_notifications = true
+min_time_to_notify = 45_000
 
 # Nerd font
 [aws]
