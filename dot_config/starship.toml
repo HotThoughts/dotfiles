@@ -61,6 +61,10 @@ symbol = " "
 [golang]
 symbol = " "
 
+[gcloud]
+symbol = "☁️ " 
+format = 'on [$symbol$account(@$domain) (\($project\))]($style) '
+
 [hg_branch]
 symbol = " "
 
