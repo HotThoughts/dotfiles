@@ -12,11 +12,11 @@ truncate_to_repo = false
 [git_branch]
 symbol = " "
 style = "bright-black"
-format = "[$symbol$branch]($style)"
+format = "[$branch]($style)"
 
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+format = "[*[(*asgasdfg$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
 conflicted = ""
 untracked = ""
@@ -37,7 +37,7 @@ show_notifications = true
 min_time_to_notify = 45_000
 
 [status]
-symbol = "✖"
+symbol = "✘"
 format = '[$symbol $common_meaning$signal_name$maybe_int]($style) '
 map_symbol = true
 disabled = false
@@ -73,7 +73,7 @@ symbol = " "
 symbol = " "
 
 [gcloud]
-symbol = "☁️ " 
+symbol = "  " 
 format = 'on [$symbol$account(@$domain) (\($project\))]($style) '
 
 [hg_branch]
