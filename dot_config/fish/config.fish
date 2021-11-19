@@ -1,5 +1,3 @@
-set -gx EXA_ICON_SPACING 2
-
 set fzf_preview_dir_cmd exa --all --icons --color=always
 set fzf_history_opts --with-nth=4..
 

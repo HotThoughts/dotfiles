@@ -1,13 +1,83 @@
-format = "$all"
+format = """
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$cmd_duration \
+$fill   \
+$status\
+$time\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$line_break\
+$jobs\
+$battery\
+$shell\
+$character"""
 
 # Inserts a blank line between shell prompts
 add_newline = true
+
+[fill]
+symbol = " "
+style = "bright-black"
 
 [directory]
 read_only = " "
 format = "[$path]($style)[$read_only]($read_only_style) "
 truncation_length = 3
 truncate_to_repo = false
+truncation_symbol = "…/"
 
 [git_branch]
 symbol = " "
@@ -32,7 +102,7 @@ style = "bright-black"
 
 [cmd_duration]
 min_time = 2_000
-format = "[$duration]($style)"
+format = "[$duration]($style) "
 show_notifications = true
 min_time_to_notify = 45_000
 
@@ -75,6 +145,7 @@ symbol = " "
 [gcloud]
 symbol = "  " 
 format = 'on [$symbol$account(@$domain) (\($project\))]($style) '
+disabled = true
 
 [hg_branch]
 symbol = " "
