@@ -1,4 +1,3 @@
-
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
@@ -9,10 +8,12 @@ repos:
   - id: end-of-file-fixer
   - id: check-yaml
   - id: check-json
+    exclude: "devcontainer.json"
   - id: check-added-large-files
+  - id: check-merge-conflict
 
 - repo: https://github.com/adrienverge/yamllint
-  rev: v1.26.1
+  rev: v1.26.3
   hooks:
   - id: yamllint
     name: Lint GitHub Action workflow files
@@ -40,19 +41,19 @@ repos:
           }
 
 - repo: https://github.com/zricethezav/gitleaks
-  rev: v7.5.0
+  rev: v7.6.1
   hooks:
   - id: gitleaks
     name: 🔍 Check git leaks
 
 - repo: https://github.com/jumanjihouse/pre-commit-hooks
-  rev: master
+  rev: 2.1.5
   hooks:
   - id: shellcheck
   - id: shfmt
 
 - repo: https://github.com/psf/black
-  rev: 21.6b0
+  rev: 21.11b1
   hooks:
   - id: black
     name: 🐍 Format Python code PEP8
@@ -69,13 +70,13 @@ repos:
       - --ignore=F841
 
 - repo: https://github.com/pycqa/isort
-  rev: 5.8.0
+  rev: 5.10.1
   hooks:
   - id: isort
     name: 🐍 Sort Python imports
 
 - repo: https://github.com/asottile/pyupgrade
-  rev: v2.19.4
+  rev: v2.29.1
   hooks:
   - id: pyupgrade
     name: 🐍 Upgrade Python code
@@ -87,10 +88,32 @@ repos:
   hooks:
     - id: nbqa-black
     - id: nbqa-flake8
+    - id: nbqa-isort
 
 # Lint Dockerfile
 - repo: https://github.com/hadolint/hadolint
-  rev: master
+  rev: v2.8.0
   hooks:
     - id: hadolint
+      args:
+        # This rule is wrong. See https://github.com/hadolint/hadolint/issues/562
+        - --ignore=DL3005
+        - --ignore=DL3009
+
+# Lint TeX Fil
+- repo: https://github.com/jonasbb/pre-commit-latex-hooks
+  rev: v1.2.4
+  hooks:
+    - id: american-eg-ie
+    - id: cleveref-capitalization
+    - id: consistent-spelling
+      args:
+        - --emph=et al.
+        - --emph=a priori
+        - --emph=a posteriori
+        - --regex=naive=\bna(i|\\"i)ve'
+    - id: csquotes
+    - id: ensure-labels-for-sections
+    - id: no-space-in-cite
+    - id: tilde-cite
 
