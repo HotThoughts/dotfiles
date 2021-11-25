@@ -84,9 +84,8 @@ symbol = " "
 style = "bright-black"
 format = "[$branch]($style)"
 
-
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)($ahead_behind$stashed )]($style)"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)( $ahead_behind$stashed)]($style)"
 style = "cyan"
 conflicted = " "
 untracked = " "
@@ -102,7 +101,8 @@ style = "bright-black"
 
 [cmd_duration]
 min_time = 2_000
-format = "[$duration]($style) "
+style = "yellow"
+format = " [$duration]($style)"
 show_notifications = true
 min_time_to_notify = 45_000
 
