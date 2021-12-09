@@ -1,1 +1,5 @@
-export EDITOR=lvim
+if command -v lvim &> /dev/null; then
+  export EDITOR=lvim
+fi
+
+eval "$(starship init bash)"
