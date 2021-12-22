@@ -34,6 +34,9 @@ set PATH $HOME/.poetry/bin $PATH
 # LunarVim
 set PATH $HOME/.local/bin $PATH
 
+# Rust
+set PATH $HOME/.cargo/bin $PATH
+
 # Fish syntax highlighting
 set -g fish_color_autosuggestion '555'  'brblack'
 set -g fish_color_cancel -r
