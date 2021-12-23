@@ -117,3 +117,11 @@ repos:
     - id: no-space-in-cite
     - id: tilde-cite
 
+# Check spelling
+- repo: https://github.com/crate-ci/typos
+  rev: v1.3.3
+  hooks:
+    - id: typos
+      args:
+        - -c .typos.toml
+        - --write-changes
