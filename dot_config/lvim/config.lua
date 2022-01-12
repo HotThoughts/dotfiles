@@ -76,8 +76,8 @@ lvim.plugins = {
   },
   {
     "ray-x/lsp_signature.nvim",
-    event = "insertenter",
-    config = function() require"lsp_signature".on_attach() end
+    config = function() require"lsp_signature".on_attach() end,
+    event = "BufRead"
   },
   {"dag/vim-fish"},
   {"fladson/vim-kitty"},
