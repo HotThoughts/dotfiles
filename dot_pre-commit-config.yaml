@@ -116,12 +116,9 @@ repos:
     - id: ensure-labels-for-sections
     - id: no-space-in-cite
     - id: tilde-cite
-
-# Check spelling
-- repo: https://github.com/crate-ci/typos
-  rev: v1.3.3
+# Commitzen
+- repo: https://github.com/commitizen-tools/commitizen
+  rev: master
   hooks:
-    - id: typos
-      args:
-        - -c .typos.toml
-        - --write-changes
+    - id: commitizen
+      stages: [commit-msg]
