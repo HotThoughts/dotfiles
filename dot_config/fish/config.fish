@@ -37,6 +37,11 @@ set PATH $HOME/.local/bin $PATH
 # Rust
 set PATH $HOME/.cargo/bin $PATH
 
+# pyenv
+set PYENV_ROOT $HOME/.pyenv
+set PATH $PYENV_ROOT/bin $PATH
+set PYENV_VIRTUALENV_DISABLE_PROMPT 1
+
 # Fish syntax highlighting
 set -g fish_color_autosuggestion '555'  'brblack'
 set -g fish_color_cancel -r
@@ -60,8 +65,7 @@ set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 
 # Promp
-
 starship init fish | source
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hotthoughts/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/hotthoughts/Downloads/google-cloud-sdk/path.fish.inc'; end
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source; and pyenv virtualenv-init - | source
