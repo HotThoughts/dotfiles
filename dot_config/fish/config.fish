@@ -62,7 +62,6 @@ set -g fish_color_user brgreen
 # Promp
 
 starship init fish | source
-status is-interactive; and pyenv init --path | source; and pyenv init - | source
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/hotthoughts/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/hotthoughts/Downloads/google-cloud-sdk/path.fish.inc'; end
