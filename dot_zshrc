@@ -131,7 +131,6 @@ alias sshconfig="vim ~/.ssh/config"
 alias pip="pip3"
 alias python="python3"
 alias update_comet_ml="pip3 install comet_ml --upgrade --upgrade-strategy eager"
-alias code="code-insiders"
 
 # BasicTeX
 alias texupdate="sudo tlmgr update --self && sudo tlmgr update --all"
