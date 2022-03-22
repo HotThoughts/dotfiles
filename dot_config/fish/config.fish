@@ -13,21 +13,31 @@ function notify
 end
 
 # Editor
-set -gx EDITOR lvim	
+set -gx EDITOR lvim
 
 # qt
+set PATH /usr/local/opt/qt/bin $PATH
 set LDFLAGS "-L/usr/local/opt/qt/lib"
 set CPPFLAGS "-I/usr/local/opt/qt/include"
 set PKG_CONFIG_PATH "/usr/local/opt/qt/lib/pkgconfig"
 
 # ruby
+set PATH /usr/local/opt/ruby/bin $PATH
 set LDFLAGS "/usr/local/opt/ruby/lib"
 set CPPFLAGS "/usr/local/opt/ruby/include"
 set PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
+set PATH $HOME/.gem/ruby/2.7.2/bin $PATH
 
-# pyenv
+# Poetry
+set PATH $HOME/.poetry/bin $PATH
 set PYENV_ROOT $HOME/.pyenv
 set PYENV_VIRTUALENV_DISABLE_PROMPT 1
+
+# LunarVim
+set PATH $HOME/.local/bin $PATH
+
+# Golang
+set PATH $HOME/go/bin $PATH
 
 # Fish syntax highlighting
 set -g fish_color_autosuggestion '555'  'brblack'
