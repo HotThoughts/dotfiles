@@ -7,7 +7,7 @@ vim.opt.relativenumber = true
 vim.opt.wrap = true
 
 -- Color Scheme
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "moonlight"
 lvim.transparent_window = true
 
 -- keymappings
@@ -35,13 +35,31 @@ lvim.leader = "space"
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.lualine.style = "lvim"
+lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.notify.active = true
+lvim.builtin.nvimtree.setup.view.side = "left"
 
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 1
 
 -- if you don't want all the parsers change this to a table of the ones you want
+lvim.builtin.treesitter.ensure_installed = {
+  "bash",
+  "c",
+  "javascript",
+  "json",
+  "lua",
+  "python",
+  "typescript",
+  "tsx",
+  "css",
+  "rust",
+  "yaml",
+}
+
 lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
@@ -62,10 +80,18 @@ lvim.builtin.treesitter.matchup = true
 -- additional plugins
 lvim.plugins = {
   {"lunarvim/colorschemes"},
+  {"glepnir/zephyr-nvim"},
+  {
+    "shaunsingh/moonlight.nvim",
+    config = function()
+      vim.g.moonlight_italic_keywords = false
+      vim.g.moonlight_italic_functions = false
+    end
+  },
   {
     "folke/tokyonight.nvim",
     config = function()
-      vim.g.tokyonight_style = "storm"
+      vim.g.tokyonight_style = "night"
       vim.g.tokyonight_italic_functions = true
       vim.g.tokyonight_italic_comments = false
       vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
@@ -141,13 +167,10 @@ lvim.plugins = {
     cmd = "SymbolsOutline",
   },
   {
-    "blackCauldron7/surround.nvim",
-    config = function()
-      require "surround".setup {}
-    end
+    "tpope/vim-surround",
+    keys = {"c", "d", "y"}
   }
 }
-
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
