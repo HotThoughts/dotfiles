@@ -40,6 +40,9 @@ brew "kubie"
 cask "google-cloud-sdk"
 cask "docker"
 
+tap "snyk/tap"
+brew "snyk"
+
 tap "homebrew/cask-fonts"
 brew "font-inconsolata"
 brew "font-fira-code"
