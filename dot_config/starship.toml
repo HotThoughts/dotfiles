@@ -113,6 +113,9 @@ format = '[$symbol $common_meaning$signal_name$maybe_int]($style) '
 map_symbol = true
 disabled = false
 
+[terraform]
+format = 'via [💠 $version \($workspace\)]($style) '
+
 [kubernetes]
 format = 'on [⛵ $context \($namespace\)](dimmed green) '
 disabled = false
