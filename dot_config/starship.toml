@@ -9,9 +9,8 @@ $vcsh\
 $git_branch\
 $git_commit\
 $git_state\
-$git_metrics\
 $git_status\
-$cmd_duration \
+$cmd_duration\
 $fill   \
 $status\
 $time\
@@ -79,6 +78,7 @@ format = "[$path]($style)[$read_only]($read_only_style) "
 truncation_length = 3
 truncate_to_repo = false
 truncation_symbol = "…/"
+style = "blue"
 
 [git_branch]
 symbol = " "
@@ -86,14 +86,14 @@ style = "bright-black"
 format = "[$branch]($style)"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)( $ahead_behind$stashed)]($style)"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
-conflicted = " "
-untracked = " "
-modified = " "
-staged = " "
-renamed = " "
-deleted = " "
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
 stashed = "≡"
 
 [git_state]
