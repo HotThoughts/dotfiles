@@ -79,15 +79,8 @@ lvim.builtin.treesitter.matchup = true
 
 -- additional plugins
 lvim.plugins = {
-  {"lunarvim/colorschemes"},
-  {"glepnir/zephyr-nvim"},
-  {
-    "shaunsingh/moonlight.nvim",
-    config = function()
-      vim.g.moonlight_italic_keywords = false
-      vim.g.moonlight_italic_functions = false
-    end
-  },
+  { "lunarvim/colorschemes" },
+  { "glepnir/zephyr-nvim" },
   {
     "folke/tokyonight.nvim",
     config = function()
@@ -101,33 +94,11 @@ lvim.plugins = {
   },
   {
     "ray-x/lsp_signature.nvim",
-    config = function() require"lsp_signature".on_attach() end,
+    config = function() require "lsp_signature".on_attach() end,
     event = "BufRead"
   },
-  {"dag/vim-fish"},
-  {"fladson/vim-kitty"},
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufRead",
-    setup = function()
-      vim.g.indentLine_enabled = 1
-      vim.g.indent_blankline_char = "▏"
-
-      vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard", "packer"}
-      vim.g.indent_blankline_buftype_exclude = {"terminal"}
-      vim.g.indent_blankline_show_trailing_blankline_indent = false
-      vim.g.indent_blankline_show_first_indent_level = false
-    end
-  },
-  {
-    "phaazon/hop.nvim",
-    event = "BufRead",
-    config = function()
-      require("hop").setup()
-      vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
-      vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
-    end
-  },
+  { "dag/vim-fish" },
+  { "fladson/vim-kitty" },
   {
     "folke/todo-comments.nvim",
     event = "BufRead",
@@ -136,7 +107,7 @@ lvim.plugins = {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-    }
+      }
     end
   },
   {
@@ -147,19 +118,19 @@ lvim.plugins = {
     "karb94/neoscroll.nvim",
     event = "WinScrolled",
     config = function()
-    require('neoscroll').setup({
-          -- All these keys will be mapped to their corresponding default scrolling animation
-          mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
-          '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
-          hide_cursor = true,          -- Hide cursor while scrolling
-          stop_eof = true,             -- Stop at <EOF> when scrolling downwards
-          use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-          respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-          cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-          easing_function = nil,        -- Default easing function
-          pre_hook = nil,              -- Function to run before the scrolling animation starts
-          post_hook = nil,              -- Function to run after the scrolling animation ends
-          })
+      require('neoscroll').setup({
+        -- All these keys will be mapped to their corresponding default scrolling animation
+        mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
+          '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
+        hide_cursor = true, -- Hide cursor while scrolling
+        stop_eof = true, -- Stop at <EOF> when scrolling downwards
+        use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+        respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+        cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+        easing_function = nil, -- Default easing function
+        pre_hook = nil, -- Function to run before the scrolling animation starts
+        post_hook = nil, -- Function to run after the scrolling animation ends
+      })
     end
   },
   {
@@ -168,7 +139,14 @@ lvim.plugins = {
   },
   {
     "tpope/vim-surround",
-    keys = {"c", "d", "y"}
+    keys = { "c", "d", "y" }
+  },
+  {
+    "ggandor/leap.nvim",
+    event = "BufRead",
+    config = function()
+      require("leap").set_default_keymaps()
+    end
   }
 }
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
