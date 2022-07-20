@@ -7,8 +7,9 @@ vim.opt.relativenumber = true
 vim.opt.wrap = true
 
 -- Color Scheme
-lvim.colorscheme = "moonlight"
+lvim.colorscheme = "material"
 lvim.transparent_window = true
+vim.g.material_style = "palenight"
 
 -- keymappings
 lvim.leader = "space"
@@ -36,14 +37,11 @@ lvim.leader = "space"
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.terminal.active = true
-lvim.builtin.lualine.style = "lvim"
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-
-lvim.builtin.nvimtree.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 1
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -58,9 +56,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "css",
   "rust",
   "yaml",
+  "markdown",
 }
 
-lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.matchup = true
@@ -76,11 +74,18 @@ lvim.builtin.treesitter.matchup = true
 -- end
 -- lvim.lsp.diagnostics.virtual_text.prefix = "✶"
 
-
 -- additional plugins
 lvim.plugins = {
   { "lunarvim/colorschemes" },
   { "glepnir/zephyr-nvim" },
+  { "shaunsingh/moonlight.nvim" },
+  { "marko-cerovac/material.nvim",
+    config = function()
+      require('material').setup({
+        lualine_style = "stealth"
+      })
+    end
+  },
   {
     "folke/tokyonight.nvim",
     config = function()
