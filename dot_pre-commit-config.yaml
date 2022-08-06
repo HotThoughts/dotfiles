@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.0.1
+  rev: v4.3.0
   hooks:
   - id: trailing-whitespace
   - id: end-of-file-fixer
@@ -13,7 +13,7 @@ repos:
   - id: check-merge-conflict
 
 - repo: https://github.com/adrienverge/yamllint
-  rev: v1.26.3
+  rev: v1.27.1
   hooks:
   - id: yamllint
     name: Lint GitHub Action workflow files
@@ -41,19 +41,19 @@ repos:
           }
 
 - repo: https://github.com/zricethezav/gitleaks
-  rev: v7.6.1
+  rev: v8.9.0
   hooks:
   - id: gitleaks
     name: 🔍 Check git leaks
 
 - repo: https://github.com/jumanjihouse/pre-commit-hooks
-  rev: 2.1.5
+  rev: 3.0.0
   hooks:
   - id: shellcheck
   - id: shfmt
 
 - repo: https://github.com/psf/black
-  rev: 21.11b1
+  rev: 22.6.0
   hooks:
   - id: black
     name: 🐍 Format Python code PEP8
@@ -76,7 +76,7 @@ repos:
     name: 🐍 Sort Python imports
 
 - repo: https://github.com/asottile/pyupgrade
-  rev: v2.29.1
+  rev: v2.37.3
   hooks:
   - id: pyupgrade
     name: 🐍 Upgrade Python code
@@ -84,7 +84,7 @@ repos:
 
 # Black and flake8 for notebook
 - repo: https://github.com/nbQA-dev/nbQA
-  rev: 1.1.1
+  rev: 1.4.0
   hooks:
     - id: nbqa-black
     - id: nbqa-flake8
@@ -92,7 +92,7 @@ repos:
 
 # Lint Dockerfile
 - repo: https://github.com/hadolint/hadolint
-  rev: v2.8.0
+  rev: v2.10.0
   hooks:
     - id: hadolint
       args:
@@ -102,7 +102,7 @@ repos:
 
 # Lint TeX Fil
 - repo: https://github.com/jonasbb/pre-commit-latex-hooks
-  rev: v1.2.4
+  rev: v1.3.0
   hooks:
     - id: american-eg-ie
     - id: cleveref-capitalization
@@ -118,13 +118,13 @@ repos:
     - id: tilde-cite
 # Commitzen
 - repo: https://github.com/commitizen-tools/commitizen
-  rev: master
+  rev: v2.29.4
   hooks:
     - id: commitizen
       stages: [commit-msg]
 
 - repo: https://github.com/rhysd/actionlint
-  rev: main
+  rev: v1.6.15
   hooks:
     - id: actionlint
       files: .github/workflows
@@ -137,6 +137,33 @@ repos:
 
 # Source code spell checker
 - repo: https://github.com/crate-ci/typos
-  rev: v1.5.0
+  rev: typos-dict-v0.8.4
   hooks:
     - id: typos
+
+
+- repo: https://github.com/norwoodj/helm-docs
+  rev: v1.2.0
+  hooks:
+    - id: helm-docs
+      args:
+        - --chart-search-root=charts/kotlin
+        - --chart-search-root=charts/laravel
+        - --chart-search-root=charts/common
+
+- repo: https://github.com/dnephin/pre-commit-golang
+  rev: master
+  hooks:
+    - id: go-fmt
+    - id: go-vet
+    - id: go-lint
+    - id: go-imports
+    - id: go-cyclo
+      args: [-over=15]
+    - id: validate-toml
+    - id: no-go-testing
+    - id: golangci-lint
+    - id: go-critic
+    - id: go-unit-tests
+    - id: go-build
+    - id: go-mod-tidy
