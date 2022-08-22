@@ -13,7 +13,6 @@ $git_status\
 $cmd_duration\
 $fill   \
 $status\
-$time\
 $hg_branch\
 $docker_context\
 $package\
@@ -58,6 +57,7 @@ $openstack\
 $env_var\
 $crystal\
 $custom\
+$time\
 $line_break\
 $jobs\
 $battery\
@@ -79,6 +79,9 @@ truncation_length = 3
 truncate_to_repo = false
 truncation_symbol = "…/"
 style = "blue"
+
+[time]
+disabled = false
 
 [git_branch]
 symbol = " "
@@ -119,10 +122,6 @@ format = 'via [💠 $version \($workspace\)]($style) '
 [kubernetes]
 format = 'on [⛵ $context \($namespace\)](dimmed green) '
 disabled = false
-[kubernetes.context_aliases]
-"dev.local.cluster.k8s" = "dev"
-".*/openshift-cluster/.*" = "openshift"
-"gke_.*_(?P<cluster>[\\w-]+)" = "gke-$cluster"
 
 # Nerd font
 [aws]
