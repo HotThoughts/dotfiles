@@ -1,6 +1,11 @@
 set fzf_preview_dir_cmd exa --all --icons --color=always
 set fzf_history_opts --with-nth=4..
+set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --border --cycle --reverse --height '80%'"
 
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
+set fish_cursor_visual block
 
 function notify
   set -l job (jobs -l -g)
