@@ -1,6 +1,11 @@
-set fzf_preview_dir_cmd exa --all --icons --color=always
-set fzf_history_opts --with-nth=4..
-set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --border --cycle --reverse --height '80%'"
+# fzf.fish config
+set fzf_preview_dir_cmd "exa --all --icons --color=always"
+set fzf_history_opts "--with-nth=4.."
+set fzf_fd_opts "--hidden --exclude=.git"
+# fzf config
+set -gx FZF_DEFAULT_OPTS "--multi --border --cycle --reverse --extended --height 80%"
+set -gx FZF_DEFAULT_COMMAND "fd --type f"
+set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --height 80%"
 
 set fish_cursor_default block
 set fish_cursor_insert line
