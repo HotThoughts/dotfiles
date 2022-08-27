@@ -79,3 +79,7 @@ starship init fish | source
 
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source; and pyenv virtualenv-init - | source
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/hotthoughts/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

@@ -43,7 +43,7 @@ brew "kubectl"
 brew "helm"
 brew "kubie"
 cask "google-cloud-sdk"
-cask "docker"
+cask "rancher"
 
 tap "snyk/tap"
 brew "snyk"
