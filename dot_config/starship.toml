@@ -82,6 +82,7 @@ style = "blue"
 
 [time]
 disabled = false
+format = 'at [$time]($style)'
 
 [git_branch]
 symbol = " "

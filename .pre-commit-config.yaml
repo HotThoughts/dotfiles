@@ -53,7 +53,7 @@ repos:
   - id: shfmt
 
 - repo: https://github.com/psf/black
-  rev: 22.6.0
+  rev: 22.8.0
   hooks:
   - id: black
     name: 🐍 Format Python code PEP8
@@ -124,7 +124,7 @@ repos:
       stages: [commit-msg]
 
 - repo: https://github.com/rhysd/actionlint
-  rev: v1.6.16
+  rev: v1.6.17
   hooks:
     - id: actionlint
       files: .github/workflows
@@ -137,7 +137,7 @@ repos:
 
 # Source code spell checker
 - repo: https://github.com/crate-ci/typos
-  rev: typos-v0.10.4
+  rev: typos-dict-v0.9.1
   hooks:
     - id: typos
 
