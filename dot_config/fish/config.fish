@@ -7,6 +7,9 @@ set -gx FZF_DEFAULT_OPTS "--multi --border --cycle --reverse --extended --height
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --height 80%"
 
+# skim - fzf in rust
+set -gx SKIM_DEFAULT_OPTIONS "--multi --border --cycle --reverse --extended --height 80%"
+
 set fish_cursor_default block
 set fish_cursor_insert line
 set fish_cursor_replace_one underscore
