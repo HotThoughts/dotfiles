@@ -54,5 +54,4 @@ cask "font-fira-code"
 cask "font-inconsolata-g-for-powerline"
 cask "font-inconsolata-lgc-nerd-font"
 
-tap "homebrew/cask-drivers"
-cask "homebrew/cask-drivers/logitech-options"
+cask "homebrew/cask-drivers/logi-options-plus"
