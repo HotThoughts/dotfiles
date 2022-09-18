@@ -55,6 +55,9 @@ set PATH $HOME/go/bin $PATH
 # node
 set -gx NVM_DIR $HOME/.nvm
 
+# Tex
+set PATH /Library/TeX/texbin/ $PATH
+
 # Fish syntax highlighting
 set -g fish_color_autosuggestion '555'  'brblack'
 set -g fish_color_cancel -r
