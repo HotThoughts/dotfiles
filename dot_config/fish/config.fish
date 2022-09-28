@@ -80,6 +80,8 @@ set -g fish_color_search_match 'bryellow'  '--background=brblack'
 set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
 set -g fish_color_user brgreen
 
+set -gx PATH $PATH $HOME/.krew/bin
+
 # Promp
 starship init fish | source
 
