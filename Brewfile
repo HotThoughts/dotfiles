@@ -17,17 +17,38 @@ brew "isacikgoz/taps/tldr"
 brew "yank"
 brew "parallel"
 brew "httpie"
+# Alternative to ls
 brew "exa"
 brew "fzf"
+# Better git diff
 brew "git-delta"
 brew "ripgrep"
+# Alternative to find
 brew "fd"
+# Alternative to cat
 brew "bat"
 brew "terminal-notifier"
+# Cross-shell prompt config
 brew "starship"
+# GitHub CLI
 brew "gh"
+# Python virtual environment manager
 brew "pyenv"
 brew "pyenv-virtualenv"
+# TOML toolkit
+brew "taplo"
+# PReview markdown inside terminal
+brew "glow"
+# Lua package manager
+brew "luarocks"
+# Dockerfile linter
+brew "hadolint"
+# GitHub Actions linter
+brew "actionlint"
+# Alternative to watch
+brew "viddy"
+# Better monitoring dashboard
+brew "btop"
 
 cask "notion"
 cask "raycast"
