@@ -13,7 +13,7 @@ repos:
   - id: check-merge-conflict
 
 - repo: https://github.com/adrienverge/yamllint
-  rev: v1.27.1
+  rev: v1.28.0
   hooks:
   - id: yamllint
     name: Lint GitHub Action workflow files
@@ -41,7 +41,7 @@ repos:
           }
 
 - repo: https://github.com/zricethezav/gitleaks
-  rev: v8.11.2
+  rev: v8.13.0
   hooks:
   - id: gitleaks
     name: 🔍 Check git leaks
@@ -76,7 +76,7 @@ repos:
     name: 🐍 Sort Python imports
 
 - repo: https://github.com/asottile/pyupgrade
-  rev: v2.37.3
+  rev: v2.38.2
   hooks:
   - id: pyupgrade
     name: 🐍 Upgrade Python code
@@ -84,7 +84,7 @@ repos:
 
 # Black and flake8 for notebook
 - repo: https://github.com/nbQA-dev/nbQA
-  rev: 1.4.0
+  rev: 1.5.1
   hooks:
     - id: nbqa-black
     - id: nbqa-flake8
@@ -118,13 +118,13 @@ repos:
     - id: tilde-cite
 # Commitzen
 - repo: https://github.com/commitizen-tools/commitizen
-  rev: v2.32.2
+  rev: v2.35.0
   hooks:
     - id: commitizen
       stages: [commit-msg]
 
 - repo: https://github.com/rhysd/actionlint
-  rev: v1.6.17
+  rev: v1.6.19
   hooks:
     - id: actionlint
       files: .github/workflows
@@ -137,7 +137,7 @@ repos:
 
 # Source code spell checker
 - repo: https://github.com/crate-ci/typos
-  rev: typos-dict-v0.9.1
+  rev: typos-dict-v0.9.5
   hooks:
     - id: typos
 
