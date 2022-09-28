@@ -52,7 +52,7 @@ brew "btop"
 
 cask "notion"
 cask "raycast"
-cask "alacritty"
+cask "kitty"
 cask "visual-studio-code"
 cask "zoom"
 cask "1password"
