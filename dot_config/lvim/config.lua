@@ -66,6 +66,7 @@ lvim.builtin.which_key.mappings["t"] = {
 lvim.builtin.which_key.mappings["d"] = {
   name = "+User Defined",
   t = { "<cmd>TodoTelescope<cr>", "TodoTelescope" },
+  g = { "<cmd>Glow<cr>", "Glow" },
 }
 
 -- TODO: User Config for predefined plugins
