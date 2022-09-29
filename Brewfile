@@ -17,6 +17,7 @@ brew "isacikgoz/taps/tldr"
 brew "yank"
 brew "parallel"
 brew "httpie"
+brew "lazygit"
 # Alternative to ls
 brew "exa"
 brew "fzf"
