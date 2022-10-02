@@ -11,8 +11,10 @@ an executable
 -- general
 vim.opt.relativenumber = true
 vim.opt.wrap = true
+vim.opt.spell = false
+vim.opt.spelloptions:append("camel")
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.lint_on_save = true
 lvim.colorscheme = "tokyonight-moon"
 -- to disable icons and use a minimalist setup, uncomment the following
@@ -74,6 +76,7 @@ lvim.builtin.which_key.mappings["d"] = {
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
+lvim.builtin.breadcrumbs.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
