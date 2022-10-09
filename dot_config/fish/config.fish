@@ -26,7 +26,7 @@ function notify
 end
 
 # Editor
-set -gx EDITOR lvim
+set -gx EDITOR nvim
 
 # qt
 set PATH /usr/local/opt/qt/bin $PATH
@@ -56,38 +56,50 @@ set PATH $HOME/go/bin $PATH
 set -gx NVM_DIR $HOME/.nvm
 
 # Tex
-set PATH /Library/TeX/texbin/ $PATH
+set PATH "/Library/TeX/texbin/" $PATH
 
-# Fish syntax highlighting
-set -g fish_color_autosuggestion '555'  'brblack'
-set -g fish_color_cancel -r
-set -g fish_color_command --bold
-set -g fish_color_comment red
-set -g fish_color_cwd green
-set -g fish_color_cwd_root red
-set -g fish_color_end brmagenta
-set -g fish_color_error brred
-set -g fish_color_escape 'bryellow'  '--bold'
-set -g fish_color_history_current --bold
-set -g fish_color_host normal
-set -g fish_color_match --background=brblue
-set -g fish_color_normal normal
-set -g fish_color_operator bryellow
-set -g fish_color_param cyan
-set -g fish_color_quote yellow
-set -g fish_color_redirection brblue
-set -g fish_color_search_match 'bryellow'  '--background=brblack'
-set -g fish_color_selection 'white'  '--bold'  '--background=brblack'
-set -g fish_color_user brgreen
+# TokyoNight Color Palette
+set -l foreground c8d3f5
+set -l selection 3654a7
+set -l comment 7a88cf
+set -l red ff757f
+set -l orange ff966c
+set -l yellow ffc777
+set -l green c3e88d
+set -l purple fca7ea
+set -l cyan 86e1fc
+set -l pink c099ff
 
-set -gx PATH $PATH $HOME/.krew/bin
+# Syntax Highlighting Colors
+set -g fish_color_normal $foreground
+set -g fish_color_command $cyan
+set -g fish_color_keyword $pink
+set -g fish_color_quote $yellow
+set -g fish_color_redirection $foreground
+set -g fish_color_end $orange
+set -g fish_color_error $red
+set -g fish_color_param $purple
+set -g fish_color_comment $comment
+set -g fish_color_selection --background=$selection
+set -g fish_color_search_match --background=$selection
+set -g fish_color_operator $green
+set -g fish_color_escape $pink
+set -g fish_color_autosuggestion $comment
+
+# Completion Pager Colors
+set -g fish_pager_color_progress $comment
+set -g fish_pager_color_prefix $cyan
+set -g fish_pager_color_completion $foreground
+set -g fish_pager_color_description $comment
+set -g fish_pager_color_selected_background --background=$selection
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/hotthoughts/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Promp
 starship init fish | source
 
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source; and pyenv virtualenv-init - | source
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "/Users/hotthoughts/.rd/bin"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
