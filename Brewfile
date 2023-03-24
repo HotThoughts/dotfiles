@@ -11,6 +11,8 @@ brew "yank"
 brew "parallel"
 brew "httpie"
 brew "lazygit"
+# GPG sign keys
+brew "gpg"
 # Alternative to ls
 brew "exa"
 brew "fzf"
