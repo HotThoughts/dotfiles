@@ -1,12 +1,4 @@
-brew "qlcolorcode"
-cask "qlstephen"
-brew "qlmarkdown"
-brew "quicklook-json"
-cask "qlimagesize"
-brew "suspicious-package"
-brew "apparency"
-brew "quicklookase"
-brew "qlvideo"
+brew "quickjs"
 
 brew "git"
 brew "tmux"
@@ -25,7 +17,7 @@ brew "fzf"
 brew "git-delta"
 brew "ripgrep"
 # Alternative to find
-brew "fd"
+brew "fd" 
 # Alternative to cat
 brew "bat"
 brew "terminal-notifier"
