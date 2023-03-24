@@ -56,6 +56,7 @@ cask "obsidian"
 brew "kubectl"
 brew "helm"
 brew "kubie"
+brew "teleport"
 cask "google-cloud-sdk"
 cask "rancher"
 
