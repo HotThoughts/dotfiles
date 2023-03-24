@@ -11,6 +11,9 @@ xcode-select --install
 # homebrew recipes
 brew bundle --no-lock --file=./Brewfile
 
+# Add brew path to fish
+fish_add_path /opt/homebrew/bin
+
 # fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher update
