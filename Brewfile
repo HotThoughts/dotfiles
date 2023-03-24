@@ -1,5 +1,6 @@
 brew "quickjs"
 
+brew "neovim"
 brew "git"
 brew "tmux"
 brew "fish"
