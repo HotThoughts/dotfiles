@@ -20,7 +20,7 @@ brew "fzf"
 brew "git-delta"
 brew "ripgrep"
 # Alternative to find
-brew "fd" 
+brew "fd"
 # Alternative to cat
 brew "bat"
 brew "terminal-notifier"
@@ -55,6 +55,7 @@ cask "1password"
 cask "1password/tap/1password-cli"
 cask "karabiner-elements"
 cask "obsidian"
+cask "input-source-pro"
 
 brew "kubectl"
 brew "helm"
