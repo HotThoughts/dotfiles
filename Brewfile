@@ -62,7 +62,8 @@ brew "helm"
 brew "kubie"
 brew "teleport"
 cask "google-cloud-sdk"
-cask "rancher"
+# lighter and faster docker on MacOS
+brew "orbstack"
 
 tap "snyk/tap"
 brew "snyk"
