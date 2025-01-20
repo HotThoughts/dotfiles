@@ -2,9 +2,7 @@ edc/bass
 jethrokuan/z
 danhper/fish-ssh-agent
 patrickf1/colored_man_pages.fish
-PatrickF1/fzf.fish
 jorgebucaran/fisher
-wfxr/forgit
 jhillyerd/plugin-git
-blackjid/plugin-kubectl
-jorgebucaran/replay.fish
+patrickf1/fzf.fish
+plttn/fish-eza
