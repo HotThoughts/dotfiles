@@ -1,6 +1,7 @@
 brew "quickjs"
 
 brew "neovim"
+
 brew "git"
 brew "tmux"
 brew "fish"
@@ -48,7 +49,7 @@ brew "btop"
 
 cask "notion"
 cask "raycast"
-cask "kitty"
+cask "ghostty"
 cask "visual-studio-code"
 cask "zoom"
 cask "1password"
@@ -60,7 +61,6 @@ cask "input-source-pro"
 brew "kubectl"
 brew "helm"
 brew "kubie"
-brew "teleport"
 cask "google-cloud-sdk"
 # lighter and faster docker on MacOS
 brew "orbstack"
