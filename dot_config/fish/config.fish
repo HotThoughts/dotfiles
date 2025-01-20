@@ -1,11 +1,26 @@
+# Abbr
+abbr -a -- k kubectl
+abbr -a -- kctx 'kubie ctx'
+abbr -a -- kns 'kubie ns'
+
+# eza
+set -Ux EZA_STANDARD_OPTIONS --icons
+
+# linkerd
+set -gx PATH $PATH $HOME/.linkerd2/bin
+# k8s
+set -gx PATH $PATH $HOME/.krew/bin
+
 # fzf.fish config
-set fzf_preview_dir_cmd "exa --all --icons --color=always"
+set fzf_preview_dir_cmd "eza --all --icons --color=always"
 set fzf_history_opts "--with-nth=4.."
 set fzf_fd_opts "--hidden --exclude=.git"
 # fzf config
 set -gx FZF_DEFAULT_OPTS "--multi --border --cycle --reverse --extended --height 80%"
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --height 80%"
+
+set -gx KUBE_EDITOR 'lvim'
 
 # skim - fzf in rust
 set -gx SKIM_DEFAULT_OPTIONS "--multi --border --cycle --reverse --extended --height 80%"
