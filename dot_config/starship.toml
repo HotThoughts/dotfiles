@@ -118,15 +118,16 @@ map_symbol = true
 disabled = false
 
 [terraform]
-format = 'via [💠 $version \($workspace\)]($style) '
+format = 'via [ $version \($workspace\)]($style) '
 
 [kubernetes]
-format = 'on [⛵ $context \($namespace\)](dimmed green) '
+format = 'on [ $context \($namespace\)](dimmed green) '
 disabled = false
 
 # Nerd font
 [aws]
-symbol = "  "
+symbol = "  "
+format = 'on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
 
 [conda]
 symbol = " "
