@@ -46,6 +46,10 @@ brew "actionlint"
 brew "viddy"
 # Better monitoring dashboard
 brew "btop"
+# Command history manager
+brew "atuin"
+# Load testing
+brew install k6
 
 cask "notion"
 cask "raycast"
@@ -57,6 +61,8 @@ cask "1password/tap/1password-cli"
 cask "karabiner-elements"
 cask "obsidian"
 cask "input-source-pro"
+# i3-like window manager
+cask "nikitabobko/tap/aerospace"
 
 brew "kubectl"
 brew "helm"
@@ -74,4 +80,3 @@ cask "font-fira-code"
 cask "font-inconsolata-g-for-powerline"
 cask "font-inconsolata-lgc-nerd-font"
 
-cask "homebrew/cask-drivers/logi-options-plus"
