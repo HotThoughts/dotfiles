@@ -14,6 +14,19 @@ return {
     },
   },
   {
+    "xiyaowong/transparent.nvim",
+    config = function()
+      require("transparent").setup({
+        extra_groups = {
+          "NeoTreeNormal",
+          "NeoTreeNormalNC",
+          "NormalFloat",
+        },
+        exclude_groups = { "StatusLine" },
+      })
+    end,
+  },
+  {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
