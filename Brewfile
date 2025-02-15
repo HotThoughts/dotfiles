@@ -50,6 +50,13 @@ brew "btop"
 brew "atuin"
 # Load testing
 brew install k6
+# Terminal graphics
+brew "viu"
+brew "chafa"
+brew "jstkdng/programs/ueberzugpp"
+brew "imagemagick"
+# Structural search
+brew "ast-grep"
 
 cask "notion"
 cask "raycast"
