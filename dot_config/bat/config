@@ -24,6 +24,5 @@
 #--map-syntax "*.ino:C++"
 #--map-syntax ".ignore:Git Ignore"
 
-
 --wrap="never"
---style="numbers,changes,header"
+--style="changes,header"
