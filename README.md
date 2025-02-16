@@ -13,10 +13,8 @@ I really like the [Pure](https://github.com/sindresorhus/pure)'s minimalist aest
 
 ## The editor
 
-I use [LunarVim](https://www.lunarvim.org/#opinionated) as my primary editor. It is a opinionated IDE layer for NeoVim. Love it.
-
-![lvim](fig/lvim.png)
+![lazyvim](fig/lazyvim.png)
 
 ## The theme
 
-[Tokyo Night](https://github.com/folke/tokyonight.nvim) is my faviror theme at the moment. I have set this theme on VS Code, LunarVIM, iTerm, Obsidian, Kitty, and so on.
+[Tokyo Night](https://github.com/folke/tokyonight.nvim) is my favorite theme at the moment. I have set this theme on VS Code, Neovim, Ghostty, Fish, Obsidian, and so on.
