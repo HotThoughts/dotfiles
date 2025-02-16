@@ -20,7 +20,7 @@ set -gx FZF_DEFAULT_OPTS "--multi --border --cycle --reverse --extended --height
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --height 80%"
 
-set -gx KUBE_EDITOR 'lvim'
+set -gx KUBE_EDITOR lvim
 
 # skim - fzf in rust
 set -gx SKIM_DEFAULT_OPTIONS "--multi --border --cycle --reverse --extended --height 80%"
@@ -31,12 +31,15 @@ set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 
 function notify
-  set -l job (jobs -l -g)
-    or begin; echo "There are no jobs" >&2; return 1; end
+    set -l job (jobs -l -g)
+    or begin
+        echo "There are no jobs" >&2
+        return 1
+    end
 
     function _notify_job_$job --on-job-exit $job --inherit-variable job
-      echo -n \a # beep
-      functions -e _notify_job_$job
+        echo -n \a # beep
+        functions -e _notify_job_$job
     end
 end
 
@@ -45,15 +48,15 @@ set -gx EDITOR nvim
 
 # qt
 set PATH /usr/local/opt/qt/bin $PATH
-set LDFLAGS "-L/usr/local/opt/qt/lib"
-set CPPFLAGS "-I/usr/local/opt/qt/include"
-set PKG_CONFIG_PATH "/usr/local/opt/qt/lib/pkgconfig"
+set LDFLAGS -L/usr/local/opt/qt/lib
+set CPPFLAGS -I/usr/local/opt/qt/include
+set PKG_CONFIG_PATH /usr/local/opt/qt/lib/pkgconfig
 
 # ruby
 set PATH /usr/local/opt/ruby/bin $PATH
-set LDFLAGS "/usr/local/opt/ruby/lib"
-set CPPFLAGS "/usr/local/opt/ruby/include"
-set PKG_CONFIG_PATH "/usr/local/opt/ruby/lib/pkgconfig"
+set LDFLAGS /usr/local/opt/ruby/lib
+set CPPFLAGS /usr/local/opt/ruby/include
+set PKG_CONFIG_PATH /usr/local/opt/ruby/lib/pkgconfig
 set PATH $HOME/.gem/ruby/2.7.2/bin $PATH
 
 # Poetry
@@ -71,7 +74,7 @@ set PATH $HOME/go/bin $PATH
 set -gx NVM_DIR $HOME/.nvm
 
 # Tex
-set PATH "/Library/TeX/texbin/" $PATH
+set PATH /Library/TeX/texbin/ $PATH
 
 # TokyoNight Color Palette
 set -l foreground c8d3f5
@@ -114,7 +117,11 @@ set --export --prepend PATH "/Users/hotthoughts/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Promp
+function starship_transient_prompt_func
+    starship module character
+end
 starship init fish | source
+enable_transience
 
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source; and pyenv virtualenv-init - | source
