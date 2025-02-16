@@ -112,11 +112,6 @@ set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
 
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "/Users/hotthoughts/.rd/bin"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 # Promp
 function starship_transient_prompt_func
     starship module character
@@ -124,5 +119,5 @@ end
 starship init fish | source
 enable_transience
 
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init - | source; and pyenv virtualenv-init - | source
+#status is-login; and pyenv init --path | source
+#status is-interactive; and pyenv init - | source; and pyenv virtualenv-init - | source
