@@ -2,7 +2,10 @@ brew "quickjs"
 
 brew "neovim"
 
+brew "jj"
+brew "lazyjj"
 brew "git"
+brew "lazygit"
 brew "tmux"
 brew "fish"
 brew "fisher"
