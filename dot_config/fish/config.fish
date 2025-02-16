@@ -44,7 +44,8 @@ function notify
 end
 
 # Editor
-set -gx EDITOR nvim
+set EDITOR nvim
+set XDG_CONFIG_HOME $HOME/.config
 
 # qt
 set PATH /usr/local/opt/qt/bin $PATH

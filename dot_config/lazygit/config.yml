@@ -37,7 +37,7 @@ gui:
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: delta --dark --paging=never --true-color=never
     useConfig: false
   merging:
     # only applicable to unix users
