@@ -8,7 +8,7 @@ Switching from [bare-repo based](https://github.com/HotThoughts/dotfiles/tree/ba
 
 ## The shell
 
-I really like the [Pure](https://github.com/sindresorhus/pure)'s minimalist aesthetics. Here is [Starship](https://starship.rs)'s Pure prompt preset, with additional Python version and virtualenv name on the right. With Starship, I am able to enjoy the same prompt style in *any* shell.
+I really like the [Pure](https://github.com/sindresorhus/pure)'s minimalist aesthetics. Here is [Starship](https://starship.rs)'s Pure prompt preset, with additional Python version and virtualenv name on the right. With Starship, I am able to enjoy the same prompt style in _any_ shell.
 ![Terminal](fig/terminal.png)
 
 ## The editor

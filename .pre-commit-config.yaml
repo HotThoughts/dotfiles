@@ -1,169 +1,168 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.3.0
-  hooks:
-  - id: trailing-whitespace
-  - id: end-of-file-fixer
-  - id: check-yaml
-  - id: check-json
-    exclude: "devcontainer.json"
-  - id: check-added-large-files
-  - id: check-merge-conflict
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+        exclude: "devcontainer.json"
+      - id: check-added-large-files
+      - id: check-merge-conflict
 
-- repo: https://github.com/adrienverge/yamllint
-  rev: v1.28.0
-  hooks:
-  - id: yamllint
-    name: Lint GitHub Action workflow files
-    files: ^\.github/workflows/
-    args:
-      - -d
-      - >
-        {
-          extends: default,
-          rules: {
-                document-start:{
-                  present: true,
-                  level: warning
-                },
-                line-length: {
-                  max: 88,
-                  level: warning
-                },
-                indentation: {
-                  spaces: 2,
-                  indent-sequences: false,
-                  level: warning
-                }
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.28.0
+    hooks:
+      - id: yamllint
+        name: Lint GitHub Action workflow files
+        files: ^\.github/workflows/
+        args:
+          - -d
+          - >
+            {
+              extends: default,
+              rules: {
+                    document-start:{
+                      present: true,
+                      level: warning
+                    },
+                    line-length: {
+                      max: 88,
+                      level: warning
+                    },
+                    indentation: {
+                      spaces: 2,
+                      indent-sequences: false,
+                      level: warning
+                    }
+                  }
               }
-          }
 
-- repo: https://github.com/zricethezav/gitleaks
-  rev: v8.13.0
-  hooks:
-  - id: gitleaks
-    name: 🔍 Check git leaks
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.13.0
+    hooks:
+      - id: gitleaks
+        name: 🔍 Check git leaks
 
-- repo: https://github.com/jumanjihouse/pre-commit-hooks
-  rev: 3.0.0
-  hooks:
-  - id: shellcheck
-  - id: shfmt
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: shellcheck
+      - id: shfmt
 
-- repo: https://github.com/psf/black
-  rev: 22.8.0
-  hooks:
-  - id: black
-    name: 🐍 Format Python code PEP8
-    args:
-    - --line-length=88
+  - repo: https://github.com/psf/black
+    rev: 22.8.0
+    hooks:
+      - id: black
+        name: 🐍 Format Python code PEP8
+        args:
+          - --line-length=88
 
-- repo: https://gitlab.com/pycqa/flake8
-  rev: 3.9.2
-  hooks:
-  - id: flake8
-    name: 🐍 Check Python code
-    args:
-      - --max-line-length=88
-      - --ignore=F841
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+      - id: flake8
+        name: 🐍 Check Python code
+        args:
+          - --max-line-length=88
+          - --ignore=F841
 
-- repo: https://github.com/pycqa/isort
-  rev: 5.10.1
-  hooks:
-  - id: isort
-    name: 🐍 Sort Python imports
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        name: 🐍 Sort Python imports
 
-- repo: https://github.com/asottile/pyupgrade
-  rev: v2.38.2
-  hooks:
-  - id: pyupgrade
-    name: 🐍 Upgrade Python code
-    args: [--py36-plus]
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.38.2
+    hooks:
+      - id: pyupgrade
+        name: 🐍 Upgrade Python code
+        args: [--py36-plus]
 
-# Black and flake8 for notebook
-- repo: https://github.com/nbQA-dev/nbQA
-  rev: 1.5.1
-  hooks:
-    - id: nbqa-black
-    - id: nbqa-flake8
-    - id: nbqa-isort
+  # Black and flake8 for notebook
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.5.1
+    hooks:
+      - id: nbqa-black
+      - id: nbqa-flake8
+      - id: nbqa-isort
 
-# Lint Dockerfile
-- repo: https://github.com/hadolint/hadolint
-  rev: v2.10.0
-  hooks:
-    - id: hadolint
-      args:
-        # This rule is wrong. See https://github.com/hadolint/hadolint/issues/562
-        - --ignore=DL3005
-        - --ignore=DL3009
+  # Lint Dockerfile
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.10.0
+    hooks:
+      - id: hadolint
+        args:
+          # This rule is wrong. See https://github.com/hadolint/hadolint/issues/562
+          - --ignore=DL3005
+          - --ignore=DL3009
 
-# Lint TeX Fil
-- repo: https://github.com/jonasbb/pre-commit-latex-hooks
-  rev: v1.3.0
-  hooks:
-    - id: american-eg-ie
-    - id: cleveref-capitalization
-    - id: consistent-spelling
-      args:
-        - --emph=et al.
-        - --emph=a priori
-        - --emph=a posteriori
-        - --regex=naive=\bna(i|\\"i)ve'
-    - id: csquotes
-    - id: ensure-labels-for-sections
-    - id: no-space-in-cite
-    - id: tilde-cite
-# Commitzen
-- repo: https://github.com/commitizen-tools/commitizen
-  rev: v2.35.0
-  hooks:
-    - id: commitizen
-      stages: [commit-msg]
+  # Lint TeX Fil
+  - repo: https://github.com/jonasbb/pre-commit-latex-hooks
+    rev: v1.3.0
+    hooks:
+      - id: american-eg-ie
+      - id: cleveref-capitalization
+      - id: consistent-spelling
+        args:
+          - --emph=et al.
+          - --emph=a priori
+          - --emph=a posteriori
+          - --regex=naive=\bna(i|\\"i)ve'
+      - id: csquotes
+      - id: ensure-labels-for-sections
+      - id: no-space-in-cite
+      - id: tilde-cite
+  # Commitzen
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v2.35.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
 
-- repo: https://github.com/rhysd/actionlint
-  rev: v1.6.19
-  hooks:
-    - id: actionlint
-      files: .github/workflows
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.6.19
+    hooks:
+      - id: actionlint
+        files: .github/workflows
 
-- repo: https://github.com/markdownlint/markdownlint
-  rev: v0.11.0
-  hooks:
-  - id: markdownlint
-    files: \.(md|mdown|markdown)$
+  - repo: https://github.com/markdownlint/markdownlint
+    rev: v0.11.0
+    hooks:
+      - id: markdownlint
+        files: \.(md|mdown|markdown)$
 
-# Source code spell checker
-- repo: https://github.com/crate-ci/typos
-  rev: typos-dict-v0.9.5
-  hooks:
-    - id: typos
+  # Source code spell checker
+  - repo: https://github.com/crate-ci/typos
+    rev: typos-dict-v0.9.5
+    hooks:
+      - id: typos
 
+  - repo: https://github.com/norwoodj/helm-docs
+    rev: v1.11.0
+    hooks:
+      - id: helm-docs
+        args:
+          - --chart-search-root=charts/kotlin
+          - --chart-search-root=charts/laravel
+          - --chart-search-root=charts/common
 
-- repo: https://github.com/norwoodj/helm-docs
-  rev: v1.11.0
-  hooks:
-    - id: helm-docs
-      args:
-        - --chart-search-root=charts/kotlin
-        - --chart-search-root=charts/laravel
-        - --chart-search-root=charts/common
-
-- repo: https://github.com/dnephin/pre-commit-golang
-  rev: v0.5.0
-  hooks:
-    - id: go-fmt
-    - id: go-vet
-    - id: go-lint
-    - id: go-imports
-    - id: go-cyclo
-      args: [-over=15]
-    - id: validate-toml
-    - id: no-go-testing
-    - id: golangci-lint
-    - id: go-critic
-    - id: go-unit-tests
-    - id: go-build
-    - id: go-mod-tidy
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v0.5.0
+    hooks:
+      - id: go-fmt
+      - id: go-vet
+      - id: go-lint
+      - id: go-imports
+      - id: go-cyclo
+        args: [-over=15]
+      - id: validate-toml
+      - id: no-go-testing
+      - id: golangci-lint
+      - id: go-critic
+      - id: go-unit-tests
+      - id: go-build
+      - id: go-mod-tidy
