@@ -23,9 +23,20 @@
         "mcp/sequentialthinking"
       ]
     },
+    "fetch": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "mcp/fetch"
+      ]
+    }
     "awslabs.core-mcp-server": {
       "command": "uvx",
-      "args": ["awslabs.core-mcp-server@latest"],
+      "args": [
+        "awslabs.core-mcp-server@latest"
+      ],
       "env": {
         "FASTMCP_LOG_LEVEL": "ERROR",
         "MCP_SETTINGS_PATH": "path to your mcp settings file"
@@ -33,7 +44,9 @@
     },
     "awslabs.aws-documentation-mcp-server": {
       "command": "uvx",
-      "args": ["awslabs.aws-documentation-mcp-server@latest"],
+      "args": [
+        "awslabs.aws-documentation-mcp-server@latest"
+      ],
       "env": {
         "FASTMCP_LOG_LEVEL": "ERROR"
       },
