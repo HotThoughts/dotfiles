@@ -1,0 +1,52 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "grafana-key",
+      "description": "Grafana API Key",
+      "password": true
+    },
+    {
+      "type": "promptString",
+      "id": "grafana-url",
+      "description": "Grafana URL",
+      "password": true
+    }
+  ],
+  "servers": {
+    "sequentialthinking": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/sequentialthinking"
+      ]
+    },
+    "awslabs.core-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.core-mcp-server@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "MCP_SETTINGS_PATH": "path to your mcp settings file"
+      }
+    },
+    "awslabs.aws-documentation-mcp-server": {
+      "command": "uvx",
+      "args": ["awslabs.aws-documentation-mcp-server@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": []
+    },
+    "grafana": {
+      "command": "mcp-grafana",
+      "args": [],
+      "env": {
+        "GRAFANA_URL": "${input:grafana-url}",
+        "GRAFANA_API_KEY": "${input:grafana-key}",
+      }
+    }
+  }
+}
