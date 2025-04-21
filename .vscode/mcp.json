@@ -31,7 +31,18 @@
         "--rm",
         "mcp/fetch"
       ]
-    }
+    },
+    "memory": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "-v",
+        "claude-memory:/app/dist",
+        "--rm",
+        "mcp/memory"
+      ]
+    },
     "awslabs.core-mcp-server": {
       "command": "uvx",
       "args": [
