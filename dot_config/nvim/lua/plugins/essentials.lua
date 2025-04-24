@@ -11,12 +11,13 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
+        -- pyright will be automatically installed with mason and loaded with lspconfig
         yamlls = {
           filetypes = { "yaml", "yml" },
           settings = {
             yaml = {
               format = {
-                enable = true,
+                enable = false,
                 singleQuote = true,
               },
             },
@@ -49,6 +50,21 @@ return {
       },
     },
   },
+  -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
+  { import = "lazyvim.plugins.extras.lang.json" },
+
+  -- add any tools you want to have installed below
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "stylua",
+        "shellcheck",
+        "shfmt",
+        "flake8",
+      },
+    },
+  },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -57,5 +73,24 @@ return {
   {
     "echasnovski/mini.pairs",
     enabled = false,
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        ["yaml"] = { "yamlfix" },
+      },
+      formatters = {
+        yamlfix = {
+          env = {
+            YAMLFIX_preserve_quotes = true,
+            YAMLFIX_WHITELINES = "1",
+            YAMLFIX_EXPLICIT_START = false,
+            YAMLFIX_SEQUENCE_STYLE = "block_style",
+          },
+        },
+      },
+    },
   },
 }
