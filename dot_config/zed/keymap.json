@@ -1,0 +1,48 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "bindings": {
+      "cmd-o": "file_finder::Toggle",
+      "cmd-p": "command_palette::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-l": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-h": null
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "space": null,
+      "space e": "workspace::ToggleLeftDock",
+      "space o": "tab_switcher::Toggle",
+      "space space": "command_palette::Toggle",
+      "space f": "file_finder::Toggle",
+      "space t t": "workspace::NewCenterTerminal",
+      "space /": "workspace::NewSearch",
+      "space shift-d": "diagnostics::Deploy",
+      "space d d": "diagnostics::Deploy",
+      "space d w": "diagnostics::ToggleWarnings",
+      "space d o": "editor::GoToDiagnostic",
+      "space s": "outline::Toggle",
+      "space shift-s": "project_symbols::Toggle",
+      "space a": "workspace::ToggleRightDock",
+      "ctrl-h": "project_panel::ToggleFocus"
+    }
+  }
+]
