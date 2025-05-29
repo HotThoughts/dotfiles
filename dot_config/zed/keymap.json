@@ -15,14 +15,48 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-l": "project_panel::ToggleFocus"
+      "ctrl-l": "project_panel::ToggleFocus",
+      "ctrl-/": "workspace::ToggleBottomDock",
+      "ctrl-\\": "workspace::ToggleRightDock",
+      "cmd-shift-m": "workspace::ToggleZoom"
     }
   },
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-h": null
       // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  // navigate to the docks
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": ["vim::PushAddSurrounds", {}]
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "s": "vim::PushSneak",
+      "shift-s": "vim::PushSneakBackward"
+    }
+  },
+  {
+    "context": "VimControl && !menu && vim_mode != operator",
+    "bindings": {
+      "w": "vim::NextSubwordStart",
+      "b": "vim::PreviousSubwordStart",
+      "e": "vim::NextSubwordEnd",
+      "g e": "vim::PreviousSubwordEnd"
     }
   },
   {
@@ -31,9 +65,8 @@
       "space": null,
       "space e": "workspace::ToggleLeftDock",
       "space o": "tab_switcher::Toggle",
-      "space space": "command_palette::Toggle",
-      "space f": "file_finder::Toggle",
-      "space t t": "workspace::NewCenterTerminal",
+      "space space": "file_finder::Toggle",
+      "space t": "workspace::NewCenterTerminal",
       "space /": "workspace::NewSearch",
       "space shift-d": "diagnostics::Deploy",
       "space d d": "diagnostics::Deploy",
@@ -41,8 +74,15 @@
       "space d o": "editor::GoToDiagnostic",
       "space s": "outline::Toggle",
       "space shift-s": "project_symbols::Toggle",
-      "space a": "workspace::ToggleRightDock",
+      "space a": "agent::ToggleFocus",
+      "space z": "workspace::ToggleZoom",
       "ctrl-h": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "shift-y": ["workspace::SendKeystrokes", "y $"]
     }
   }
 ]
