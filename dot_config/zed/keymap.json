@@ -9,15 +9,16 @@
   {
     "bindings": {
       "cmd-o": "file_finder::Toggle",
-      "cmd-p": "command_palette::Toggle"
+      "cmd-p": "command_palette::Toggle",
+      "cmd-\\": "workspace::ToggleLeftDock",
+      "cmd-|": "workspace::ToggleRightDock",
+      "ctrl-/": "workspace::ToggleBottomDock"
     }
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-l": "project_panel::ToggleFocus",
-      "ctrl-/": "workspace::ToggleBottomDock",
-      "ctrl-\\": "workspace::ToggleRightDock",
+      // "ctrl-l": "project_panel::ToggleFocus",
       "cmd-shift-m": "workspace::ToggleZoom"
     }
   },
@@ -37,6 +38,12 @@
       "ctrl-w j": "workspace::ActivatePaneDown"
     }
   },
+  // {
+  //   "context": "Terminal",
+  //   "bindings": {
+  //     "ctrl-/": "workspace::ToggleBottomDock"
+  //   }
+  // },
   {
     "context": "vim_mode == visual",
     "bindings": {

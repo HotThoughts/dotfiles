@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "mode": "eager",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": false
+  },
   "ui_font_family": "SF Pro",
   "ui_font_size": 15,
   "icon_theme": "Symbols",
@@ -14,6 +23,7 @@
     "dock": "right"
   },
   "agent": {
+    "default_open_ai_model": "gpt-4.1",
     "profiles": {
       "write": {
         "name": "Write",
@@ -53,7 +63,7 @@
     "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
+      "model": "gpt-4.1"
     },
     "model_parameters": [],
     "always_allow_tool_actions": true,
@@ -70,7 +80,8 @@
   },
   "languages": {
     "YAML": {
-      "format_on_save": "on"
+      "format_on_save": "off",
+      "formatter": "language_server"
     }
   },
   "vim_mode": true,
@@ -110,5 +121,21 @@
     "dev": "folder-green",
     "staging": "folder-yellow",
     "production": "folder-red"
+  },
+  "lsp": {
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "keyOrdering": false,
+          // "format": {
+          //   "singleQuote": true
+          // },
+          "schemas": {
+            "https://json.schemastore.org/bower.json": ["/*"],
+            "../relative/path/schema.json": ["/config*.yaml"]
+          }
+        }
+      }
+    }
   }
 }
