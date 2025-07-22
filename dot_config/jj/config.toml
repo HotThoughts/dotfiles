@@ -1,0 +1,28 @@
+[user]
+name = "Yiyao Wei"
+email = "26658608+HotThoughts@users.noreply.github.com"
+
+[signing]
+behavior = "own"
+backend = "gpg"
+key = "89079460E02D1DC9"
+
+[aliases]
+mine = ["bookmark", "list", "-r", "mine()"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
+
+[git]
+push-bookmark-prefix = "yw/push-"
+private-commits = 'blacklist()'
+auto-local-bookmark = false
+sign-on-push = true
+colocate = true
+
+[snapshot]
+auto-update-stale = true
+
+[revset-aliases]
+'wip()' = 'description(glob:"wip:*")'
+'private()' = 'description(glob:"private:*")'
+'blacklist()' = 'wip() | private()'
