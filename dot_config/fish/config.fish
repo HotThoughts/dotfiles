@@ -20,7 +20,7 @@ set -gx FZF_DEFAULT_OPTS "--multi --border --cycle --reverse --extended --height
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --height 80%"
 
-set -gx KUBE_EDITOR lvim
+set -gx KUBE_EDITOR nvim
 
 # skim - fzf in rust
 set -gx SKIM_DEFAULT_OPTIONS "--multi --border --cycle --reverse --extended --height 80%"
