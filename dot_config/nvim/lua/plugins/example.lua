@@ -72,6 +72,17 @@ return {
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
+        yamlls = {
+          filetypes = { "yaml", "yml" },
+          settings = {
+            yaml = {
+              format = {
+                enable = true,
+                singleQuote = true,
+              },
+            },
+          },
+        },
       },
     },
   },
@@ -193,5 +204,14 @@ return {
         "flake8",
       },
     },
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {},
+  },
+  {
+    "echasnovski/mini.pairs",
+    enabled = false,
   },
 }
