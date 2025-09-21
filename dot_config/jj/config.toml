@@ -12,8 +12,10 @@ mine = ["bookmark", "list", "-r", "mine()"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
 
+[templates]
+git_push_bookmark = "yw/push-"
+
 [git]
-push-bookmark-prefix = "yw/push-"
 private-commits = 'blacklist()'
 auto-local-bookmark = false
 sign-on-push = true
