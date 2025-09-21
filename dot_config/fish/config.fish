@@ -1,26 +1,37 @@
 # Abbr
 abbr -a -- k kubectl
-abbr -a -- kctx 'kubie ctx'
+abbr -a -- kx 'kubie ctx'
 abbr -a -- kns 'kubie ns'
+abbr -a -- e exit
+abbr -a -- ls 'eza --icons'
+abbr -a -- fu 'fisher update'
 
 # eza
 set -Ux EZA_STANDARD_OPTIONS --icons
+set -gx GPG_TTY (tty)
 
 # linkerd
 set -gx PATH $PATH $HOME/.linkerd2/bin
+
 # k8s
 set -gx PATH $PATH $HOME/.krew/bin
+
+# k9s
+set -gx K9S_CONFIG_DIR $HOME/.config/k9s/
+
+set -gx PATH $PATH $HOME/.claude/local
 
 # fzf.fish config
 set fzf_preview_dir_cmd "eza --all --icons --color=always"
 set fzf_history_opts "--with-nth=4.."
 set fzf_fd_opts "--hidden --exclude=.git"
+
 # fzf config
 set -gx FZF_DEFAULT_OPTS "--multi --border --cycle --reverse --extended --height 80%"
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --height 80%"
 
-set -gx KUBE_EDITOR lvim
+set -gx KUBE_EDITOR nvim
 
 # skim - fzf in rust
 set -gx SKIM_DEFAULT_OPTIONS "--multi --border --cycle --reverse --extended --height 80%"
@@ -44,8 +55,7 @@ function notify
 end
 
 # Editor
-set EDITOR nvim
-set XDG_CONFIG_HOME $HOME/.config
+set -gx EDITOR nvim
 
 # qt
 set PATH /usr/local/opt/qt/bin $PATH
@@ -112,12 +122,25 @@ set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
 
-# Promp
-function starship_transient_prompt_func
-    starship module character
-end
-starship init fish | source
-enable_transience
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/yiy/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-#status is-login; and pyenv init --path | source
-#status is-interactive; and pyenv init - | source; and pyenv virtualenv-init - | source
+# Command History
+atuin init fish | source
+# Promp
+starship init fish | source
+# Zoxide
+zoxide init fish | source
+
+# carapace
+# set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
+# carapace _carapace | source
+
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source; and pyenv virtualenv-init - | source
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
