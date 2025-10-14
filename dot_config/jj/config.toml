@@ -11,6 +11,16 @@ key = "661599B30906EEBE"
 mine = ["bookmark", "list", "-r", "mine()"]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
+# Run pre-commit checks before pushing (only on jj-tracked changed files)
+push = [
+  "util",
+  "exec",
+  "--",
+  "bash",
+  "-c",
+  "files=$(jj log -r 'main@origin..@' --no-graph --summary 2>/dev/null | grep -E '^[MAD] ' | awk '{print $2}' | sort -u | tr '\\n' ' '); if [ -n \"$files\" ]; then pre-commit run --hook-stage pre-push --files $files && jj git push \"$@\"; else jj git push \"$@\"; fi",
+  "--",
+]
 
 [templates]
 git_push_bookmark = '"yw-push-"  ++ change_id.short()'
