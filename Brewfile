@@ -1,4 +1,5 @@
 brew "quickjs"
+brew "chezmoi"
 
 brew "neovim"
 
@@ -10,6 +11,7 @@ brew "lazygit"
 brew "tmux"
 brew "fish"
 brew "fisher"
+brew "zed"
 brew "svn"
 brew "yank"
 brew "parallel"
