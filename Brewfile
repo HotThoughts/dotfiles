@@ -66,6 +66,7 @@ cask "ghostty"
 cask "karabiner-elements"
 cask "obsidian"
 cask "input-source-pro"
+cask "tailscale-app"
 
 brew "kubectl"
 brew "helm"
@@ -75,4 +76,3 @@ cask "font-inconsolata"
 cask "font-fira-code"
 cask "font-inconsolata-g-for-powerline"
 cask "font-inconsolata-lgc-nerd-font"
-
