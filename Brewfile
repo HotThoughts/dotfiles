@@ -2,6 +2,7 @@ brew "quickjs"
 brew "chezmoi"
 
 brew "neovim"
+brew "node"
 
 brew "jj"
 brew "lazyjj"
@@ -76,3 +77,4 @@ cask "font-inconsolata"
 cask "font-fira-code"
 cask "font-inconsolata-g-for-powerline"
 cask "font-inconsolata-lgc-nerd-font"
+cask "font-sf-pro"
