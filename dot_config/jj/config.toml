@@ -5,7 +5,7 @@ email = "26658608+HotThoughts@users.noreply.github.com"
 [signing]
 behavior = "own"
 backend = "gpg"
-key = "89079460E02D1DC9"
+key = "661599B30906EEBE"
 
 [aliases]
 mine = ["bookmark", "list", "-r", "mine()"]
@@ -13,7 +13,7 @@ tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
 rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
 
 [templates]
-git_push_bookmark = "yw/push-"
+git_push_bookmark = '"yw-push-"  ++ change_id.short()'
 
 [git]
 private-commits = 'blacklist()'
