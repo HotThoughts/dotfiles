@@ -1,4 +1,7 @@
-lua require('plugins')
+" Only load LazyVim when NOT in VSCode
+if !exists('g:vscode')
+    source ~/.config/nvim/lazyvim.lua
+endif
 
 
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
