@@ -59,6 +59,13 @@ brew "imagemagick"
 # Structural search
 brew "ast-grep"
 
+brew "kubectl"
+brew "helm"
+brew "kubie"
+
+tap "hashicorp/tap"
+brew "hashicorp/tap/terraform"
+
 cask "notion"
 cask "notion-mail"
 cask "notion-calendar"
@@ -69,10 +76,7 @@ cask "obsidian"
 cask "input-source-pro"
 cask "tailscale-app"
 
-brew "kubectl"
-brew "helm"
-brew "kubie"
-
+# Fonts
 cask "font-inconsolata"
 cask "font-fira-code"
 cask "font-inconsolata-g-for-powerline"
