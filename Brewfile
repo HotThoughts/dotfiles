@@ -75,6 +75,7 @@ cask "karabiner-elements"
 cask "obsidian"
 cask "input-source-pro"
 cask "tailscale-app"
+cask "pearcleaner"
 
 # Fonts
 cask "font-inconsolata"
