@@ -220,7 +220,7 @@ jj log --revisions @ --limit 1 --ignore-working-copy --no-graph --color always  
 '
 '''
 when = "jj --ignore-working-copy root"
-symbol = "jj"
+symbol = "jj "
 shell = ["sh", "--norc", "--noprofile"]
 
 [custom.jjstate]
