@@ -27,7 +27,8 @@ pre-commit = [
   "-c",
   "jj diff -r @ --name-only --no-pager | xargs pre-commit run --files",
 ]
-push = ["util", "exec", "--", "fish", "-c", "jj pre-commit && jjpr"]
+push = ["util", "exec", "--", "fish", "-c", "jj pre-commit && jj git push"]
+push-pr = ["util", "exec", "--", "fish", "-c", "jj pre-commit && jjpr"]
 
 [templates]
 git_push_bookmark = '"yw/push-" ++ change_id.short()'
