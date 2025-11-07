@@ -5,6 +5,15 @@ return {
     opts = {
       style = "moon",
       transparent = true,
+      terminal_colors = true,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = {},
+        variables = {},
+        sidebars = "transparent",
+        floats = "transparent",
+      },
     },
   },
   {
@@ -45,5 +54,14 @@ return {
         },
       },
     },
+  },
+  {
+    dir = "/Users/yiyao.wei/Documents/repos/jjui.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+    keys = { { "<leader>jj", "<cmd>JJUI<cr>", desc = "Jjui" } },
+    config = function()
+      require("jjui").setup()
+      if pcall(require, "telescope") then require("telescope").load_extension("jj") end
+    end,
   },
 }
