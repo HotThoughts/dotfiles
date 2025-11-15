@@ -57,11 +57,15 @@ return {
   },
   {
     dir = "/Users/yiyao.wei/Documents/repos/jjui.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-    keys = { { "<leader>jj", "<cmd>JJUI<cr>", desc = "Jjui" } },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      { "<leader>jj", "<cmd>JJUI<cr>", desc = "JJUI" },
+    },
     config = function()
       require("jjui").setup()
-      if pcall(require, "telescope") then require("telescope").load_extension("jj") end
+      -- NO telescope lines here!
     end,
   },
 }
