@@ -5,12 +5,7 @@ return {
     opts = {
       style = "moon",
       transparent = true,
-      terminal_colors = true,
       styles = {
-        comments = { italic = true },
-        keywords = { italic = true },
-        functions = {},
-        variables = {},
         sidebars = "transparent",
         floats = "transparent",
       },
@@ -55,17 +50,22 @@ return {
       },
     },
   },
+  -- Configure which-key to add icon for TidalCycles
   {
-    dir = "/Users/yiyao.wei/Documents/repos/jjui.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
+    "folke/which-key.nvim",
+    opts = {
+      spec = {
+        {
+          mode = { "n", "v" },
+          { "<leader>t", desc = "tidal cycles", icon = { icon = "󱍙 ", color = "blue" } },
+          { "<leader>te", icon = { icon = "󰝚 ", color = "blue" } },
+          { "<leader>th", icon = { icon = "󰝛 ", color = "blue" } },
+          { "<leader>tm", desc = "Mute Channels", icon = { icon = " ", color = "blue" } },
+          { "<leader>tu", desc = "Unmute Channels", icon = { icon = " ", color = "blue" } },
+          { "<leader>ts", desc = "Silence Channels", icon = { icon = "󰎊 ", color = "blue" } },
+          { "<leader>j", desc = "jj", icon = { icon = " ", color = "green" } },
+        },
+      },
     },
-    keys = {
-      { "<leader>jj", "<cmd>JJUI<cr>", desc = "JJUI" },
-    },
-    config = function()
-      require("jjui").setup()
-      -- NO telescope lines here!
-    end,
   },
 }
