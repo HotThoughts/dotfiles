@@ -11,13 +11,6 @@ return {
         desc = "Tidal: Evaluate",
         buffer = 0,
       },
-      {
-        "<D-h>",
-        "<cmd>TidalHush<cr>",
-        mode = { "i", "x", "n", "s" },
-        desc = "Tidal: Hush",
-        buffer = 0,
-      },
       -- Leader key bindings
       {
         "<leader>te",
