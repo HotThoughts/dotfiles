@@ -231,6 +231,21 @@ return {
         command = "set filetype=tidal",
       })
 
+      -- Remove vim-tidal's default <C-h> and <C-e> keymaps to avoid conflicts
+      vim.api.nvim_create_autocmd({ "FileType" }, {
+        pattern = "tidal",
+        callback = function()
+          -- Remove <C-h> and <C-e> keymaps set by vim-tidal (they're buffer-local normal mode mappings)
+          -- Use vim.schedule to ensure this runs after plugin keymaps are set
+          vim.schedule(function()
+            local buf = vim.api.nvim_get_current_buf()
+            -- vim-tidal sets <C-h> and <C-e> as buffer-local normal mode mappings
+            pcall(vim.api.nvim_buf_del_keymap, buf, "n", "<C-h>")
+            pcall(vim.api.nvim_buf_del_keymap, buf, "n", "<C-e>")
+          end)
+        end,
+      })
+
       -- Create mute functions for each channel
       for channel = 1, 9 do
         vim.api.nvim_create_user_command("TidalMute" .. channel, function()
