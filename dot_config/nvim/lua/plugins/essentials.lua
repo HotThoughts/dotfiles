@@ -11,7 +11,6 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
         yamlls = {
           filetypes = { "yaml", "yml" },
           settings = {
@@ -60,21 +59,67 @@ return {
     enabled = false,
   },
   {
-    "stevearc/conform.nvim",
-    optional = true,
+    "epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+    -- event = {
+    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+    --   -- refer to `:h file-pattern` for more examples
+    --   "BufReadPre path/to/my-vault/*.md",
+    --   "BufNewFile path/to/my-vault/*.md",
+    -- },
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- see below for full list of optional dependencies 👇
+    },
     opts = {
-      formatters_by_ft = {
-        ["yaml"] = { "yamlfix" },
-      },
-      formatters = {
-        yamlfix = {
-          env = {
-            YAMLFIX_preserve_quotes = true,
-            YAMLFIX_WHITELINES = "1",
-            YAMLFIX_EXPLICIT_START = false,
-            YAMLFIX_SEQUENCE_STYLE = "block_style",
-          },
+      workspaces = {
+        {
+          name = "Liminal Forge",
+          path = "/Users/hotthoughts/Library/Mobile Documents/iCloud~md~obsidian/Documents/Liminal Forge",
         },
+      },
+
+      -- see below for full list of options 👇
+    },
+    {
+      "HotThoughts/jjui.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim", -- required
+      },
+      cmd = {
+        "JJUI",
+        "JJUICurrentFile",
+        "JJUIFilter",
+        "JJUIFilterCurrentFile",
+        "JJConfig",
+      },
+      -- Setting the keybinding here helps lazy-loading
+      keys = {
+        { "<leader>jj", "<cmd>JJUI<cr>", desc = "JJUI" },
+        { "<leader>jc", "<cmd>JJUICurrentFile<cr>", desc = "JJUI (current file)" },
+        { "<leader>jl", "<cmd>JJUIFilter<cr>", desc = "JJUI Log" },
+        { "<leader>jf", "<cmd>JJUIFilterCurrentFile<cr>", desc = "JJUI Log (current file)" },
+      },
+      config = function()
+        require("jjui").setup({
+          -- configuration options (see below)
+        })
+      end,
+    },
+  },
+  {
+    "Pocco81/auto-save.nvim",
+    opts = {
+      execution_message = {
+        message = function() -- message to print on save
+          return ""
+        end,
       },
     },
   },
