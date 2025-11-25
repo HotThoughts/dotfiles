@@ -1,0 +1,12 @@
+[custom_commands."Create PR"]
+key = ["p"]
+args = ["pr"]
+show = "interactive"
+
+[custom_commands."Move commit down"]
+key = ["J"]
+args = ["rebase", "-r", "$change_id", "--insert-before", "$change_id-"]
+
+[custom_commands."Move commit up"]
+key = ["K"]
+args = ["rebase", "-r", "$change_id", "--insert-after", "$change_id+"]
