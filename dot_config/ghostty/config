@@ -25,15 +25,27 @@ window-save-state = always
 mouse-hide-while-typing = true
 
 cursor-color = #ff5f00
+cursor-opacity = 0.8
+cursor-style = block
+cursor-style-blink = true
+
+custom-shader = shaders/public/shaders/cursor_blaze.glsl
+
+# Quick terminal
+quick-terminal-position = top
+quick-terminal-size = 70%
+gtk-quick-terminal-layer = overlay
 
 # Shall integration
 shell-integration = fish
 shell-integration-features = no-cursor
 
 # Keybinds
-keybind = cmd+enter=new_split:right
-keybind = cmd+shift+enter=new_split:down
+# keybind = cmd+enter=new_split:right
+# keybind = cmd+shift+enter=new_split:down
 keybind = cmd+t=new_tab
+keybind = global:ctrl+q=toggle_quick_terminal
+keybind = cmd+p=toggle_command_palette
 
 keybind = alt+left=unbind
 keybind = alt+right=unbind
