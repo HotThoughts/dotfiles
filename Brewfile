@@ -66,6 +66,12 @@ brew "kubie"
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"
 
+tap "FelixKratz/formulae"
+brew "sketchybar"
+cask "font-sketchybar-app-font"
+# Window management 
+cask "nikitabobko/tap/aerospace"
+
 cask "notion"
 cask "notion-mail"
 cask "notion-calendar"
