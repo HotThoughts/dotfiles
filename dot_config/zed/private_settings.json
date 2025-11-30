@@ -28,6 +28,7 @@
       "write": {
         "name": "Write",
         "tools": {
+          "open": true,
           "copy_path": true,
           "create_directory": true,
           "create_file": true,
@@ -66,8 +67,7 @@
       "model": "gpt-4.1"
     },
     "model_parameters": [],
-    "always_allow_tool_actions": true,
-    "version": "2"
+    "always_allow_tool_actions": true
   },
   "base_keymap": "VSCode",
   "buffer_font_size": 16,

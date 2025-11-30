@@ -65,6 +65,7 @@ $character"""
 # Inserts a blank line between shell prompts
 add_newline = false
 command_timeout = 1500
+scan_timeout = 500
 
 [fill]
 symbol = " "

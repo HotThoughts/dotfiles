@@ -5,6 +5,9 @@ abbr -a -- kns 'kubie ns'
 abbr -a -- e exit
 abbr -a -- ls 'eza --icons'
 abbr -a -- fu 'fisher update'
+abbr -a -- e exit
+abbr -a -- c clear
+abbr -a -- n nvim
 
 # eza
 set -Ux EZA_STANDARD_OPTIONS --icons
@@ -19,45 +22,32 @@ set -gx PATH $PATH $HOME/.krew/bin
 # k9s
 set -gx K9S_CONFIG_DIR $HOME/.config/k9s/
 
-set -gx PATH $PATH $HOME/.claude/local
-
 # fzf.fish config
 set fzf_preview_dir_cmd "eza --all --icons --color=always"
 set fzf_history_opts "--with-nth=4.."
 set fzf_fd_opts "--hidden --exclude=.git"
-
 # fzf config
 set -gx FZF_DEFAULT_OPTS "--multi --border --cycle --reverse --extended --height 80%"
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --height 80%"
 
-set -gx KUBE_EDITOR nvim
-
 # skim - fzf in rust
 set -gx SKIM_DEFAULT_OPTIONS "--multi --border --cycle --reverse --extended --height 80%"
+
+# GPG
+set -gx GPG_TTY (tty)
 
 set fish_cursor_default block
 set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 
-function notify
-    set -l job (jobs -l -g)
-    or begin
-        echo "There are no jobs" >&2
-        return 1
-    end
-
-    function _notify_job_$job --on-job-exit $job --inherit-variable job
-        echo -n \a # beep
-        functions -e _notify_job_$job
-    end
-end
-
 # Editor
 set -gx EDITOR nvim
 
-# qt
+set XDG_CONFIG_HOME $HOME/.config
+
+# qt3
 set PATH /usr/local/opt/qt/bin $PATH
 set LDFLAGS -L/usr/local/opt/qt/lib
 set CPPFLAGS -I/usr/local/opt/qt/include
@@ -75,9 +65,6 @@ set PATH $HOME/.poetry/bin $PATH
 set PYENV_ROOT $HOME/.pyenv
 set PYENV_VIRTUALENV_DISABLE_PROMPT 1
 
-# LunarVim
-set PATH $HOME/.local/bin $PATH
-
 # Golang
 set PATH $HOME/go/bin $PATH
 
@@ -86,6 +73,12 @@ set -gx NVM_DIR $HOME/.nvm
 
 # Tex
 set PATH /Library/TeX/texbin/ $PATH
+
+# Cable
+set PATH $HOME/.cabal/bin:/Users/hotthoughts/.ghcup/bin $PATH
+
+# OrbStack
+set PATH $HOME/.orbstack/bin $PATH
 
 # TokyoNight Color Palette
 set -l foreground c8d3f5
@@ -123,24 +116,15 @@ set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "/Users/yiy/.rd/bin"
+set --export --prepend PATH "/Users/hotthoughts/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-# Command History
-atuin init fish | source
 # Promp
 starship init fish | source
-# Zoxide
 zoxide init fish | source
+atuin init fish | source
 
-# carapace
-# set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
-# carapace _carapace | source
+# string match -q "$TERM_PROGRAM" kiro and . (kiro --locate-shell-integration-path fish)
 
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init - | source; and pyenv virtualenv-init - | source
-
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :
-
+alias claude="/Users/hotthoughts/.claude/local/claude"
+fish_add_path $HOME/.local/bin

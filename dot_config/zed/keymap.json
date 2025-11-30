@@ -12,7 +12,8 @@
       "cmd-p": "command_palette::Toggle",
       "cmd-\\": "workspace::ToggleLeftDock",
       "cmd-|": "workspace::ToggleRightDock",
-      "ctrl-/": "workspace::ToggleBottomDock"
+      "ctrl-/": "workspace::ToggleBottomDock",
+      "ctrl-.": "agent::ToggleFocus"
     }
   },
   {
@@ -38,12 +39,6 @@
       "ctrl-w j": "workspace::ActivatePaneDown"
     }
   },
-  // {
-  //   "context": "Terminal",
-  //   "bindings": {
-  //     "ctrl-/": "workspace::ToggleBottomDock"
-  //   }
-  // },
   {
     "context": "vim_mode == visual",
     "bindings": {
@@ -83,6 +78,8 @@
       "space shift-s": "project_symbols::Toggle",
       "space a": "agent::ToggleFocus",
       "space z": "workspace::ToggleZoom",
+      "space g g": "git_panel::ToggleFocus",
+      "space g c": "git::GenerateCommitMessage",
       "ctrl-h": "project_panel::ToggleFocus"
     }
   },

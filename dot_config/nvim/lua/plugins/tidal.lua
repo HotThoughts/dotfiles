@@ -4,19 +4,34 @@ return {
     "tidalcycles/vim-tidal",
     ft = "tidal",
     keys = {
+      -- Custom keymaps: <C-e> for line send, <C-r> for paragraph send
       {
         "<D-e>",
-        "<cmd>TidalSend<cr>",
+        "<Plug>TidalLineSend",
         mode = { "i", "x", "n", "s" },
-        desc = "Tidal: Evaluate",
+        desc = "Tidal: Send line",
+        buffer = 0,
+      },
+      {
+        "<D-r>",
+        "<Plug>TidalParagraphSend",
+        mode = { "i", "x", "n", "s" },
+        desc = "Tidal: Evaluate paragraph",
         buffer = 0,
       },
       -- Leader key bindings
       {
         "<leader>te",
-        "<cmd>TidalSend<cr>",
-        mode = { "n", "v" },
-        desc = "Evaluate",
+        "<Plug>TidalParagraphSend",
+        mode = "n",
+        desc = "Evaluate paragraph",
+        buffer = 0,
+      },
+      {
+        "<leader>te",
+        "<Plug>TidalRegionSend",
+        mode = "v",
+        desc = "Evaluate selection",
         buffer = 0,
       },
       {
@@ -225,23 +240,24 @@ return {
       vim.g.tidal_target = "terminal"
       -- Disable SuperCollider integration (set to 1 if using SuperCollider)
       vim.g.tidal_sc_enable = 0
+      -- Disable vim-tidal's default mappings so we can use our custom ones
+      vim.g.tidal_no_mappings = 1
       -- Set filetype for .tidal files
       vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         pattern = "*.tidal",
         command = "set filetype=tidal",
       })
 
-      -- Remove vim-tidal's default <C-h> and <C-e> keymaps to avoid conflicts
+      -- Remove vim-tidal's default <C-h> keymap for TidalHush to avoid conflicts
       vim.api.nvim_create_autocmd({ "FileType" }, {
         pattern = "tidal",
         callback = function()
-          -- Remove <C-h> and <C-e> keymaps set by vim-tidal (they're buffer-local normal mode mappings)
+          -- Remove <C-h> keymap set by vim-tidal (it's a buffer-local normal mode mapping)
           -- Use vim.schedule to ensure this runs after plugin keymaps are set
           vim.schedule(function()
             local buf = vim.api.nvim_get_current_buf()
-            -- vim-tidal sets <C-h> and <C-e> as buffer-local normal mode mappings
+            -- vim-tidal sets <C-h> as a buffer-local normal mode mapping
             pcall(vim.api.nvim_buf_del_keymap, buf, "n", "<C-h>")
-            pcall(vim.api.nvim_buf_del_keymap, buf, "n", "<C-e>")
           end)
         end,
       })

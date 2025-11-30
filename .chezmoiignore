@@ -1,2 +1,3 @@
 install.sh
 dot_config/chezmoi/chezmoi.toml.tmpl
+setup.sh
