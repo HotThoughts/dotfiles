@@ -159,10 +159,10 @@ preset = 'qwerty'
   # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
   #s = ['layout sticky tiling', 'mode main']
 
-  alt-shift-h = ['join-with left', 'mode main']
-  alt-shift-j = ['join-with down', 'mode main']
-  alt-shift-k = ['join-with up', 'mode main']
-  alt-shift-l = ['join-with right', 'mode main']
+  alt-h = ['join-with left', 'mode main']
+  alt-j = ['join-with down', 'mode main']
+  alt-k = ['join-with up', 'mode main']
+  alt-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
   if.app-id = 'com.apple.finder'
@@ -206,6 +206,7 @@ preset = 'qwerty'
 
 # Ensure all other windows are tiled by default
 [[on-window-detected]]
+  if.app-id = 'com.1password.1password'
   run = "layout tiles"
 
 [workspace-to-monitor-force-assignment]
