@@ -1,11 +1,11 @@
 [user]
-name = "Yiyao Wei"
-email = "26658608+HotThoughts@users.noreply.github.com"
+name = {{ .name | quote }}
+email = {{ .email | quote }}
 
 [signing]
 behavior = "own"
 backend = "gpg"
-key = "661599B30906EEBE"
+key = {{ .signingkey }}
 
 [aliases]
 mine = ["bookmark", "list", "-r", "mine()"]

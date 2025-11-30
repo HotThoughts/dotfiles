@@ -29,11 +29,12 @@ cursor-opacity = 0.8
 cursor-style = block
 cursor-style-blink = true
 
-custom-shader = shaders/public/shaders/cursor_blaze.glsl
+
+custom-shader = shaders/cursor_blaze.glsl
 
 # Quick terminal
 quick-terminal-position = top
-quick-terminal-size = 70%
+quick-terminal-size = 50%
 gtk-quick-terminal-layer = overlay
 
 # Shall integration
