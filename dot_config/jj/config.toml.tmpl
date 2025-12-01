@@ -8,10 +8,11 @@ backend = "gpg"
 key = {{ .signingkey | quote }}
 
 [ui]
+editor = {{ .editor | quote }}
 pager = "delta"
-
-[ui.diff]
-format = "git"
+diff-ingstructions = false
+diff-editor = ":builtin"
+diff-format = "git"
 
 [aliases]
 mine = ["bookmark", "list", "-r", "mine()"]
