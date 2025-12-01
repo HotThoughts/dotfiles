@@ -204,6 +204,18 @@ preset = 'qwerty'
   if.app-id = 'com.brnbw.Leader-Key'
   run = "layout floating"
 
+[[on-window-detected]]
+  if.app-id = 'com.bitwarden.desktop'
+  run = "layout floating"
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.weather'
+  run = "layout floating"
+
+[[on-window-detected]]
+  if.app-id = 'com.jamfsoftware.selfservice'
+  run = "layout floating"
+
 # Ensure all other windows are tiled by default
 [[on-window-detected]]
   if.app-id = 'com.1password.1password'
