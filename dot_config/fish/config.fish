@@ -1,84 +1,95 @@
-# Abbr
+# =============================================================================
+# Fish Shell Configuration
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Abbreviations
+# -----------------------------------------------------------------------------
 abbr -a -- k kubectl
 abbr -a -- kx 'kubie ctx'
 abbr -a -- kns 'kubie ns'
 abbr -a -- e exit
 abbr -a -- ls 'eza --icons'
 abbr -a -- fu 'fisher update'
-abbr -a -- e exit
 abbr -a -- c clear
-abbr -a -- n nvim
 
-# eza
-set -Ux EZA_STANDARD_OPTIONS --icons
-set -gx GPG_TTY (tty)
+# -----------------------------------------------------------------------------
+# PATH Management
+# -----------------------------------------------------------------------------
+# Use fish_add_path (universal by default) for proper PATH management
 
-# linkerd
-set -gx PATH $PATH $HOME/.linkerd2/bin
+# Local binaries (highest priority)
+fish_add_path $HOME/.local/bin
 
-# k8s
-set -gx PATH $PATH $HOME/.krew/bin
+# Development tools
+fish_add_path $HOME/go/bin
+fish_add_path $HOME/.claude/local
 
-# k9s
-set -gx K9S_CONFIG_DIR $HOME/.config/k9s/
+# Kubernetes tools
+fish_add_path $HOME/.krew/bin
+fish_add_path $HOME/.linkerd2/bin
 
-# fzf.fish config
-set fzf_preview_dir_cmd "eza --all --icons --color=always"
-set fzf_history_opts "--with-nth=4.."
-set fzf_fd_opts "--hidden --exclude=.git"
-# fzf config
-set -gx FZF_DEFAULT_OPTS "--multi --border --cycle --reverse --extended --height 80%"
-set -gx FZF_DEFAULT_COMMAND "fd --type f"
-set -gx FORGIT_FZF_DEFAULT_OPTS "--exact --height 80%"
+# Ruby
+fish_add_path /usr/local/opt/ruby/bin
+fish_add_path $HOME/.gem/ruby/2.7.2/bin
 
-# skim - fzf in rust
-set -gx SKIM_DEFAULT_OPTIONS "--multi --border --cycle --reverse --extended --height 80%"
+# Qt
+fish_add_path /usr/local/opt/qt/bin
+
+# TeX
+fish_add_path /Library/TeX/texbin
+
+# -----------------------------------------------------------------------------
+# Environment Variables (Universal - persist across sessions)
+# -----------------------------------------------------------------------------
 
 # GPG
-set -gx GPG_TTY (tty)
-
-set fish_cursor_default block
-set fish_cursor_insert line
-set fish_cursor_replace_one underscore
-set fish_cursor_visual block
+set -Ux GPG_TTY (tty)
 
 # Editor
-set -gx EDITOR nvim
+set -Ux EDITOR nvim
+set -Ux KUBE_EDITOR nvim
 
-set XDG_CONFIG_HOME $HOME/.config
+# k9s
+set -Ux K9S_CONFIG_DIR $HOME/.config/k9s
 
-# qt3
-set PATH /usr/local/opt/qt/bin $PATH
-set LDFLAGS -L/usr/local/opt/qt/lib
-set CPPFLAGS -I/usr/local/opt/qt/include
-set PKG_CONFIG_PATH /usr/local/opt/qt/lib/pkgconfig
+# Node Version Manager
+set -Ux NVM_DIR $HOME/.nvm
 
-# ruby
-set PATH /usr/local/opt/ruby/bin $PATH
-set LDFLAGS /usr/local/opt/ruby/lib
-set CPPFLAGS /usr/local/opt/ruby/include
-set PKG_CONFIG_PATH /usr/local/opt/ruby/lib/pkgconfig
-set PATH $HOME/.gem/ruby/2.7.2/bin $PATH
+# fzf configuration
+set -Ux FZF_DEFAULT_OPTS "--multi --border --cycle --reverse --extended --height 80%"
+set -Ux FZF_DEFAULT_COMMAND "fd --type f"
+set -Ux FORGIT_FZF_DEFAULT_OPTS "--exact --height 80%"
 
-# Poetry
-set PATH $HOME/.poetry/bin $PATH
-set PYENV_ROOT $HOME/.pyenv
-set PYENV_VIRTUALENV_DISABLE_PROMPT 1
+# skim (fzf alternative in Rust)
+set -Ux SKIM_DEFAULT_OPTIONS "--multi --border --cycle --reverse --extended --height 80%"
 
-# Golang
-set PATH $HOME/go/bin $PATH
+# eza configuration
+set -Ux EZA_STANDARD_OPTIONS --icons
 
-# node
-set -gx NVM_DIR $HOME/.nvm
+# Build flags (universal for consistent build environment)
+set -Ux LDFLAGS -L/usr/local/opt/qt/lib -L/usr/local/opt/ruby/lib
+set -Ux CPPFLAGS -I/usr/local/opt/qt/include -I/usr/local/opt/ruby/include
+set -Ux PKG_CONFIG_PATH /usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/ruby/lib/pkgconfig
 
-# Tex
-set PATH /Library/TeX/texbin/ $PATH
+# -----------------------------------------------------------------------------
+# Plugin Configuration (Global - session-specific)
+# -----------------------------------------------------------------------------
 
-# Cable
-set PATH $HOME/.cabal/bin:/Users/hotthoughts/.ghcup/bin $PATH
+# fzf.fish plugin configuration
+set -g fzf_preview_dir_cmd "eza --all --icons --color=always"
+set -g fzf_history_opts "--with-nth=4.."
+set -g fzf_fd_opts "--hidden --exclude=.git"
 
-# OrbStack
-set PATH $HOME/.orbstack/bin $PATH
+# -----------------------------------------------------------------------------
+# Fish UI Configuration (Universal - persist across sessions)
+# -----------------------------------------------------------------------------
+
+# Cursor styles
+set -U fish_cursor_default block
+set -U fish_cursor_insert line
+set -U fish_cursor_replace_one underscore
+set -U fish_cursor_visual block
 
 # TokyoNight Color Palette
 set -l foreground c8d3f5
@@ -93,38 +104,43 @@ set -l cyan 86e1fc
 set -l pink c099ff
 
 # Syntax Highlighting Colors
-set -g fish_color_normal $foreground
-set -g fish_color_command $cyan
-set -g fish_color_keyword $pink
-set -g fish_color_quote $yellow
-set -g fish_color_redirection $foreground
-set -g fish_color_end $orange
-set -g fish_color_error $red
-set -g fish_color_param $purple
-set -g fish_color_comment $comment
-set -g fish_color_selection --background=$selection
-set -g fish_color_search_match --background=$selection
-set -g fish_color_operator $green
-set -g fish_color_escape $pink
-set -g fish_color_autosuggestion $comment
+set -U fish_color_normal $foreground
+set -U fish_color_command $cyan
+set -U fish_color_keyword $pink
+set -U fish_color_quote $yellow
+set -U fish_color_redirection $foreground
+set -U fish_color_end $orange
+set -U fish_color_error $red
+set -U fish_color_param $purple
+set -U fish_color_comment $comment
+set -U fish_color_selection --background=$selection
+set -U fish_color_search_match --background=$selection
+set -U fish_color_operator $green
+set -U fish_color_escape $pink
+set -U fish_color_autosuggestion $comment
 
 # Completion Pager Colors
-set -g fish_pager_color_progress $comment
-set -g fish_pager_color_prefix $cyan
-set -g fish_pager_color_completion $foreground
-set -g fish_pager_color_description $comment
-set -g fish_pager_color_selected_background --background=$selection
+set -U fish_pager_color_progress $comment
+set -U fish_pager_color_prefix $cyan
+set -U fish_pager_color_completion $foreground
+set -U fish_pager_color_description $comment
+set -U fish_pager_color_selected_background --background=$selection
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "/Users/hotthoughts/.rd/bin"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# -----------------------------------------------------------------------------
+# Tool Initialization
+# -----------------------------------------------------------------------------
 
-# Promp
+# Atuin (command history)
+atuin init fish | sed 's/-k up/up/' | source
+
+# Starship (prompt)
 starship init fish | source
+
+# Zoxide (directory jumping)
 zoxide init fish | source
-atuin init fish | source
 
-# string match -q "$TERM_PROGRAM" kiro and . (kiro --locate-shell-integration-path fish)
+# OrbStack integration
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
-alias claude="/Users/hotthoughts/.claude/local/claude"
-fish_add_path $HOME/.local/bin
+# AWS Assume (via Homebrew)
+alias assume="source (brew --prefix)/bin/assume.fish"
