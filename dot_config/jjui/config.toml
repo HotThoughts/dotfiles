@@ -10,3 +10,13 @@ args = ["rebase", "-r", "$change_id", "--insert-before", "$change_id-"]
 [custom_commands."Move commit up"]
 key = ["K"]
 args = ["rebase", "-r", "$change_id", "--insert-after", "$change_id+"]
+
+[custom_commands]
+"delta" = { args = [
+  "util",
+  "exec",
+  "--",
+  "bash",
+  "-c",
+  """jj show -r $change_id --summary --git --color=always | delta --pager 'less -R'""",
+], show = "interactive" }
