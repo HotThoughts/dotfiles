@@ -12,6 +12,8 @@ abbr -a -- e exit
 abbr -a -- ls 'eza --icons'
 abbr -a -- fu 'fisher update'
 abbr -a -- c clear
+abbr -a -- n nvim
+abbr -a -- cu 'chezmoi update'
 
 # -----------------------------------------------------------------------------
 # PATH Management
@@ -79,7 +81,6 @@ set -Ux PKG_CONFIG_PATH /usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/ruby/lib/
 # fzf.fish plugin configuration
 set -g fzf_preview_dir_cmd "eza --all --icons --color=always"
 set -g fzf_history_opts "--with-nth=4.."
-set -g fzf_fd_opts "--hidden --exclude=.git"
 
 # -----------------------------------------------------------------------------
 # Fish UI Configuration (Universal - persist across sessions)
