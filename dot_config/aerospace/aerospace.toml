@@ -201,6 +201,10 @@ preset = 'qwerty'
   run = "layout floating"
 
 [[on-window-detected]]
+  if.app-id = 'com.apple.MobileSMS'
+  run = "layout floating"
+
+[[on-window-detected]]
   if.app-id = 'com.brnbw.Leader-Key'
   run = "layout floating"
 
