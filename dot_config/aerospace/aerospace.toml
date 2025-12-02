@@ -213,6 +213,10 @@ preset = 'qwerty'
   run = "layout floating"
 
 [[on-window-detected]]
+  if.app-id = 'com.apple.FontBook'
+  run = "layout floating"
+
+[[on-window-detected]]
   if.app-id = 'com.jamfsoftware.selfservice'
   run = "layout floating"
 
