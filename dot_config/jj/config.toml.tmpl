@@ -42,9 +42,11 @@ git_push_bookmark = '"yw/push-" ++ change_id.short()'
 
 [git]
 private-commits = 'blacklist()'
-auto-local-bookmark = false
 sign-on-push = true
 colocate = true
+
+[remote.origin]
+auto-track-bookmark = "glob:*"
 
 [snapshot]
 auto-update-stale = true
