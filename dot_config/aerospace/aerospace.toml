@@ -233,9 +233,12 @@ run = "layout floating"
 if.app-id = 'com.jamfsoftware.selfservice'
 run = "layout floating"
 
-# Ensure all other windows are tiled by default
 [[on-window-detected]]
 if.app-id = 'com.1password.1password'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.raycast.macos'
 run = "layout floating"
 
 [workspace-to-monitor-force-assignment]
