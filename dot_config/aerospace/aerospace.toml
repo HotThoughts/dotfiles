@@ -80,11 +80,7 @@ inner.horizontal = 8
 inner.vertical = 8
 outer.left = 8
 outer.bottom = 8
-outer.top = [
-  { monitor."DELL*" = 42 },
-  { monitor."Built-in Retina Display" = 42 },
-  42,
-]
+outer.top = 42
 outer.right = 8
 
 # 'main' binding mode declaration
@@ -243,9 +239,9 @@ run = "layout floating"
 
 [workspace-to-monitor-force-assignment]
 a1 = "Built-in Retina Display"
-b1 = "DELL*"
-b2 = "DELL*"
-b3 = "DELL*"
-b4 = "DELL*"
+b1 = "{DELL|BenQ}*"
+b2 = "{DELL|BenQ}*"
+b3 = "{DELL|BenQ}*"
+b4 = "{DELL|BenQ}*"
 
 # vim: ft=toml
