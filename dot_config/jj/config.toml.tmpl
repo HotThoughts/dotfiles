@@ -80,7 +80,7 @@ patterns = [
     ]
 [fix.tools.terraform]
 command = ["terraform", "fmt", "-"]
-patterns = ["glob:'**/*.tf'"]
+patterns = ["glob:'**/*.tf'", "glob:'**/*.tfvars'"]
 
 [fix.tools.yamlfmt]
 command = ["yamlfmt", "-in"]
