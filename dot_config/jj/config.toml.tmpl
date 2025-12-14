@@ -57,3 +57,31 @@ auto-update-stale = true
 'blacklist()' = 'wip() | private()'
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & ~description(exact:"") & (~empty() | merges()))'
+
+[fix.tools.gofmt]
+patterns = ["glob:'**/*.go'"]
+command = ["gofmt"]
+
+[fix.tools.prettier]
+command = ["prettier", "--stdin-filepath", "$path"]
+# run with npx:
+#   command = ["npx", "prettier", "--stdin-filepath", "$path"]
+# run from node_modules:
+#   command = ["$root/node_modules/.bin/prettier", "--stdin-filepath", "$path"]
+patterns = [
+    "glob:'**/*.js'",
+    "glob:'**/*.jsx'",
+    "glob:'**/*.ts'",
+    "glob:'**/*.tsx'",
+    "glob:'**/*.json'",
+    "glob:'**/*.html'",
+    "glob:'**/*.md'",
+    "glob:'**/*.css'",
+    ]
+[fix.tools.terraform]
+command = ["terraform", "fmt", "-"]
+patterns = ["glob:'**/*.tf'"]
+
+[fix.tools.yamlfmt]
+command = ["yamlfmt", "-in"]
+patterns = ["glob:'**/*.yml'", "glob:'**/*.yaml'"]
