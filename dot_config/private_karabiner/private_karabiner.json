@@ -11,6 +11,7 @@
                 "rules": [
                     {
                         "description": "Hyper + SPACE : Toggle Alfred",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -289,6 +290,7 @@
                     "manipulate_caps_lock_led": false
                 },
                 {
+                    "disable_built_in_keyboard_if_exists": true,
                     "identifiers": {
                         "is_keyboard": true,
                         "product_id": 20530,
@@ -335,7 +337,6 @@
                         "product_id": 20530,
                         "vendor_id": 1155
                     },
-                    "ignore": false,
                     "manipulate_caps_lock_led": false
                 },
                 {
