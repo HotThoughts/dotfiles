@@ -1,0 +1,20 @@
+views:
+  v1/nodes:
+    sortColumn: AGE:asc
+    columns:
+      - NAME
+      - AZ:.metadata.labels.topology\.kubernetes\.io/zone
+      - LIFE:.metadata.labels.spotinst\.io/node-lifecycle
+      - INSTYPE:.metadata.labels.node\.kubernetes\.io/instance-type
+      - AGE
+      - STATUS
+      - VERSION
+      - PODS
+      - CPU/A
+      - MEM/A
+      - CPU
+      - MEM
+      - "%CPU"
+      - "%MEM"
+      - TAINTS
+      - ROLE|H

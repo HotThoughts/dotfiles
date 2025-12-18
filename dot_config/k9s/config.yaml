@@ -1,7 +1,7 @@
 k9s:
   liveViewAutoRefresh: false
   gpuVendors: {}
-  screenDumpDir: /Users/yiyao.wei/.config/k9s/screen-dumps
+  screenDumpDir: ~/.config/k9s/screen-dumps
   refreshRate: 2
   apiServerTimeout: 2m0s
   maxConnRetry: 5
