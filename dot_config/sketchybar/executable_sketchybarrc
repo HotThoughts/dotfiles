@@ -53,10 +53,10 @@ for sid in $(aerospace list-workspaces --all); do
   space_icon=""
   case "$sid" in
   a1) space_icon="↖" ;;
-  b1) space_icon="1" ;;
-  b2) space_icon="2" ;;
-  b3) space_icon="3" ;;
-  b4) space_icon="4" ;;
+  b1) space_icon="Q" ;;
+  b2) space_icon="W" ;;
+  b3) space_icon="E" ;;
+  b4) space_icon="R" ;;
   *) space_icon="$sid" ;;
   esac
 
