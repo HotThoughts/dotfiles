@@ -34,6 +34,7 @@ pre-commit = [
   "-c",
   "jj diff -r @ --name-only --no-pager | xargs pre-commit run --files",
 ]
+pr = ["util", "exec", "--", "fish", "-c", "jjpr"]
 push = ["util", "exec", "--", "fish", "-c", "jj pre-commit && jj git push"]
 push-pr = ["util", "exec", "--", "fish", "-c", "jj pre-commit && jjpr"]
 
