@@ -239,9 +239,9 @@ run = "layout floating"
 
 [workspace-to-monitor-force-assignment]
 a1 = "Built-in Retina Display"
-b1 = "{DELL|BenQ}*"
-b2 = "{DELL|BenQ}*"
-b3 = "{DELL|BenQ}*"
-b4 = "{DELL|BenQ}*"
+b1 = ["DELL*", "BenQ*"]
+b2 = ["DELL*", "BenQ*"]
+b3 = ["DELL*", "BenQ*"]
+b4 = ["DELL*", "BenQ*"]
 
 # vim: ft=toml
