@@ -19,6 +19,10 @@ return {
                 enable = false,
                 singleQuote = true,
               },
+              schemas = {
+                -- Use a CRD-inclusive schema for all YAML files
+                ["https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/all.json"] = "*.yaml",
+              },
             },
           },
         },
