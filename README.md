@@ -15,7 +15,7 @@ macOS dotfiles managed with [chezmoi](https://www.chezmoi.io).
 - **🔄 Version Control**: Git + [Jujutsu](https://martinvonz.github.io/jj/)
 - **🎨 Theme**: [Tokyo Night](https://github.com/folke/tokyonight.nvim)
 - **🔍 Navigation**: [fzf](https://github.com/junegunn/fzf), [zoxide](https://github.com/ajeetdsouza/zoxide), [atuin](https://atuin.sh/)
-- **🛠️ Quality**: [Trunk](https://trunk.io/), pre-commit hooks
+- **🛠️ Quality**: [Trunk](https://trunk.io/), [prek](https://github.com/HotThoughts/prek) (pre-commit replacement)
 - **📦 Packages**: Brewfile
 
 ## 🚀 Quick Start
@@ -68,7 +68,7 @@ The script installs chezmoi and runs `chezmoi init --apply`, which triggers `run
 
 ### Code Quality
 - **Trunk** - Unified linter/formatter
-- **pre-commit** - Git pre-commit hooks
+- **prek** - Fast, modern pre-commit hook runner (replacement for pre-commit)
 - **gitleaks** / **trufflehog** - Secret detection
 - **hadolint** - Dockerfile linter
 - **actionlint** - GitHub Actions linter
@@ -139,7 +139,7 @@ trunk fmt            # Format files
 trunk upgrade        # Update trunk
 ```
 
-Pre-commit hooks check shell scripts, Python, Markdown, secrets, YAML/JSON/TOML, and more.
+Prek runs hooks to check shell scripts, Python, Markdown, secrets, YAML/JSON/TOML, and more.
 
 ### Jujutsu Aliases
 

@@ -26,17 +26,17 @@ tug = [
 ]
 rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
 # Run pre-commit checks before pushing (only on jj-tracked changed files)
-pre-commit = [
+prek = [
   "util",
   "exec",
   "--",
   "fish",
   "-c",
-  "jj diff -r @ --name-only --no-pager | xargs pre-commit run --files",
+  "jj diff -r @ --name-only --no-pager | xargs prek run --files",
 ]
 pr = ["util", "exec", "--", "fish", "-c", "jjpr"]
-push = ["util", "exec", "--", "fish", "-c", "jj pre-commit && jj git push"]
-push-pr = ["util", "exec", "--", "fish", "-c", "jj pre-commit && jjpr"]
+push = ["util", "exec", "--", "fish", "-c", "jj prek && jj git push"]
+push-pr = ["util", "exec", "--", "fish", "-c", "jj prek && jjpr"]
 
 [templates]
 git_push_bookmark = '"yw/push-" ++ change_id.short()'
