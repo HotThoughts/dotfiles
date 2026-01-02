@@ -140,8 +140,5 @@ starship init fish | source
 # Zoxide (directory jumping)
 zoxide init fish | source
 
-# OrbStack integration
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :
-
 # AWS Assume (via Homebrew)
 alias assume="source (brew --prefix)/bin/assume.fish"
