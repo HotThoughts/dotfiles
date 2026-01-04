@@ -39,7 +39,7 @@ gtk-quick-terminal-layer = overlay
 
 # Shall integration
 shell-integration = fish
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor,ssh-terminfo,ssh-env
 
 # Keybinds
 # keybind = cmd+enter=new_split:right
