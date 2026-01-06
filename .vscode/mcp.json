@@ -69,7 +69,7 @@
       "args": [],
       "env": {
         "GRAFANA_URL": "${input:grafana-url}",
-        "GRAFANA_API_KEY": "${input:grafana-key}",
+        "GRAFANA_API_KEY": "${input:grafana-key}"
       }
     }
   }

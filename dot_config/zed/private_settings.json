@@ -1,11 +1,3 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "edit_predictions": {
     "mode": "eager",
@@ -72,7 +64,9 @@
   "base_keymap": "VSCode",
   "buffer_font_size": 16,
   "buffer_font_family": "Operator Mono Lig",
-  "buffer_font_fallbacks": ["Hack Nerd Font"],
+  "buffer_font_fallbacks": [
+    "Hack Nerd Font"
+  ],
   "theme": {
     "mode": "system",
     "light": "Catppuccin Espresso (Blur)",
@@ -105,13 +99,6 @@
     "font_family": "Operator Mono Lig"
   },
   "autosave": "on_focus_change",
-  // "toolbar": {
-  //   "breadcrumbs": true,
-  //   "quick_actions": true,
-  //   "selections_menu": true,
-  //   "agent_review": true,
-  //   "code_actions": true
-  // },
   "inline_code_actions": true,
   "symbols.folders.associations": {
     "infra": "folder-purple-code",
@@ -127,12 +114,13 @@
       "settings": {
         "yaml": {
           "keyOrdering": false,
-          // "format": {
-          //   "singleQuote": true
-          // },
           "schemas": {
-            "https://json.schemastore.org/bower.json": ["/*"],
-            "../relative/path/schema.json": ["/config*.yaml"]
+            "https://json.schemastore.org/bower.json": [
+              "/*"
+            ],
+            "../relative/path/schema.json": [
+              "/config*.yaml"
+            ]
           }
         }
       }
