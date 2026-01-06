@@ -69,7 +69,7 @@ brew "hashicorp/tap/terraform"
 tap "FelixKratz/formulae"
 brew "sketchybar"
 cask "font-sketchybar-app-font"
-# Window management 
+# Window management
 cask "nikitabobko/tap/aerospace"
 
 cask "notion"

@@ -46,7 +46,8 @@ return {
             "--indent-tables", -- Indent table entries
             "--indent-entries", -- Indent array entries
             "--array-trailing-comma", -- Add trailing commas in arrays
-            "--column-width", "100", -- Set column width
+            "--column-width",
+            "100", -- Set column width
             "--align-entries", -- Align entries in tables
           },
         },

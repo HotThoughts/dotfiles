@@ -6,19 +6,19 @@ if [ "$SENDER" = "volume_change" ]; then
   VOLUME="$INFO"
 
   case "$VOLUME" in
-    [6-9][0-9]|100) 
+    [6-9][0-9]|100)
       ICON="󰕾"
       COLOR=$GREY
     ;;
-    [3-5][0-9]) 
+    [3-5][0-9])
       ICON="󰖀"
       COLOR=$GREY
     ;;
-    [1-9]|[1-2][0-9]) 
+    [1-9]|[1-2][0-9])
       ICON="󰕿"
       COLOR=$GREY
     ;;
-    *) 
+    *)
       ICON="󰖁"
       COLOR=$GREY
   esac

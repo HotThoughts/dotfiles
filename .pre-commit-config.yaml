@@ -9,39 +9,16 @@ repos:
       - id: check-yaml
       - id: check-json
         exclude: "devcontainer.json"
+      - id: check-toml
       - id: check-added-large-files
       - id: check-merge-conflict
-
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.1
-    hooks:
-      - id: yamllint
-        name: Lint GitHub Action workflow files
-        files: ^\.github/workflows/
-        args:
-          - -d
-          - >
-            {
-              extends: default,
-              rules: {
-                    document-start:{
-                      present: true,
-                      level: warning
-                    },
-                    line-length: {
-                      max: 88,
-                      level: warning
-                    },
-                    indentation: {
-                      spaces: 2,
-                      indent-sequences: false,
-                      level: warning
-                    }
-                  }
-              }
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: mixed-line-ending
+      - id: detect-private-key
 
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.28.0
+    rev: v8.30.0
     hooks:
       - id: gitleaks
         name: 🔍 Check git leaks
@@ -52,109 +29,21 @@ repos:
       - id: shellcheck
       - id: shfmt
 
-  - repo: https://github.com/psf/black
-    rev: 25.9.0
-    hooks:
-      - id: black
-        name: 🐍 Format Python code PEP8
-        args:
-          - --line-length=88
-
-
-  - repo: https://github.com/pycqa/isort
-    rev: 7.0.0
-    hooks:
-      - id: isort
-        name: 🐍 Sort Python imports
-
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.21.0
-    hooks:
-      - id: pyupgrade
-        name: 🐍 Upgrade Python code
-        args: [--py36-plus]
-
-  # Black and flake8 for notebook
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.9.1
-    hooks:
-      - id: nbqa-black
-      - id: nbqa-flake8
-      - id: nbqa-isort
-
-  # Lint Dockerfile
-  - repo: https://github.com/hadolint/hadolint
-    rev: v2.14.0
-    hooks:
-      - id: hadolint
-        args:
-          # This rule is wrong. See https://github.com/hadolint/hadolint/issues/562
-          - --ignore=DL3005
-          - --ignore=DL3009
-
-  # Lint TeX Fil
-  - repo: https://github.com/jonasbb/pre-commit-latex-hooks
-    rev: v1.5.0
-    hooks:
-      - id: american-eg-ie
-      - id: cleveref-capitalization
-      - id: consistent-spelling
-        args:
-          - --emph=et al.
-          - --emph=a priori
-          - --emph=a posteriori
-          - --regex=naive=\bna(i|\\"i)ve'
-      - id: csquotes
-      - id: ensure-labels-for-sections
-      - id: no-space-in-cite
-      - id: tilde-cite
-  # Commitzen
-  - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.9.1
-    hooks:
-      - id: commitizen
-        stages: [commit-msg]
-
-  - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.8
-    hooks:
-      - id: actionlint
-        files: .github/workflows
-
-  - repo: https://github.com/markdownlint/markdownlint
-    rev: v0.12.0
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.47.0
     hooks:
       - id: markdownlint
         files: \.(md|mdown|markdown)$
 
   # Source code spell checker
   - repo: https://github.com/crate-ci/typos
-    rev: v1
+    rev: v1.41.0
     hooks:
       - id: typos
 
-  - repo: https://github.com/norwoodj/helm-docs
-    rev: v1.14.2
+  # Lua formatter for Neovim config files
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v2.3.1
     hooks:
-      - id: helm-docs
-        args:
-          - --chart-search-root=charts/kotlin
-          - --chart-search-root=charts/laravel
-          - --chart-search-root=charts/common
-
-  - repo: https://github.com/dnephin/pre-commit-golang
-    rev: v0.5.1
-    hooks:
-      - id: go-fmt
-      - id: go-vet
-      - id: go-lint
-      - id: go-imports
-      - id: go-cyclo
-        args: [-over=15]
-      - id: validate-toml
-      - id: no-go-testing
-      - id: golangci-lint
-      - id: go-critic
-      - id: go-unit-tests
-      - id: go-build
-      - id: go-mod-tidy
+      - id: stylua
+        files: \.lua$

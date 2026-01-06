@@ -231,7 +231,7 @@ cursor_stop_blinking_after 15.0
 #: scrollback buffer (in MB). This separate buffer is not available
 #: for interactive scrolling but will be piped to the pager program
 #: when viewing scrollback buffer in a separate window. The current
-#: implementation stores the data in UTF-8, so approximatively 10000
+#: implementation stores the data in UTF-8, so approximately 10000
 #: lines per megabyte at 100 chars per line, for pure ASCII text,
 #: unformatted text. A value of zero or less disables this feature.
 #: The maximum allowed size is 4GB. Note that on config reload if this
@@ -292,7 +292,7 @@ cursor_stop_blinking_after 15.0
 #: underline and the mouse cursor becomes a hand over them. Even if
 #: this option is disabled, URLs are still clickable.
 
-# url_excluded_characters 
+# url_excluded_characters
 
 #: Additional characters to be disallowed from URLs, when detecting
 #: URLs under the mouse cursor. By default, all characters legal in
@@ -980,7 +980,7 @@ editor lvim
 #: details. Changing this option by reloading the config is not
 #: supported.
 
-# env 
+# env
 
 #: Specify environment variables to set in all child processes. Note
 #: that environment variables are expanded recursively, so if you

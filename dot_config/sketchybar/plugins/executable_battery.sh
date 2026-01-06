@@ -38,4 +38,3 @@ if [[ "$CHARGING" != "" ]]; then
 fi
 
 sketchybar --set "$NAME" icon="$ICON" icon.color="$COLOR" label="${PERCENTAGE}%" label.color="$COLOR"
-

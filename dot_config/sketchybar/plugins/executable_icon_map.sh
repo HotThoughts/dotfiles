@@ -267,8 +267,8 @@ function __icon_map() {
   "FL Studio")
     icon_result=":flstudio:"
     ;;
-  "Folx")
-    icon_result=":folx:"
+  "Folks")
+    icon_result=":folks:"
     ;;
   "Fork")
     icon_result=":fork:"
@@ -708,7 +708,7 @@ function __icon_map() {
   "Setapp")
     icon_result=":setapp:"
     ;;
-  "SF Symbols" | "SF Symbole")
+  "SF Symbols" | "SF Symbol")
     icon_result=":sf_symbols:"
     ;;
   "Shortcuts")
@@ -924,4 +924,3 @@ function __icon_map() {
   esac
 }
 ### END-OF-ICON-MAP
-

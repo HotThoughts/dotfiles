@@ -6,7 +6,7 @@ views:
       - AZ:.metadata.labels.topology\.kubernetes\.io/zone
       - LIFE:.metadata.labels.spotinst\.io/node-lifecycle
       - INSTYPE:.metadata.labels.node\.kubernetes\.io/instance-type
-      - OSIMAGE:.status.nodeInfo.osImage 
+      - OSIMAGE:.status.nodeInfo.osImage
       - AGE
       - STATUS
       - VERSION
