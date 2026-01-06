@@ -19,17 +19,19 @@ fi
 
 # Update app icons for this workspace
 # aerospace list-windows format: window_id | app_name | window_title
-apps=$(aerospace list-windows --workspace "$1" 2>/dev/null | awk -F' \| ' '{print $2}' | sort -u)
+raw_windows=$(aerospace list-windows --workspace "$1" 2>/dev/null)
+apps=$(echo "$raw_windows" | awk -F' \\| ' '{print $2}' | sed 's/[[:space:]]*$//' | sort -u)
 
 icon_string=""
 if [ -n "$apps" ]; then
-	for app in $apps; do
+	while IFS= read -r app; do
+		[ -z "$app" ] && continue
 		__icon_map "$app"
 		# shellcheck disable=SC2154  # icon_result is set by __icon_map
 		if [ "$icon_result" != ":default:" ]; then
 			icon_string+="$icon_result"
 		fi
-	done
+	done <<<"$apps"
 fi
 
 if [ -n "$icon_string" ]; then
