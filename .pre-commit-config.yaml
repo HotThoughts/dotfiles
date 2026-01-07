@@ -47,3 +47,8 @@ repos:
     hooks:
       - id: stylua
         files: \.lua$
+
+  - repo: https://github.com/lycheeverse/lychee.git
+    rev: v0.15.1
+    hooks:
+      - id: lychee
