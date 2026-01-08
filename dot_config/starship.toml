@@ -74,7 +74,7 @@ style = "bright-black"
 [directory]
 read_only = " "
 format = "[$path]($style)[$read_only]($read_only_style) "
-truncation_length = 3
+truncation_length = 2
 truncate_to_repo = false
 truncation_symbol = "…/"
 style = "blue"
