@@ -237,6 +237,10 @@ run = "layout floating"
 if.app-id = 'com.raycast.macos'
 run = "layout floating"
 
+[[on-window-detected]]
+if.app-id = 'com.apple.reminders'
+run = "layout floating"
+
 [workspace-to-monitor-force-assignment]
 a1 = "Built-in Retina Display"
 b1 = ["DELL*", "BenQ*"]
