@@ -1,4 +1,31 @@
 {
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "context_servers": {
+    "mcp-server-github": {
+      "enabled": true,
+      "settings": {}
+    },
+    "mcp-server-context7": {
+      "enabled": true,
+      "settings": {}
+    }
+  },
+  "ssh_connections": [
+    {
+      "host": "raspberryzero",
+      "username": "pi",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/pi"
+          ]
+        }
+      ]
+    }
+  ],
   "edit_predictions": {
     "mode": "eager",
     "copilot": {
@@ -56,7 +83,7 @@
     "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "model": "claude-sonnet-4.5"
     },
     "model_parameters": [],
     "always_allow_tool_actions": true
@@ -70,7 +97,7 @@
   "theme": {
     "mode": "system",
     "light": "Catppuccin Espresso (Blur)",
-    "dark": "Catppuccin Espresso (Blur) [Heavy]"
+    "dark": "Catppuccin Espresso (Blur) [Light]"
   },
   "languages": {
     "YAML": {

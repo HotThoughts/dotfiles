@@ -6,19 +6,18 @@
       "cmd-\\": "workspace::ToggleLeftDock",
       "cmd-|": "workspace::ToggleRightDock",
       "ctrl-/": "workspace::ToggleBottomDock",
-      "ctrl-.": "agent::ToggleFocus"
-    }
+      "ctrl-.": "agent::ToggleFocus",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-shift-m": "workspace::ToggleZoom"
-    }
+      "cmd-shift-m": "workspace::ToggleZoom",
+    },
   },
   {
     "context": "Editor",
-    "bindings": {
-    }
+    "bindings": {},
   },
   {
     "context": "Dock",
@@ -26,21 +25,21 @@
       "ctrl-w h": "workspace::ActivatePaneLeft",
       "ctrl-w l": "workspace::ActivatePaneRight",
       "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-w j": "workspace::ActivatePaneDown",
+    },
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "shift-s": ["vim::PushAddSurrounds", {}]
-    }
+      "shift-s": ["vim::PushAddSurrounds", {}],
+    },
   },
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
       "s": "vim::PushSneak",
-      "shift-s": "vim::PushSneakBackward"
-    }
+      "shift-s": "vim::PushSneakBackward",
+    },
   },
   {
     "context": "VimControl && !menu && vim_mode != operator",
@@ -48,8 +47,8 @@
       "w": "vim::NextSubwordStart",
       "b": "vim::PreviousSubwordStart",
       "e": "vim::NextSubwordEnd",
-      "g e": "vim::PreviousSubwordEnd"
-    }
+      "g e": "vim::PreviousSubwordEnd",
+    },
   },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
@@ -68,15 +67,16 @@
       "space shift-s": "project_symbols::Toggle",
       "space a": "agent::ToggleFocus",
       "space z": "workspace::ToggleZoom",
+      "space m": "markdown::OpenPreview",
       "space g g": "git_panel::ToggleFocus",
       "space g c": "git::GenerateCommitMessage",
-      "ctrl-h": "project_panel::ToggleFocus"
-    }
+      "ctrl-h": "project_panel::ToggleFocus",
+    },
   },
   {
     "context": "vim_mode == normal && !menu",
     "bindings": {
-      "shift-y": ["workspace::SendKeystrokes", "y $"]
-    }
-  }
+      "shift-y": ["workspace::SendKeystrokes", "y $"],
+    },
+  },
 ]
