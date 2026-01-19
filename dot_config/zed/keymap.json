@@ -71,6 +71,15 @@
       "space g g": "git_panel::ToggleFocus",
       "space g c": "git::GenerateCommitMessage",
       "ctrl-h": "project_panel::ToggleFocus",
+      "space r": "task::Spawn",
+      "space j j": [
+        "task::Spawn",
+        { "task_name": "JJUI", "reveal_target": "center" },
+      ],
+      "space f f": [
+        "task::Spawn",
+        { "task_name": "Television File Finder", "reveal_target": "center" },
+      ],
     },
   },
   {

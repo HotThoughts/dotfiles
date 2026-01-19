@@ -1,16 +1,19 @@
 {
+  "tabs": {
+    "file_icons": true,
+  },
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "copilot",
   },
   "context_servers": {
     "mcp-server-github": {
       "enabled": true,
-      "settings": {}
+      "settings": {},
     },
     "mcp-server-context7": {
       "enabled": true,
-      "settings": {}
-    }
+      "settings": {},
+    },
   },
   "ssh_connections": [
     {
@@ -19,27 +22,34 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/home/pi"
-          ]
-        }
-      ]
-    }
+          "paths": ["/home/pi"],
+        },
+      ],
+    },
+    {
+      "host": "raspberry",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/pi/infra"],
+        },
+      ],
+    },
   ],
   "edit_predictions": {
     "mode": "eager",
     "copilot": {
       "proxy": null,
       "proxy_no_verify": null,
-      "enterprise_uri": null
+      "enterprise_uri": null,
     },
-    "enabled_in_text_threads": false
+    "enabled_in_text_threads": false,
   },
   "ui_font_family": "SF Pro",
   "ui_font_size": 15,
   "icon_theme": "Symbols",
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "agent": {
     "default_open_ai_model": "gpt-5.1",
@@ -63,67 +73,65 @@
           "grep": true,
           "terminal": true,
           "thinking": true,
-          "web_search": true
+          "web_search": true,
         },
         "enable_all_context_servers": true,
         "context_servers": {
           "mcp-server-context7": {
             "tools": {
               "resolve-library-id": true,
-              "get-library-docs": true
-            }
-          }
-        }
-      }
+              "get-library-docs": true,
+            },
+          },
+        },
+      },
     },
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "model": "gpt-4.1",
     },
     "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5"
+      "model": "claude-sonnet-4.5",
     },
     "model_parameters": [],
-    "always_allow_tool_actions": true
+    "always_allow_tool_actions": true,
   },
   "base_keymap": "VSCode",
   "buffer_font_size": 16,
   "buffer_font_family": "Operator Mono Lig",
-  "buffer_font_fallbacks": [
-    "Hack Nerd Font"
-  ],
+  "buffer_font_fallbacks": ["Hack Nerd Font"],
   "theme": {
     "mode": "system",
     "light": "Catppuccin Espresso (Blur)",
-    "dark": "Catppuccin Espresso (Blur) [Light]"
+    "dark": "Catppuccin Espresso (Blur) [Light]",
   },
   "languages": {
     "YAML": {
       "format_on_save": "off",
-      "formatter": "language_server"
-    }
+      "formatter": "language_server",
+    },
   },
   "vim_mode": true,
   "vim": {
     "use_system_clipboard": "always",
     "use_smartcase_find": true,
     "use_multiline_find": true,
-    "toggle_relative_line_numbers": true
+    "toggle_relative_line_numbers": true,
   },
   "experimental.theme_overrides": {
     "players": [
       {
         "cursor": "#ff5f00",
         "background": "#ff5f00ff",
-        "selection": "#ff5f003d"
-      }
-    ]
+        "selection": "#ff5f003d",
+      },
+    ],
   },
   "terminal": {
     "blinking": "on",
-    "font_family": "Operator Mono Lig"
+    "font_family": "Operator Mono Lig",
   },
   "autosave": "on_focus_change",
   "inline_code_actions": true,
@@ -134,7 +142,7 @@
     "cluster": "folder-config",
     "dev": "folder-green",
     "staging": "folder-yellow",
-    "production": "folder-red"
+    "production": "folder-red",
   },
   "lsp": {
     "yaml-language-server": {
@@ -142,15 +150,11 @@
         "yaml": {
           "keyOrdering": false,
           "schemas": {
-            "https://json.schemastore.org/bower.json": [
-              "/*"
-            ],
-            "../relative/path/schema.json": [
-              "/config*.yaml"
-            ]
-          }
-        }
-      }
-    }
-  }
+            "https://json.schemastore.org/bower.json": ["/*"],
+            "../relative/path/schema.json": ["/config*.yaml"],
+          },
+        },
+      },
+    },
+  },
 }
