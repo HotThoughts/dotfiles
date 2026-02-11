@@ -12,7 +12,6 @@ $fill\
 $status\
 $hg_branch\
 $docker_context\
-$package\
 $cmake\
 $cobol\
 $dart\
@@ -22,7 +21,6 @@ $elixir\
 $elm\
 $erlang\
 $golang\
-$helm\
 $java\
 $julia\
 $kotlin\
@@ -133,7 +131,10 @@ disabled = false
 # Nerd font
 [aws]
 symbol = "  "
+# format = ' on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
 format = ' on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+[aws.region_aliases]
+eu-central-1 = "euc1"
 
 [conda]
 symbol = " "
