@@ -1,0 +1,33 @@
+# Copilot CLI Skills Manifest
+# Managed by sync-skills.sh
+#
+# This file tracks all installed Copilot CLI skills.
+# Skills are automatically extracted from 'npx skills list -g'.
+#
+# To install skills from this manifest: ./scripts/install-skills.sh
+# To update this file: ./scripts/sync-skills.sh (or @update-dotfiles)
+
+skills:
+  - algorithmic-art
+  - brand-guidelines
+  - canvas-design
+  - devops-engineer
+  - doc-coauthoring
+  - docx
+  - find-skills
+  - frontend-design
+  - internal-comms
+  - jj-workflow
+  - kubernetes-specialist
+  - mcp-builder
+  - pdf
+  - pptx
+  - skill-creator
+  - slack-gif-creator
+  - sre-engineer
+  - template-skill
+  - theme-factory
+  - update-dotfiles
+  - web-artifacts-builder
+  - webapp-testing
+  - xlsx
