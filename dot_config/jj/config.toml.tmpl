@@ -24,7 +24,7 @@ tug = [
   "--to",
   "closest_pushable(@)",
 ]
-rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
+rebase-all = ["rebase", "-s", "roots(trunk()..mutable() & mine())", "-d", "trunk()"]
 # Run pre-commit checks before pushing (only on jj-tracked changed files)
 prek = [
   "util",
