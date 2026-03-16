@@ -1,22 +1,62 @@
-[custom_commands."Create PR"]
-key = ["p"]
-args = ["pr"]
-show = "interactive"
+[[actions]]
+name = "create-pr"
+desc = "Create PR"
+lua = '''
+  exec_shell("jj pr")
+'''
 
-[custom_commands."Move commit down"]
-key = ["J"]
-args = ["rebase", "-r", "$change_id", "--insert-before", "$change_id-"]
+[[bindings]]
+action = "create-pr"
+key = "p"
+scope = "revisions"
+desc = "Create PR"
 
-[custom_commands."Move commit up"]
-key = ["K"]
-args = ["rebase", "-r", "$change_id", "--insert-after", "$change_id+"]
+[[actions]]
+name = "move-commit-down"
+desc = "Move commit down"
+lua = '''
+  local id = context.change_id()
+  if id then
+    local _, err = jj({"rebase", "-r", id, "--insert-before", id .. "-"})
+    if err then flash("Error: " .. err) else revisions.refresh({}) end
+  end
+'''
 
-[custom_commands]
-"delta" = { args = [
-  "util",
-  "exec",
-  "--",
-  "bash",
-  "-c",
-  """jj show -r $change_id --summary --git --color=always | delta --pager 'less -R'""",
-], show = "interactive" }
+[[bindings]]
+action = "move-commit-down"
+key = "J"
+scope = "revisions"
+desc = "Move commit down"
+
+[[actions]]
+name = "move-commit-up"
+desc = "Move commit up"
+lua = '''
+  local id = context.change_id()
+  if id then
+    local _, err = jj({"rebase", "-r", id, "--insert-after", id .. "+"})
+    if err then flash("Error: " .. err) else revisions.refresh({}) end
+  end
+'''
+
+[[bindings]]
+action = "move-commit-up"
+key = "K"
+scope = "revisions"
+desc = "Move commit up"
+
+[[actions]]
+name = "delta-diff"
+desc = "Show diff with delta"
+lua = '''
+  local id = context.change_id()
+  if id then
+    exec_shell("jj show -r " .. id .. " --summary --git --color=always | delta --pager 'less -R'")
+  end
+'''
+
+[[bindings]]
+action = "delta-diff"
+key = "D"
+scope = "revisions"
+desc = "Show diff with delta"
