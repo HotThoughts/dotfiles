@@ -7,7 +7,7 @@ lua = '''
 
 [[bindings]]
 action = "create-pr"
-key = "p"
+seq = ["g", "p"]
 scope = "revisions"
 desc = "Create PR"
 
@@ -24,7 +24,7 @@ lua = '''
 
 [[bindings]]
 action = "move-commit-down"
-key = "J"
+seq = ["m", "j"]
 scope = "revisions"
 desc = "Move commit down"
 
@@ -41,7 +41,7 @@ lua = '''
 
 [[bindings]]
 action = "move-commit-up"
-key = "K"
+seq = ["m", "k"]
 scope = "revisions"
 desc = "Move commit up"
 
@@ -57,6 +57,6 @@ lua = '''
 
 [[bindings]]
 action = "delta-diff"
-key = "D"
+seq = ["g", "d"]
 scope = "revisions"
 desc = "Show diff with delta"
