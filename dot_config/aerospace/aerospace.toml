@@ -238,6 +238,10 @@ if.app-id = 'com.raycast.macos'
 run = "layout floating"
 
 [[on-window-detected]]
+if.app-id = 'com.electron.wispr-flow'
+run = "layout floating"
+
+[[on-window-detected]]
 if.app-id = 'com.apple.reminders'
 run = "layout floating"
 

@@ -83,6 +83,7 @@ cask "obsidian"
 cask "input-source-pro"
 cask "tailscale-app"
 cask "pearcleaner"
+cask "wispr-flow"
 
 # Fonts
 cask "font-inconsolata"
