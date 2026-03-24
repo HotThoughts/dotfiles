@@ -5,6 +5,8 @@ views:
       - NAME
       - AZ:.metadata.labels.topology\.kubernetes\.io/zone
       - LIFE:.metadata.labels.spotinst\.io/node-lifecycle
+      - LIFE:.metadata.labels.karpenter\.sh/capacity-type
+      - NODEPOOL:.metadata.labels.karpenter\.sh/nodepool
       - INSTYPE:.metadata.labels.node\.kubernetes\.io/instance-type
       - OSIMAGE:.status.nodeInfo.osImage
       - AGE
