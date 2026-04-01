@@ -110,7 +110,7 @@ style = "bright-black"
 [cmd_duration]
 min_time = 2_000
 style = "yellow"
-format = " [$duration]($style)"
+format = "[$duration]($style) "
 show_notifications = true
 min_time_to_notify = 45_000
 
