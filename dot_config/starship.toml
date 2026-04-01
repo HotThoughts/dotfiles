@@ -8,7 +8,6 @@ $directory\
 $vcsh\
 ${custom.jj}\
 $cmd_duration\
-$fill\
 $status\
 $hg_branch\
 $docker_context\
@@ -71,8 +70,8 @@ style = "bright-black"
 read_only = " "
 format = "[$path]($style)[$read_only]($read_only_style) "
 truncation_length = 2
-truncate_to_repo = false
-truncation_symbol = "…/"
+truncate_to_repo = true
+truncation_symbol = ""
 style = "blue"
 
 [time]
@@ -132,7 +131,7 @@ disabled = false
 [aws]
 symbol = "  "
 # format = ' on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
-format = ' on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+format = 'on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
 [aws.region_aliases]
 eu-central-1 = "euc1"
 
