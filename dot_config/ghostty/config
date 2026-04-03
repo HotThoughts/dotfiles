@@ -10,13 +10,14 @@ font-thicken = true
 # Styles
 theme = Tokyonight Moon
 
-macos-titlebar-style = tabs
+macos-titlebar-style = hidden
+
 
 background-opacity = 0.9
 background-blur-radius = 50
 
 fullscreen = false
-macos-non-native-fullscreen = false
+macos-non-native-fullscreen = padded-notch
 
 window-padding-x = 10
 window-padding-y = 10
