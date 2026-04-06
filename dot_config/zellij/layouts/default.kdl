@@ -1,5 +1,5 @@
 layout {
-    swap_tiled_layout name="vertical" {
+    swap_tiled_layout name="" {
         tab max_panes=5 {
             pane split_direction="vertical" {
                 pane
@@ -21,7 +21,7 @@ layout {
         }
     }
 
-    swap_tiled_layout name="horizontal" {
+    swap_tiled_layout name="" {
         tab max_panes=5 {
             pane
             pane
@@ -41,7 +41,7 @@ layout {
         }
     }
 
-    swap_tiled_layout name="stacked" {
+    swap_tiled_layout name="󰚈" {
         tab min_panes=5 {
             pane split_direction="vertical" {
                 pane
