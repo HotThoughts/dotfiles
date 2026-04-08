@@ -343,13 +343,13 @@ themes {
         bg "#24283b"
         black "#32344a"
         red "#f7768e"
-        green "#9ece6a"
+        green "#7aa2f7"
         yellow "#e0af68"
         blue "#7aa2f7"
         magenta "#ad8ee6"
         cyan "#449dab"
-        white "#9699a8"
-        orange "#ff9e64"
+        white "#3b4261"
+        orange "#bb9af7"
     }
 }
 
