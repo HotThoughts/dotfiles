@@ -1,0 +1,32 @@
+#!/usr/bin/env fish
+source (brew --prefix)/bin/assume.fish prod
+or begin
+    echo "tv-ecr-tags: failed to assume prod" >&2
+    exit 1
+end
+
+set tab (printf '\t')
+
+set raw (aws ecr describe-images --repository-name $ECR_REPO --filter tagStatus=TAGGED \
+    --output json \
+    | jq -r '
+        [.imageDetails[] | select(.imageTags != null and (.imageTags | length) > 0)]
+        | sort_by(.imagePushedAt) | reverse
+        | .[]
+        | [
+            .imageTags[0],
+            (.imagePushedAt[:16] | gsub("T"; " ")),
+            (((.imageSizeInBytes / 1048576 * 10 | floor) / 10 | tostring) + " MB"),
+            (if .lastRecordedPullTime then (.lastRecordedPullTime[:16] | gsub("T"; " ")) else "—" end)
+          ]
+        | @tsv')
+
+set repo_uri (aws ecr describe-repositories --repository-name $ECR_REPO \
+    --query 'repositories[0].repositoryUri' --output text)
+
+set formatted (printf "%s\n" $raw | column -t -s $tab)
+
+for i in (seq (count $raw))
+    set tag (printf "%s" $raw[$i] | cut -f1)
+    printf "%s\t%s\t%s:%s\n" $formatted[$i] $tag $repo_uri $tag
+end

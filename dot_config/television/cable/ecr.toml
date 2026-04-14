@@ -1,0 +1,18 @@
+[metadata]
+name = "ecr"
+description = "Search ECR repositories, drill into tags"
+requirements = ["tv-ecr-repos", "tv"]
+
+[source]
+command = "tv-ecr-repos"
+
+[ui]
+preview_panel = { hidden = true }
+
+[keybindings]
+enter = "actions:browse_tags"
+
+[actions.browse_tags]
+description = "Browse tags for the selected repository"
+command = "ECR_REPO='{0}' tv ecr-tags"
+mode = "execute"

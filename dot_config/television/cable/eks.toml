@@ -1,0 +1,18 @@
+[metadata]
+name = "eks"
+description = "Assume AWS role and launch k9s for a cluster"
+requirements = ["kubectl", "k9s"]
+
+[source]
+command = "kubectl config get-contexts -o name 2>/dev/null | sort"
+
+[ui]
+preview_panel = { hidden = true }
+
+[keybindings]
+enter = "actions:launch"
+
+[actions.launch]
+description = "Launch k9s"
+command = "tv-eks-launch {}"
+mode = "execute"

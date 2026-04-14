@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+source (brew --prefix)/bin/assume.fish prod
+or begin
+    echo "tv-ecr-repos: failed to assume prod" >&2
+    exit 1
+end
+
+aws ecr describe-repositories --output text --query repositories[].repositoryName | tr \t \n | sort

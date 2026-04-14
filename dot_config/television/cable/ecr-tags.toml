@@ -1,0 +1,26 @@
+[metadata]
+name = "ecr-tags"
+description = "Browse image tags for $ECR_REPO and copy full image URI"
+requirements = ["tv-ecr-tags", "pbcopy"]
+
+[source]
+command = "tv-ecr-tags"
+display = "{split:\t:0}"
+
+[ui]
+preview_panel = { hidden = true }
+input_bar = { prompt = "tag>" }
+
+[keybindings]
+enter = "actions:copy_uri"
+ctrl-y = "actions:copy_tag"
+
+[actions.copy_uri]
+description = "Copy full image URI to clipboard"
+command = '''printf '%s' "{split:\t:-1}" | pbcopy'''
+mode = "execute"
+
+[actions.copy_tag]
+description = "Copy tag only to clipboard"
+command = '''printf '%s' "{split:\t:1}" | pbcopy'''
+mode = "execute"

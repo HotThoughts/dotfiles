@@ -1,0 +1,19 @@
+#!/usr/bin/env fish
+set cluster $argv[1]
+
+if string match -q '*prod*' $cluster
+    set account prod
+else
+    set account dev
+end
+
+source (brew --prefix)/bin/assume.fish $account
+or begin
+    echo "eks-launch: failed to assume role '$account'"
+    exit 1
+end
+
+# Set pane title via OSC 0 — zellij picks this up natively.
+# Use $cluster directly since --context doesn't update kubeconfig's current-context.
+printf '\033]0;⎈ %s\007' $cluster
+command k9s --context $cluster
