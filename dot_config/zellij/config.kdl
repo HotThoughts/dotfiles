@@ -158,10 +158,14 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
+        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt Shift t" { GoToPreviousTab; }
+        bind "Alt t" { GoToNextTab; }
         bind "Ctrl /" { ToggleFloatingPanes; }
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Alt i" { MoveTab "left"; }
         bind "Alt n" { NewPane; }
+        bind "Alt Shift n" { NewTab; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
@@ -342,14 +346,14 @@ themes {
         fg "#a9b1d6"
         bg "#24283b"
         black "#32344a"
-        red "#f7768e"
-        green "#7aa2f7"
+        red "#bb9af7"
+        green "#9ece6a"
         yellow "#e0af68"
         blue "#7aa2f7"
         magenta "#ad8ee6"
         cyan "#449dab"
-        white "#3b4261"
-        orange "#bb9af7"
+        white "#a9b1d6"
+        orange "#ff9e64"
     }
 }
 
