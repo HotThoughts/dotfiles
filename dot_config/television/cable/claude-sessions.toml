@@ -1,0 +1,26 @@
+[metadata]
+name = "claude-sessions"
+description = "Browse, resume, or delete Claude Code sessions across all projects"
+requirements = ["tv-claude-sessions", "claude", "jq"]
+
+[source]
+command = "tv-claude-sessions"
+display = "{split:\t:0}"
+
+[ui]
+preview_panel = { hidden = true }
+input_bar = { prompt = "session>" }
+
+[keybindings]
+enter = "actions:resume"
+ctrl-d = "actions:delete"
+
+[actions.resume]
+description = "cd into session cwd and resume"
+command = '''cd "{split:\t:1}" && claude --resume "{split:\t:2}"'''
+mode = "execute"
+
+[actions.delete]
+description = "Delete session file and subagent transcripts"
+command = '''rm -f "{split:\t:3}" && rm -rf "{split:\t:4}"'''
+mode = "fork"

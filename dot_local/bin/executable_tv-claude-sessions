@@ -1,0 +1,43 @@
+#!/usr/bin/env fish
+set tab (printf '\t')
+
+# Collect raw rows: mtime\tdir\ttitle\tcwd\tsid\tpath\tsubdir
+set raw
+for f in ~/.claude/projects/*/*.jsonl
+    test -f $f; or continue
+    set sid (basename $f .jsonl)
+    set mtime (stat -f '%m' $f 2>/dev/null)
+    test -z "$mtime"; and continue
+    set info (jq -rc '
+        select(.type == "user" and (.cwd // empty))
+        | [.cwd, (.slug // "")]
+        | @tsv' < $f | head -1)
+    test -z "$info"; and continue
+    set cwd (printf "%s" $info | cut -f1)
+    set title (printf "%s" $info | cut -f2)
+    test -z "$title"; and continue
+    set dir (basename $cwd)
+    set subdir (string replace -- '.jsonl' '' $f)
+    set raw $raw (printf "%s\t%s\t%s\t%s\t%s\t%s\t%s" \
+        $mtime $dir $title $cwd $sid $f $subdir)
+end
+
+test (count $raw) -eq 0; and exit 0
+
+# Sort by mtime desc, strip mtime prefix
+set sorted (printf "%s\n" $raw | sort -rn | string replace -r '^[0-9]+\t' '')
+
+# Split into display columns (dir + title) and action columns (cwd + sid + path + subdir)
+set display_raw
+set action_cols
+for row in $sorted
+    set display_raw $display_raw (printf "%s" $row | cut -f1-2)
+    set action_cols $action_cols (printf "%s" $row | cut -f3-)
+end
+
+# Align display columns and re-join with action fields
+set formatted (printf "%s\n" $display_raw | column -t -s "$tab")
+
+for i in (seq (count $sorted))
+    printf "%s\t%s\n" $formatted[$i] $action_cols[$i]
+end
