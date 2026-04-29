@@ -50,6 +50,10 @@ keybind = cmd+enter=text:\x1bn
 keybind = cmd+p=toggle_command_palette
 keybind = cmd+[=text:\x1bT
 keybind = cmd+]=text:\x1bt
+keybind = cmd+up=text:\x1b[1;3A
+keybind = cmd+down=text:\x1b[1;3B
+keybind = cmd+left=text:\x1b[1;3D
+keybind = cmd+right=text:\x1b[1;3C
 
 keybind = alt+left=unbind
 keybind = alt+right=unbind

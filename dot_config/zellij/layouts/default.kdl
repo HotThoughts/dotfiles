@@ -98,7 +98,7 @@ layout {
                 format_right  "#[fg=#32344a]#[bg=#32344a,fg=#7aa2f7,bold]{swap_layout}#[bg=#24283b,fg=#32344a,bold] #[fg=#565f89] Zellij: #[fg=#565f89]{session}"
                 format_space  ""
                 format_hide_on_overlength "true"
-                format_precedence "crl"
+                format_precedence "lrc"
 
                 border_enabled  "false"
                 border_char     "─"
