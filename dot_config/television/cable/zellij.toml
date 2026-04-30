@@ -1,0 +1,26 @@
+[metadata]
+name = "zellij"
+description = "Attach or switch between Zellij sessions"
+requirements = ["zellij"]
+
+[source]
+command = "tv-zellij"
+display = "{split:\t:0}"
+
+[ui]
+preview_panel = { hidden = true }
+input_bar = { prompt = "session>" }
+
+[keybindings]
+enter = "actions:attach_or_switch"
+ctrl-d = "actions:kill"
+
+[actions.attach_or_switch]
+description = "Attach to session (outside Zellij) or open session manager (inside Zellij)"
+command = '''tv-zellij ATTACH '{split:\t:0}''''
+mode = "execute"
+
+[actions.kill]
+description = "Kill session"
+command = '''zellij kill-session '{split:\t:0}''''
+mode = "fork"

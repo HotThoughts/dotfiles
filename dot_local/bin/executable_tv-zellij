@@ -1,0 +1,30 @@
+#!/usr/bin/env fish
+
+function __tv_zellij_list
+    set -l current_session $ZELLIJ_SESSION_NAME
+    zellij list-sessions --short --no-formatting | while read -l name
+        set -l is_current ""
+        if test -n "$current_session" -a "$name" = "$current_session"
+            set is_current "(current)"
+        end
+        printf '%s\t%s\n' "$name" "$is_current"
+    end
+end
+
+function __tv_zellij_attach
+    set -l session_name $argv[1]
+
+    if set -q ZELLIJ
+        # Inside a zellij session — delegate to session manager
+        zellij action launch-or-focus-plugin session-manager
+    else
+        # Outside zellij — attach directly
+        zellij attach "$session_name"
+    end
+end
+
+if test (count $argv) -eq 0
+    __tv_zellij_list
+else if test "$argv[1]" = ATTACH
+    __tv_zellij_attach $argv[2]
+end
