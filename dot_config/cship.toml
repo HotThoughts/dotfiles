@@ -11,7 +11,7 @@ lines = [
   """,
   """
   $cship.model $cship.agent"\
-  $cship.context_bar $cship.cost $cship.usage_limits
+  $cship.context_bar $cship.cost $cship.usage_limits $cship.usage_limits.extra_usage
   """
 ]
 
@@ -25,6 +25,8 @@ style  = "fg:#9ece6a"
 
 [cship.context_bar]
 symbol             = " "
+filled_char        = "●"
+empty_char         = "○"
 format             = "[$symbol$value]($style)"
 width              = 10
 style              = "fg:#7dcfff"
