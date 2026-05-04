@@ -105,7 +105,7 @@ layout {
                 border_format   "#[fg=#32344a]{char}"
                 border_position "bottom"
 
-                hide_frame_for_single_pane "true"
+                hide_frame_for_single_pane "false"
 
                 mode_normal        "#[fg=#32344a]#[bg=#32344a,fg=#7aa2f7,bold]NORMAL#[fg=#32344a]"
                 mode_locked        "#[fg=#32344a]#[bg=#32344a,fg=#444b6a,bold]LOCKED #[fg=#32344a]"
