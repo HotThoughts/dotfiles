@@ -11,7 +11,7 @@ lines = [
   """,
   """
   $cship.model $cship.agent"\
-  $cship.context_bar $cship.cost $cship.usage_limits $cship.usage_limits.extra_usage
+  $cship.context_bar $cship.cost $cship.usage_limits
   """
 ]
 
