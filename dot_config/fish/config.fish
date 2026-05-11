@@ -2,6 +2,15 @@
 # Fish Shell Configuration
 # =============================================================================
 
+# Prefer native Homebrew when it is available.
+if test -x /opt/homebrew/bin/brew
+    eval (/opt/homebrew/bin/brew shellenv fish)
+end
+
+if not set -q HOMEBREW_PREFIX
+    set -gx HOMEBREW_PREFIX /opt/homebrew
+end
+
 # -----------------------------------------------------------------------------
 # Abbreviations
 # -----------------------------------------------------------------------------
@@ -18,36 +27,42 @@ abbr -a -- cu 'chezmoi update'
 # -----------------------------------------------------------------------------
 # PATH Management
 # -----------------------------------------------------------------------------
-# Use fish_add_path (universal by default) for proper PATH management
+# Use session-global paths so Intel leftovers do not get persisted in fish_user_paths.
 
 # Local binaries (highest priority)
-fish_add_path $HOME/.local/bin
+fish_add_path -g $HOME/.local/bin
 
 # Development tools
-fish_add_path $HOME/go/bin
-fish_add_path $HOME/.cargo/bin
-fish_add_path $HOME/.claude/local
+fish_add_path -g $HOME/go/bin
+fish_add_path -g $HOME/.cargo/bin
+fish_add_path -g $HOME/.claude/local
+fish_add_path -g $HOME/.pyenv/bin
+fish_add_path -g $HOME/.fig/bin
 
 # Kubernetes tools
-fish_add_path $HOME/.krew/bin
-fish_add_path $HOME/.linkerd2/bin
+fish_add_path -g $HOME/.krew/bin
+fish_add_path -g $HOME/.linkerd2/bin
 
 # Ruby
-fish_add_path /usr/local/opt/ruby/bin
-fish_add_path $HOME/.gem/ruby/2.7.2/bin
+if test -d "$HOMEBREW_PREFIX/opt/ruby/bin"
+    fish_add_path -g "$HOMEBREW_PREFIX/opt/ruby/bin"
+end
+fish_add_path -g $HOME/.gem/ruby/2.7.2/bin
 
 # Qt
-fish_add_path /usr/local/opt/qt/bin
+if test -d "$HOMEBREW_PREFIX/opt/qt/bin"
+    fish_add_path -g "$HOMEBREW_PREFIX/opt/qt/bin"
+end
 
 # TeX
-fish_add_path /Library/TeX/texbin
+fish_add_path -g /Library/TeX/texbin
 
 # -----------------------------------------------------------------------------
-# Environment Variables (Universal - persist across sessions)
+# Environment Variables
 # -----------------------------------------------------------------------------
 
 # GPG
-set -Ux GPG_TTY (tty)
+set -gx GPG_TTY (tty)
 
 # Editor
 set -Ux EDITOR nvim
@@ -70,10 +85,37 @@ set -Ux SKIM_DEFAULT_OPTIONS "--multi --border --cycle --reverse --extended --he
 # eza configuration
 set -Ux EZA_STANDARD_OPTIONS --icons
 
-# Build flags (universal for consistent build environment)
-set -Ux LDFLAGS -L/usr/local/opt/qt/lib -L/usr/local/opt/ruby/lib
-set -Ux CPPFLAGS -I/usr/local/opt/qt/include -I/usr/local/opt/ruby/include
-set -Ux PKG_CONFIG_PATH /usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/ruby/lib/pkgconfig
+# Build flags for brew-managed toolchains
+set -e LDFLAGS
+set -e CPPFLAGS
+set -e PKG_CONFIG_PATH
+set -l build_ldflags
+set -l build_cppflags
+set -l build_pkg_config
+
+if test -d "$HOMEBREW_PREFIX/opt/qt/lib"
+    set build_ldflags $build_ldflags "-L$HOMEBREW_PREFIX/opt/qt/lib"
+    set build_cppflags $build_cppflags "-I$HOMEBREW_PREFIX/opt/qt/include"
+    set build_pkg_config $build_pkg_config "$HOMEBREW_PREFIX/opt/qt/lib/pkgconfig"
+end
+
+if test -d "$HOMEBREW_PREFIX/opt/ruby/lib"
+    set build_ldflags $build_ldflags "-L$HOMEBREW_PREFIX/opt/ruby/lib"
+    set build_cppflags $build_cppflags "-I$HOMEBREW_PREFIX/opt/ruby/include"
+    set build_pkg_config $build_pkg_config "$HOMEBREW_PREFIX/opt/ruby/lib/pkgconfig"
+end
+
+if test (count $build_ldflags) -gt 0
+    set -gx LDFLAGS $build_ldflags
+end
+
+if test (count $build_cppflags) -gt 0
+    set -gx CPPFLAGS $build_cppflags
+end
+
+if test (count $build_pkg_config) -gt 0
+    set -gx PKG_CONFIG_PATH $build_pkg_config
+end
 
 # -----------------------------------------------------------------------------
 # Plugin Configuration (Global - session-specific)
@@ -133,13 +175,25 @@ set -U fish_pager_color_selected_background --background=$selection
 # -----------------------------------------------------------------------------
 
 # Atuin (command history)
-atuin init fish | sed 's/-k up/up/' | source
+if command -q atuin
+    atuin init fish | sed 's/-k up/up/' | source
+end
 
 # Starship (prompt)
-starship init fish | source
+if command -q starship
+    starship init fish | source
+end
 
 # Zoxide (directory jumping)
-zoxide init fish | source
+if command -q zoxide
+    zoxide init fish | source
+end
 
 # AWS Assume (via Homebrew)
-alias assume="source (brew --prefix)/bin/assume.fish"
+if command -q brew
+    alias assume="source (brew --prefix)/bin/assume.fish"
+end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
