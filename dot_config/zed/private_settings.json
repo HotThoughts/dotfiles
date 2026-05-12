@@ -1,9 +1,16 @@
 {
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
   "tabs": {
     "file_icons": true,
-  },
-  "features": {
-    "edit_prediction_provider": "copilot",
   },
   "context_servers": {
     "mcp-server-github": {
@@ -19,7 +26,7 @@
     {
       "host": "raspberryzero",
       "username": "pi",
-      "args": [],
+      "upload_binary_over_ssh": true,
       "projects": [
         {
           "paths": ["/home/pi"],
@@ -28,7 +35,8 @@
     },
     {
       "host": "raspberry",
-      "args": [],
+      "username": "pi",
+      "upload_binary_over_ssh": true,
       "projects": [
         {
           "paths": ["/home/pi/infra"],
@@ -37,6 +45,7 @@
     },
   ],
   "edit_predictions": {
+    "provider": "copilot",
     "mode": "eager",
     "copilot": {
       "proxy": null,
@@ -46,17 +55,26 @@
     "enabled_in_text_threads": false,
   },
   "ui_font_family": "SF Pro",
-  "ui_font_size": 15,
-  "icon_theme": "Symbols",
+  "ui_font_size": 16,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Symbols",
+    "dark": "Symbols"
+  },
   "git_panel": {
-    "dock": "left",
+    "dock": "right",
   },
   "agent": {
+    "dock": "left",
+    "tool_permissions": {
+      "default": "allow",
+    },
     "default_open_ai_model": "gpt-5.1",
     "profiles": {
       "write": {
         "name": "Write",
         "tools": {
+          "search_web": true,
           "open": true,
           "copy_path": true,
           "create_directory": true,
@@ -73,7 +91,6 @@
           "grep": true,
           "terminal": true,
           "thinking": true,
-          "web_search": true,
         },
         "enable_all_context_servers": true,
         "context_servers": {
@@ -92,20 +109,21 @@
     },
     "default_profile": "write",
     "default_model": {
+      "enable_thinking": true,
+      "effort": "high",
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5",
+      "model": "gemini-3-flash-preview",
     },
     "model_parameters": [],
-    "always_allow_tool_actions": true,
   },
   "base_keymap": "VSCode",
   "buffer_font_size": 16,
   "buffer_font_family": "Operator Mono Lig",
   "buffer_font_fallbacks": ["Hack Nerd Font"],
   "theme": {
-    "mode": "system",
-    "light": "Catppuccin Espresso (Blur)",
-    "dark": "Catppuccin Espresso (Blur) [Light]",
+    "mode": "light",
+    "light": "Catppuccin Latte",
+    "dark": "Halcyon",
   },
   "languages": {
     "YAML": {
