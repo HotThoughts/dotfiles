@@ -54,6 +54,15 @@ keybind = cmd+up=text:\x1b[1;3A
 keybind = cmd+down=text:\x1b[1;3B
 keybind = cmd+left=text:\x1b[1;3D
 keybind = cmd+right=text:\x1b[1;3C
+keybind = cmd+1=text:\x1b1
+keybind = cmd+2=text:\x1b2
+keybind = cmd+3=text:\x1b3
+keybind = cmd+4=text:\x1b4
+keybind = cmd+5=text:\x1b5
+keybind = cmd+6=text:\x1b6
+keybind = cmd+7=text:\x1b7
+keybind = cmd+8=text:\x1b8
+keybind = cmd+9=text:\x1b9
 
 keybind = alt+left=unbind
 keybind = alt+right=unbind
