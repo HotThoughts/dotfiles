@@ -7,6 +7,10 @@
       "cmd-|": "workspace::ToggleRightDock",
       "ctrl-/": "workspace::ToggleBottomDock",
       "ctrl-.": "agent::ToggleFocus",
+      "cmd-left": "workspace::ActivatePaneLeft",
+      "cmd-right": "workspace::ActivatePaneRight",
+      "cmd-up": "workspace::ActivatePaneUp",
+      "cmd-down": "workspace::ActivatePaneDown",
     },
   },
   {

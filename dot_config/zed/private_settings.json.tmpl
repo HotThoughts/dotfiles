@@ -1,4 +1,6 @@
 {
+  "agent_buffer_font_size": 12.0,
+  "agent_ui_font_size": 12.0,
   "cli_default_open_behavior": "existing_window",
   "project_panel": {
     "dock": "right"
@@ -9,13 +11,47 @@
   "collaboration_panel": {
     "dock": "right"
   },
+  "diff_view_style": "unified",
+  "profiles": {
+    "Presenting": {
+      "settings": {
+        "agent_buffer_font_size": 18.0,
+        "buffer_font_size": 18.0,
+        "ui_font_size": 18.0
+      }
+    },
+  },
+  "which_key": {
+    "delay_ms": 300,
+    "enabled": true,
+  },
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
+  "session": {
+    "trust_all_worktrees": false,
+  },
   "tabs": {
     "file_icons": true,
   },
   "context_servers": {
+    "mcp-server-linear": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "linear_api_key": "{{ keyring "chezmoi-linear" "api_key" }}",
+      },
+    },
     "mcp-server-github": {
       "enabled": true,
-      "settings": {},
+      "settings": {
+        "github_personal_access_token": "{{ keyring "chezmoi-github" "pat" }}",
+      },
     },
     "mcp-server-context7": {
       "enabled": true,
@@ -26,7 +62,7 @@
     {
       "host": "raspberryzero",
       "username": "pi",
-      "upload_binary_over_ssh": true,
+      "args": [],
       "projects": [
         {
           "paths": ["/home/pi"],
@@ -35,8 +71,7 @@
     },
     {
       "host": "raspberry",
-      "username": "pi",
-      "upload_binary_over_ssh": true,
+      "args": [],
       "projects": [
         {
           "paths": ["/home/pi/infra"],
@@ -55,12 +90,8 @@
     "enabled_in_text_threads": false,
   },
   "ui_font_family": "SF Pro",
-  "ui_font_size": 16,
-  "icon_theme": {
-    "mode": "dark",
-    "light": "Symbols",
-    "dark": "Symbols"
-  },
+  "ui_font_size": 12.0,
+  "icon_theme": "Symbols Icon Theme",
   "git_panel": {
     "dock": "right",
   },
@@ -69,7 +100,6 @@
     "tool_permissions": {
       "default": "allow",
     },
-    "default_open_ai_model": "gpt-5.1",
     "profiles": {
       "write": {
         "name": "Write",
@@ -109,20 +139,20 @@
     },
     "default_profile": "write",
     "default_model": {
-      "enable_thinking": true,
       "effort": "high",
+      "enable_thinking": true,
       "provider": "copilot_chat",
-      "model": "gemini-3-flash-preview",
+      "model": "gemini-3.1-pro-preview",
     },
     "model_parameters": [],
   },
   "base_keymap": "VSCode",
-  "buffer_font_size": 16,
+  "buffer_font_size": 12.0,
   "buffer_font_family": "Operator Mono Lig",
   "buffer_font_fallbacks": ["Hack Nerd Font"],
   "theme": {
-    "mode": "light",
-    "light": "Catppuccin Latte",
+    "mode": "dark",
+    "light": "Catppuccin Espresso (Blur)",
     "dark": "Halcyon",
   },
   "languages": {
@@ -135,7 +165,6 @@
   "vim": {
     "use_system_clipboard": "always",
     "use_smartcase_find": true,
-    "use_multiline_find": true,
     "toggle_relative_line_numbers": true,
   },
   "experimental.theme_overrides": {
