@@ -63,6 +63,7 @@ keybind = cmd+6=text:\x1b6
 keybind = cmd+7=text:\x1b7
 keybind = cmd+8=text:\x1b8
 keybind = cmd+9=text:\x1b9
+keybind = cmd+shift+m=text:\x1bM
 
 keybind = alt+left=unbind
 keybind = alt+right=unbind
