@@ -24,7 +24,7 @@ brew "gpg"
 brew "eza"
 brew "fzf"
 # Better git diff
-brew "git-delta"
+brew "modem-dev/tap/hunk"
 brew "ripgrep"
 # Alternative to find
 brew "fd"

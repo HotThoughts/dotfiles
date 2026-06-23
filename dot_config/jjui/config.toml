@@ -46,17 +46,17 @@ scope = "revisions"
 desc = "Move commit up"
 
 [[actions]]
-name = "delta-diff"
-desc = "Show diff with delta"
+name = "hunk-diff"
+desc = "Show diff with hunk"
 lua = '''
   local id = context.change_id()
   if id then
-    exec_shell("jj show -r " .. id .. " --summary --git --color=always | delta --pager 'less -R'")
+    exec_shell("hunk show " .. id)
   end
 '''
 
 [[bindings]]
-action = "delta-diff"
+action = "hunk-diff"
 seq = ["g", "d"]
 scope = "revisions"
-desc = "Show diff with delta"
+desc = "Show diff with hunk"

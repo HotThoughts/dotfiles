@@ -53,7 +53,7 @@ Brewfile, and Fish plugins.
 - **ripgrep** - Fast grep
 - **fd** - Fast find
 - **fzf** - Fuzzy finder
-- **delta** - Better git diffs
+- **hunk** - Review-first git diffs
 - **lazygit** / **lazyjj** - TUI for Git/Jujutsu
 - **gh** - GitHub CLI
 

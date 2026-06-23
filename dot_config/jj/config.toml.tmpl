@@ -9,7 +9,7 @@ key = {{ .signingkey | quote }}
 
 [ui]
 editor = {{ .editor | quote }}
-pager = "delta"
+pager = ["hunk", "pager"]
 diff-ingstructions = false
 diff-editor = ":builtin"
 diff-formatter = ":git"
