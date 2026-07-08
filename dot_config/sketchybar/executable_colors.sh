@@ -18,3 +18,6 @@ export MAGENTA=0xffc6a0f6
 export GREY=0xff939ab7
 export GREY_TRANSP=0x33939ab7
 export TRANSPARENT=0x00000000
+
+export CLAUDE_ORANGE=0xffd97757
+export CODEX_TEAL=0xff10a37f

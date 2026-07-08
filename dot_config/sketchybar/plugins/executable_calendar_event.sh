@@ -32,7 +32,21 @@ if [ -n "$OUTPUT" ] && [ "$OUTPUT" != "" ]; then
 				# 1. It hasn't started yet (TIME_DIFF < 0), OR
 				# 2. It started less than 5 minutes ago (0 <= TIME_DIFF <= 5)
 				if [ $TIME_DIFF -le 5 ]; then
-					LABEL="$EVENT_TIME $CURRENT_EVENT_TITLE"
+					MINUTES_UNTIL=$((EVENT_START_MINUTES - CURRENT_MINUTES))
+					if [ "$MINUTES_UNTIL" -le 0 ]; then
+						COUNTDOWN="now"
+					elif [ "$MINUTES_UNTIL" -lt 60 ]; then
+						COUNTDOWN="in ${MINUTES_UNTIL}m"
+					else
+						HOURS_UNTIL=$((MINUTES_UNTIL / 60))
+						MINS_UNTIL=$((MINUTES_UNTIL % 60))
+						if [ "$MINS_UNTIL" -eq 0 ]; then
+							COUNTDOWN="in ${HOURS_UNTIL}h"
+						else
+							COUNTDOWN="in ${HOURS_UNTIL}h ${MINS_UNTIL}m"
+						fi
+					fi
+					LABEL="$CURRENT_EVENT_TITLE $COUNTDOWN"
 					break
 				fi
 			fi

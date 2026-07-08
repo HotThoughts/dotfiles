@@ -127,6 +127,30 @@ sketchybar --add item clock right \
 	background.drawing=on \
 	background.color="$GREY_TRANSP" \
 	background.corner_radius=8 \
+	background.height=25 \
+	--add item codex_usage right \
+	--set codex_usage \
+	update_freq=60 \
+	script="$PLUGIN_DIR/codex_usage.sh" \
+	icon=":codex:" \
+	icon.font="sketchybar-app-font:Regular:16.0" \
+	icon.color="$CODEX_TEAL" \
+	label.color="$WHITE" \
+	background.drawing=on \
+	background.color="$GREY_TRANSP" \
+	background.corner_radius=8 \
+	background.height=25 \
+	--add item claude_usage right \
+	--set claude_usage \
+	update_freq=60 \
+	script="$PLUGIN_DIR/claude_usage.sh" \
+	icon=":claude:" \
+	icon.font="sketchybar-app-font:Regular:16.0" \
+	icon.color="$CLAUDE_ORANGE" \
+	label.color="$WHITE" \
+	background.drawing=on \
+	background.color="$GREY_TRANSP" \
+	background.corner_radius=8 \
 	background.height=25
 
 ##### Force all scripts to run the first time (never do this in a script) #####
