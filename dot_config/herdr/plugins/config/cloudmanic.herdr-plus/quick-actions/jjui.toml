@@ -1,0 +1,11 @@
+# Opens jjui (the Jujutsu TUI) in a new herdr pane, split from wherever the
+# Quick Actions picker was launched. jjui is interactive, so unlike the plain
+# `command = "jjui"` examples this can't just run headless via `sh -c` — it
+# needs a real pane/pty. `herdr agent start` looked like the right tool but
+# isn't: that's herdr's agent-tracking subsystem (Claude Code, Codex, ...),
+# not a generic "run a program in a pane" primitive, and jjui exited
+# immediately (code 1) when launched through it. herdr-pane-run instead
+# splits a pane and runs the command in it, same as our cmd+enter binding.
+name = "jjui"
+description = "Open jjui (Jujutsu TUI) in a new pane"
+command = "herdr-pane-run right jjui"

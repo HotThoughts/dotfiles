@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Split the focused pane and run an interactive command in the new one.
+# For TUI tools (jjui, lazygit, k9s, ...) that need a real pane/pty — unlike
+# `herdr agent start`, which is herdr's agent-tracking subsystem, not a
+# generic "run a program in a pane" primitive.
+set -euo pipefail
+
+direction="${1:?usage: herdr-pane-run <right|down> <command...>}"
+shift
+[ "$#" -ge 1 ] || { echo "usage: herdr-pane-run <right|down> <command...>" >&2; exit 1; }
+
+pane_id=$(herdr pane split --current --direction "$direction" --focus | jq -r '.result.pane.pane_id')
+herdr pane run "$pane_id" "$*"

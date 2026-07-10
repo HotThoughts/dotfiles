@@ -1,0 +1,22 @@
+# Fuzzy-pick a kubectl context, assume the matching AWS role, and launch k9s
+# in a new pane. Mirrors dot_config/television/cable/eks.toml + tv-eks-launch.
+#
+# Options are a static list — herdr-plus's `select` type can't shell out to
+# `kubectl config get-contexts` dynamically like television's [source] does.
+# Update this list by hand when clusters are added/removed.
+name = "k9s"
+description = "Assume AWS role and launch k9s for a cluster"
+type = "select"
+command = "herdr-pane-run right herdr-eks-launch {{.Value}}"
+
+[[options]]
+label = "dc-dev-euc1-app"
+value = "dc-dev-euc1-app"
+
+[[options]]
+label = "dc-prod-euc1-app"
+value = "dc-prod-euc1-app"
+
+[[options]]
+label = "k3d-dc-local-dev"
+value = "k3d-dc-local-dev"

@@ -1,0 +1,26 @@
+#!/usr/bin/env fish
+# Assumes the right AWS role for a cluster and launches k9s against it.
+# Mirrors tv-eks-launch (used by dot_config/television/cable/eks.toml) so k9s
+# behaves the same whether you reach it via television or herdr's Quick
+# Actions. Meant to be run inside a pane herdr-pane-run just split for us.
+set cluster $argv[1]
+
+if string match -q '*prod*' $cluster
+    set account prod
+else
+    set account dev
+end
+
+source (brew --prefix)/bin/assume.fish $account
+or begin
+    echo "herdr-eks-launch: failed to assume role '$account'"
+    exit 1
+end
+
+if set -q HERDR_PANE_ID
+    herdr pane rename "$HERDR_PANE_ID" "⎈ $cluster"
+end
+# Also set via OSC 0, same as tv-eks-launch, in case something downstream
+# reads it natively.
+printf '\033]0;⎈ %s\007' $cluster
+command k9s --context $cluster

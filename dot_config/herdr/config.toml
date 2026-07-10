@@ -91,6 +91,12 @@ focus_agent = "prefix+alt+1..9"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
+# Rebound from the default prefix+[ to a direct Ctrl+S chord. Not shown in
+# `herdr --default-config`'s comments but a real, recognized key. Heads up:
+# ctrl+s is the classic XON/XOFF pause byte — if a shell/terminal ever has
+# flow control (stty ixon) enabled, this key can look like a frozen pane
+# instead of opening copy mode.
+copy_mode = "ctrl+s"
 # focus_pane_left = "prefix+h"
 # focus_pane_down = "prefix+j"
 # focus_pane_up = "prefix+k"
@@ -119,11 +125,17 @@ toggle_sidebar = "alt+s"
 # Custom commands use the same binding syntax.
 # type = "shell" runs detached in the background.
 # type = "pane" opens a temporary pane and closes it when the command exits.
+# type = "plugin_action" invokes a plugin action id directly.
 # On Windows, command strings run through cmd.exe /d /c.
+
+# Opens herdr-plus's Quick Actions launcher (see quick-actions.md in the
+# plugin's own docs for the exact syntax). prefix+down is the plugin's own
+# suggested convention.
 [[keys.command]]
-key = "prefix+alt+j"
-type = "pane"
-command = "jjui"
+key = "prefix+a"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.quick-actions"
+description = "herdr-plus: quick actions"
 
 # Cmd+arrow pane focus, matching the zellij "Alt left/down/up/right" binds.
 # Ghostty (dot_config/ghostty/config) already remaps cmd+arrow to the same
@@ -134,21 +146,25 @@ command = "jjui"
 key = "alt+left"
 type = "shell"
 command = "herdr pane focus --direction left --current"
+description = "focus pane left"
 
 [[keys.command]]
 key = "alt+down"
 type = "shell"
 command = "herdr pane focus --direction down --current"
+description = "focus pane down"
 
 [[keys.command]]
 key = "alt+up"
 type = "shell"
 command = "herdr pane focus --direction up --current"
+description = "focus pane up"
 
 [[keys.command]]
 key = "alt+right"
 type = "shell"
 command = "herdr pane focus --direction right --current"
+description = "focus pane right"
 
 # Cmd+Enter -> new pane, vertical (side-by-side) split, matching zellij's
 # "Alt n -> NewPane" bind. Ghostty already sends cmd+enter as ESC n (alt+n).
@@ -156,6 +172,7 @@ command = "herdr pane focus --direction right --current"
 key = "alt+n"
 type = "shell"
 command = "herdr pane split --current --direction right --focus"
+description = "new pane (vertical split)"
 
 # Cmd+Shift+Enter -> new pane, horizontal (stacked) split.
 # Ghostty sends cmd+shift+enter as ESC D (alt+shift+d).
@@ -163,6 +180,7 @@ command = "herdr pane split --current --direction right --focus"
 key = "alt+shift+d"
 type = "shell"
 command = "herdr pane split --current --direction down --focus"
+description = "new pane (horizontal split)"
 
 # Cmd+[ / Cmd+] -> previous/next tab, matching zellij's
 # "Alt Shift t -> GoToPreviousTab" / "Alt t -> GoToNextTab" binds.
@@ -173,17 +191,28 @@ command = "herdr pane split --current --direction down --focus"
 key = "alt+shift+t"
 type = "shell"
 command = "herdr-tab-nav prev"
+description = "previous tab"
 
 [[keys.command]]
 key = "alt+t"
 type = "shell"
 command = "herdr-tab-nav next"
+description = "next tab"
 
 # Cmd+N -> new tab. Ghostty sends cmd+n as ESC N (alt+shift+n).
 [[keys.command]]
 key = "alt+shift+n"
 type = "shell"
 command = "herdr tab create --workspace \"$HERDR_WORKSPACE_ID\" --focus"
+description = "new tab"
+
+# Cmd+Shift+M -> toggle zoom (enlarge) the focused pane, alongside the
+# built-in prefix+z default. Ghostty sends cmd+shift+m as ESC M (alt+shift+m).
+[[keys.command]]
+key = "alt+shift+m"
+type = "shell"
+command = "herdr pane zoom --current --toggle"
+description = "toggle zoom pane"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
