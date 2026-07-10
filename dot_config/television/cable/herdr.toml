@@ -1,0 +1,26 @@
+[metadata]
+name = "herdr"
+description = "Attach or switch between Herdr sessions"
+requirements = ["herdr", "jq"]
+
+[source]
+command = "tv-herdr"
+display = "{split:\t:0}"
+
+[ui]
+preview_panel = { hidden = true }
+input_bar = { prompt = "session>" }
+
+[keybindings]
+enter = "actions:attach"
+ctrl-d = "actions:kill"
+
+[actions.attach]
+description = "Attach to Herdr session"
+command = '''tv-herdr ATTACH '{split:\t:0}''''
+mode = "execute"
+
+[actions.kill]
+description = "Kill session"
+command = '''herdr session stop '{split:\t:0}''''
+mode = "fork"

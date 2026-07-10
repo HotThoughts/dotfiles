@@ -46,6 +46,7 @@ shell-integration-features = no-cursor,ssh-terminfo,ssh-env
 keybind = cmd+t=new_tab
 keybind = cmd+n=text:\x1bN
 keybind = cmd+enter=text:\x1bn
+keybind = cmd+shift+enter=text:\x1bD
 # keybind = global:ctrl+q=toggle_quick_terminal
 keybind = cmd+p=toggle_command_palette
 keybind = cmd+[=text:\x1bT
@@ -64,6 +65,7 @@ keybind = cmd+7=text:\x1b7
 keybind = cmd+8=text:\x1b8
 keybind = cmd+9=text:\x1b9
 keybind = cmd+shift+m=text:\x1bM
+keybind = cmd+/=text:\x1bs
 
 keybind = alt+left=unbind
 keybind = alt+right=unbind

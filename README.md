@@ -2,165 +2,156 @@
 
 macOS dotfiles managed with [chezmoi](https://www.chezmoi.io).
 
-## ✨ Highlights
+This repository bootstraps a development-focused terminal environment: Fish,
+Starship, Neovim/LazyVim, Ghostty, Herdr, Jujutsu, Kubernetes tooling, and a
+curated Homebrew bundle.
 
-- **🐚 Shell**: [Fish](https://fishshell.com/)
-- **⭐ Prompt**: [Starship](https://starship.rs) with
+## Highlights
+
+- **Shell**: [Fish](https://fishshell.com/) with Fisher-managed plugins
+- **Prompt**: [Starship](https://starship.rs) with
   [Jujutsu](https://martinvonz.github.io/jj/) integration
-- **📝 Editor**: [Neovim](https://neovim.io/) + [LazyVim](https://www.lazyvim.org/)
-- **🖥️ Terminal**: [Ghostty](https://ghostty.org/)
-- **🔄 Version Control**: Git + [Jujutsu](https://martinvonz.github.io/jj/)
-- **🎨 Theme**: [Tokyo Night](https://github.com/folke/tokyonight.nvim)
-- **🔍 Navigation**: [fzf](https://github.com/junegunn/fzf),
-  [zoxide](https://github.com/ajeetdsouza/zoxide), [atuin](https://atuin.sh/)
-- **🛠️ Quality**: [Trunk](https://trunk.io/), [prek](https://prek.j178.dev/)
-  (pre-commit replacement)
-- **📦 Packages**: Brewfile
+- **Editor**: [Neovim](https://neovim.io/) with
+  [LazyVim](https://www.lazyvim.org/)
+- **Terminal**: [Ghostty](https://github.com/ghostty-org/ghostty) and Herdr
+- **Version control**: Git, [Jujutsu](https://martinvonz.github.io/jj/),
+  [lazygit](https://github.com/jesseduffield/lazygit), and lazyjj
+- **Theme**: Tokyo Night across the shell, editor, and terminal surfaces
+- **Navigation**: [fzf](https://github.com/junegunn/fzf),
+  [zoxide](https://github.com/ajeetdsouza/zoxide), Atuin, fd, and ripgrep
+- **Quality**: [Trunk](https://trunk.io/), prek, actionlint, hadolint,
+  gitleaks, and trufflehog
+- **macOS workflow**: AeroSpace, SketchyBar, Karabiner-Elements, and Raycast
 
-## 🚀 Quick Start
+## Quick Start
 
-### Prerequisites
+### Requirements
 
 - macOS
+- `git`
+- `curl` or `wget`
 
-### Installation
+### Install
 
 ```bash
-# Clone and apply dotfiles
 git clone https://github.com/HotThoughts/dotfiles.git ~/.local/share/chezmoi
 cd ~/.local/share/chezmoi
 ./install.sh
 ```
 
-The script installs chezmoi and runs `chezmoi init --apply`, which triggers
-`run_once_setup.sh.tmpl` to install Xcode tools, Homebrew, packages from
-Brewfile, and Fish plugins.
+`install.sh` bootstraps chezmoi if needed, then runs `chezmoi init --apply`
+against this source directory. On macOS, the one-time setup template installs
+Xcode Command Line Tools, Homebrew, packages from `Brewfile`, and Fish plugins.
 
-## 🛠️ Tools & Technologies
+## What Gets Managed
 
-### Shell Environment
+### Shell
 
-- **Fish** - Interactive shell
-- **Starship** - Cross-shell prompt
-- **Atuin** - Shell history
-- **Zoxide** - Directory jumper
-- **Fisher** - Fish plugin manager
+- Fish configuration, abbreviations, paths, and environment variables
+- Starship prompt configuration
+- Atuin history, zoxide navigation, fzf defaults, and eza aliases
+- tmux and Zellij terminal multiplexing configuration
 
-### CLI Tools
+### Editors
 
-- **eza** - Modern ls
-- **bat** - Cat with syntax highlighting
-- **ripgrep** - Fast grep
-- **fd** - Fast find
-- **fzf** - Fuzzy finder
-- **hunk** - Review-first git diffs
-- **lazygit** / **lazyjj** - TUI for Git/Jujutsu
-- **gh** - GitHub CLI
+- Neovim/LazyVim configuration and plugins
+- Zed settings, keymap, and tasks
 
-### Development Environment
+### Terminals
 
-- **Neovim** - Text editor
-- **tmux** - Terminal multiplexer
-- **pyenv** + **poetry** - Python management
-- **nvm** - Node version manager
-- **OrbStack** - Docker for macOS
+- Ghostty configuration
+- Herdr terminal workspace configuration
+- Kitty and Alacritty configuration
+- Tokyo Night-themed shell and terminal colors
+
+### Version Control
+
+- Git configuration template
+- Jujutsu configuration, aliases, signing, and private revsets
+- lazygit, lazyjj, and hunk configuration
 
 ### Kubernetes
 
-- **kubectl** + **kubie** - K8s CLI and context switcher
-- **helm** - K8s package manager
-- **k9s** - K8s terminal UI
+- kubectl, kubie, helm, and k9s configuration
+- k9s skins and views
+- helper scripts for EKS and common Kubernetes workflows
 
-### Code Quality Tools
+### macOS Desktop
 
-- **Trunk** - Unified linter/formatter
-- **[prek](https://prek.j178.dev/)** - Fast, modern pre-commit hook runner
-- **gitleaks** / **trufflehog** - Secret detection
-- **hadolint** - Dockerfile linter
-- **actionlint** - GitHub Actions linter
+- AeroSpace tiling window manager configuration
+- SketchyBar configuration and plugins
+- Karabiner-Elements private keyboard configuration
+- Raycast and related productivity apps from `Brewfile`
 
-### Window Management
+## Daily Usage
 
-- **AeroSpace** - i3-like tiling WM
-- **Karabiner-Elements** - Keyboard customization
-- **Raycast** - Application launcher
-
-## 📖 Usage
-
-### Managing Dotfiles
+### Chezmoi
 
 ```bash
-# See what changes would be applied
-chezmoi diff
-
-# Apply changes from source directory to home directory
-chezmoi apply
-
-# Edit a file (opens in $EDITOR, then applies on save)
-chezmoi edit ~/.config/fish/config.fish
-
-# Add a new file to chezmoi
-chezmoi add ~/.config/newapp/config.toml
-
-# Pull and apply changes from git
-chezmoi update
-
-# Check configuration health
-chezmoi doctor
+chezmoi diff      # Preview changes before applying them
+chezmoi apply     # Apply source changes to $HOME
+chezmoi edit FILE # Edit a managed file and apply it on save
+chezmoi add FILE  # Add an existing local file to chezmoi
+chezmoi update    # Pull the repo and apply changes
+chezmoi doctor    # Check chezmoi health and environment details
 ```
 
-### Making Changes
+### Local Changes
 
-1. Edit files in `~/.local/share/chezmoi/`
-2. `chezmoi diff` to preview
-3. `chezmoi apply` to sync
-4. Commit with gitmoji
+1. Edit files in `~/.local/share/chezmoi`.
+2. Run `chezmoi diff`.
+3. Run `chezmoi apply`.
+4. Commit the change.
 
-### Common Shell Abbreviations
+### Common Fish Abbreviations
 
-- `k` → `kubectl`
-- `kx` → `kubie ctx` (switch Kubernetes context)
-- `kns` → `kubie ns` (switch namespace)
-- `ls` → `eza --icons`
-- `fu` → `fisher update`
-
-## Screenshots
-
-**Shell**: [Starship](https://starship.rs) prompt with Jujutsu integration
-
-![Terminal](fig/terminal.png)
-
-**Editor**: [LazyVim](https://www.lazyvim.org/) configuration
-
-![lazyvim](fig/lazyvim.png)
-
-**Theme**: [Tokyo Night](https://github.com/folke/tokyonight.nvim) applied across
-VS Code, Neovim, Ghostty, Fish, and Obsidian.
+| Abbreviation | Expands to       | Purpose                     |
+| ------------ | ---------------- | --------------------------- |
+| `k`          | `kubectl`        | Kubernetes CLI              |
+| `kx`         | `kubie ctx`      | Switch Kubernetes context   |
+| `kns`        | `kubie ns`       | Switch Kubernetes namespace |
+| `ls`         | `eza --icons`    | Modern directory listing    |
+| `n`          | `nvim`           | Open Neovim                 |
+| `cu`         | `chezmoi update` | Update and apply dotfiles   |
+| `fu`         | `fisher update`  | Update Fish plugins         |
 
 ## Development Workflow
 
-### Code Quality
-
 ```bash
-trunk check          # Run linters
-trunk fmt            # Format files
-trunk upgrade        # Update trunk
+trunk check   # Run linters
+trunk fmt     # Format files
+trunk upgrade # Update Trunk plugins
 ```
 
-Prek runs hooks to check shell scripts, Python, Markdown, secrets,
-YAML/JSON/TOML, and more.
+Prek is configured as a fast pre-commit replacement for shell scripts, Python,
+Markdown, YAML, JSON, TOML, secret scanning, and related checks.
 
-### Jujutsu Aliases
+### Jujutsu Shortcuts
 
-- `jj mine` - List bookmarks
-- `jj tug` - Move bookmarks up
-- `jj rebase-all` - Rebase onto trunk
-- `wip()` / `private()` - Revsets excluded from git push
+| Alias           | Description                                           |
+| --------------- | ----------------------------------------------------- |
+| `jj mine`       | List bookmarks owned by the current user              |
+| `jj tug`        | Move the closest bookmark to the closest pushable rev |
+| `jj rebase-all` | Rebase mutable local work onto trunk                  |
+| `jj prek`       | Run prek against files changed in the current change  |
+| `jj push`       | Run checks, then push                                 |
+| `jj push-pr`    | Run checks, then create or update a pull request      |
 
-## Requirements
+Commits whose descriptions start with `wip:` or `private:` are excluded from
+git push through the configured private revsets.
 
-- macOS
-- ~2GB disk space
+## Screenshots
+
+**Shell**: Starship prompt with Jujutsu integration.
+
+![Terminal](fig/terminal.png)
+
+**Editor**: LazyVim configuration.
+
+![LazyVim](fig/lazyvim.png)
+
+**Theme**: Tokyo Night applied across VS Code, Neovim, Ghostty, Fish, and
+Obsidian.
 
 ## License
 

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Focus the previous/next tab within the current workspace.
+# Invoked by herdr custom keybindings (see dot_config/herdr/config.toml),
+# which inject HERDR_WORKSPACE_ID into the environment.
+set -euo pipefail
+
+direction="${1:?usage: herdr-tab-nav next|prev}"
+
+target=$(herdr tab list --workspace "$HERDR_WORKSPACE_ID" | jq -r --arg dir "$direction" '
+  .result.tabs | sort_by(.number) as $t
+  | ($t | map(.focused) | index(true)) as $i
+  | if $dir == "next" then $t[($i + 1) % ($t | length)].tab_id
+    else $t[($i - 1 + ($t | length)) % ($t | length)].tab_id
+    end
+')
+
+herdr tab focus "$target"

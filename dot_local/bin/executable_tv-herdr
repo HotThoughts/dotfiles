@@ -1,0 +1,18 @@
+#!/usr/bin/env fish
+
+function __tv_herdr_list
+    set -l current_session $HERDR_SESSION
+    herdr session list --json | jq -r '.sessions[].name' | while read -l name
+        set -l is_current ""
+        if test -n "$current_session" -a "$name" = "$current_session"
+            set is_current "(current)"
+        end
+        printf '%s\t%s\n' "$name" "$is_current"
+    end
+end
+
+if test (count $argv) -eq 0
+    __tv_herdr_list
+else if test "$argv[1]" = ATTACH
+    herdr session attach "$argv[2]"
+end
