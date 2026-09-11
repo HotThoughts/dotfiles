@@ -84,8 +84,9 @@ focus_agent = "prefix+alt+1..9"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
 # new_tab = "prefix+c"
 # rename_tab = "prefix+shift+t"
-# previous_tab = "prefix+p"
-# next_tab = "prefix+n"
+# Ghostty maps Cmd+[ / Cmd+] to Alt+Shift+T / Alt+T.
+previous_tab = ["prefix+p", "alt+shift+t"]
+next_tab = ["prefix+n", "alt+t"]
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
@@ -104,8 +105,10 @@ copy_mode = "ctrl+s"
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
-# split_vertical = "prefix+v"
-# split_horizontal = "prefix+minus"
+# Ghostty maps Cmd+Enter / Cmd+Shift+Enter to Alt+N / Alt+Shift+D.
+# Use native actions so splits target the active pane without a shell command.
+split_vertical = ["prefix+v", "alt+n"]
+split_horizontal = ["prefix+minus", "alt+shift+d"]
 # close_pane = "prefix+x"
 # zoom = "prefix+z"       # legacy alias: fullscreen
 # resize_mode = "prefix+r"
@@ -165,39 +168,6 @@ key = "alt+right"
 type = "shell"
 command = "herdr pane focus --direction right --current"
 description = "focus pane right"
-
-# Cmd+Enter -> new pane, vertical (side-by-side) split, matching zellij's
-# "Alt n -> NewPane" bind. Ghostty already sends cmd+enter as ESC n (alt+n).
-[[keys.command]]
-key = "alt+n"
-type = "shell"
-command = "herdr pane split --current --direction right --focus"
-description = "new pane (vertical split)"
-
-# Cmd+Shift+Enter -> new pane, horizontal (stacked) split.
-# Ghostty sends cmd+shift+enter as ESC D (alt+shift+d).
-[[keys.command]]
-key = "alt+shift+d"
-type = "shell"
-command = "herdr pane split --current --direction down --focus"
-description = "new pane (horizontal split)"
-
-# Cmd+[ / Cmd+] -> previous/next tab, matching zellij's
-# "Alt Shift t -> GoToPreviousTab" / "Alt t -> GoToNextTab" binds.
-# Ghostty sends these as ESC T / ESC t (alt+shift+t / alt+t).
-# There's no built-in "focus relative tab" action to bind directly, so this
-# shells out to a small helper (dot_local/bin/executable_herdr-tab-nav).
-[[keys.command]]
-key = "alt+shift+t"
-type = "shell"
-command = "herdr-tab-nav prev"
-description = "previous tab"
-
-[[keys.command]]
-key = "alt+t"
-type = "shell"
-command = "herdr-tab-nav next"
-description = "next tab"
 
 # Cmd+N -> new tab. Ghostty sends cmd+n as ESC N (alt+shift+n).
 [[keys.command]]
