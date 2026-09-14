@@ -7,6 +7,7 @@ views:
       - LIFE:.metadata.labels.karpenter\.sh/capacity-type
       - NODEPOOL:.metadata.labels.karpenter\.sh/nodepool
       - INSTYPE:.metadata.labels.node\.kubernetes\.io/instance-type
+      - ARCH:.metadata.labels.beta\.kubernetes\.io/arch
       - OSIMAGE:.status.nodeInfo.osImage
       - AGE
       - STATUS
