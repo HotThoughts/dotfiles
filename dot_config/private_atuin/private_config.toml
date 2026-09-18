@@ -275,6 +275,9 @@ records = true
 # debug = true
 
 [search]
+
+[ai]
+enabled = true
 ## The list of enabled filter modes, in order of priority.
 ## The "workspace" mode is skipped when not in a workspace or workspaces = false.
 ## Default filter mode can be overridden with the filter_mode setting.
