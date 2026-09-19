@@ -45,6 +45,8 @@ brew "luarocks"
 brew "hadolint"
 # GitHub Actions linter
 brew "actionlint"
+# Shell script linter
+brew "shellcheck"
 # Alternative to watch
 brew "viddy"
 # Better monitoring dashboard

@@ -8,8 +8,9 @@ xcode-select --install
 # homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-# homebrew recipes
-brew bundle --no-lock --file=./Brewfile
+# Install missing Homebrew recipes without upgrading existing tools. Updates are
+# reviewed separately with scripts/check-tool-updates.sh.
+brew bundle --file=./Brewfile --no-upgrade
 
 # Add brew path to fish
 fish_add_path /opt/homebrew/bin

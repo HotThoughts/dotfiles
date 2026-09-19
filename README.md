@@ -96,6 +96,31 @@ chezmoi update    # Pull the repo and apply changes
 chezmoi doctor    # Check chezmoi health and environment details
 ```
 
+### Tool versions and updates
+
+`Brewfile` declares the tools and `Brewfile.versions` records the versions
+installed on the reference machine. The inventory makes version changes
+reviewable, but it is not an exact-version lock: Homebrew generally installs
+the current formula version rather than arbitrary historical versions.
+
+To see available updates and a short overview of the latest GitHub release
+without changing anything:
+
+```bash
+./scripts/check-tool-updates.sh
+```
+
+Release summaries require `gh`; tools hosted elsewhere still appear in the
+version report without a summary. Skip network release lookups with
+`--no-release-notes`.
+
+After an intentional upgrade, refresh the version inventory and commit it:
+
+```bash
+brew upgrade <tool>
+./scripts/snapshot-tool-versions.sh
+```
+
 ### Local Changes
 
 1. Edit files in `~/.local/share/chezmoi`.
