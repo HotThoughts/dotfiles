@@ -71,6 +71,9 @@ set -Ux KUBE_EDITOR nvim
 # k9s
 set -Ux K9S_CONFIG_DIR $HOME/.config/k9s
 
+# omp (Oh My Pi)
+set -Ux PI_CODING_AGENT_DIR $HOME/.config/omp
+
 # Node Version Manager
 set -Ux NVM_DIR $HOME/.nvm
 
