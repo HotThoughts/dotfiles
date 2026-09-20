@@ -57,6 +57,7 @@ repos:
     hooks:
       - id: lychee
         # args replace the hook manifest's default '--no-progress'.
-        args: [--no-progress, --max-retries, "2", --timeout, "20", --exclude-file, .lycheeignore]
+        # .lycheeignore is read automatically; '--exclude-file' is deprecated.
+        args: [--no-progress, --max-retries, "3", --timeout, "30"]
         # The exclusion patterns are not links; never lint the ignore file itself.
         exclude: ^\.lycheeignore$
