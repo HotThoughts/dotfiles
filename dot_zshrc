@@ -188,6 +188,9 @@ if command -v pyenv >/dev/null 2>&1; then
   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
+# omp (Oh My Pi) agent directory
+export PI_CODING_AGENT_DIR="$HOME/.config/omp"
+
 # GPG Key
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
