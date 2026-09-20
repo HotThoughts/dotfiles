@@ -1,0 +1,24 @@
+{{- $name := promptStringOnce . "name" "Full name" -}}
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $github := promptStringOnce . "github" "GitHub username" -}}
+{{- $signingkey := promptStringOnce . "signingkey" "Git signing key" -}}
+{{- $editor := promptStringOnce . "editor" "Git editor" | default "nvim" -}}
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
+[data]
+  hostname = {{ .chezmoi.hostname | quote }}
+  name = {{ $name | quote }}
+  email = {{ $email | quote }}
+  github = {{ $github | quote }}
+  signingkey = {{ $signingkey | quote }}
+  editor = {{ $editor | quote }}
+
+[diff]
+  pager = "hunk pager"
+
+[merge]
+  command = "nvim"
+  args = ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+
+[edit]
+  command = {{ $editor | quote }}

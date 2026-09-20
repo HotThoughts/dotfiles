@@ -1,0 +1,3 @@
+# Real upstream project names flagged as typos.
+[default.extend-words]
+noice = "noice" # folke/noice.nvim

@@ -1,0 +1,32 @@
+[".tmux/plugins/tpm"]
+  type = "archive"
+  url = "https://codeload.github.com/tmux-plugins/tpm/tar.gz/2afeff1529ec85d0c5ced5ece3714c2220b646a5"
+  exact = true
+  stripComponents = 1
+  checksum.sha256 = "c817b183013eb848cfc5ca311bb06affc6040831e2a00a8a638e110dfaa131b4"
+
+[".tmux/plugins/tmux-sensible"]
+  type = "archive"
+  url = "https://codeload.github.com/tmux-plugins/tmux-sensible/tar.gz/989d09249e9389604a68d281c999978f6231431b"
+  exact = true
+  stripComponents = 1
+  checksum.sha256 = "da0489fa39bd7ca8e5c169bd8bf2f48ff1e0dbd1e8836c59c31e156b64a1dcb4"
+
+[".tmux/plugins/tmux-better-mouse-mode"]
+  type = "archive"
+  url = "https://codeload.github.com/nhdaly/tmux-better-mouse-mode/tar.gz/aa59077c635ab21b251bd8cb4dc24c415e64a58e"
+  exact = true
+  stripComponents = 1
+  checksum.sha256 = "d72cd61e963e48c4fd5f216794cf048d5693b99c89d6422e9999d3c9c28c3f9e"
+
+[".tmux/plugins/extrakto"]
+  type = "archive"
+  url = "https://codeload.github.com/laktak/extrakto/tar.gz/f74ec23cfb35fbf44ba145071e1505e6a8655f24"
+  exact = true
+  stripComponents = 1
+  checksum.sha256 = "d9d3b860198086001c9914060b796db27ddc512cd25b4924d3decfc90601a1c5"
+
+[".config/zellij/plugins/zjstatus.wasm"]
+  type = "file"
+  url = "https://github.com/dj95/zjstatus/releases/download/v0.22.0/zjstatus.wasm"
+  checksum.sha256 = "4de426d20b1cbf861272e927aeeb5b49d92c17f0e2bb9d173f85bf7f0154dd53"

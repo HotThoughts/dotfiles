@@ -7,7 +7,10 @@ set -euo pipefail
 
 direction="${1:?usage: herdr-pane-run <right|down> <command...>}"
 shift
-[ "$#" -ge 1 ] || { echo "usage: herdr-pane-run <right|down> <command...>" >&2; exit 1; }
+[ "$#" -ge 1 ] || {
+	echo "usage: herdr-pane-run <right|down> <command...>" >&2
+	exit 1
+}
 
 pane_id=$(herdr pane split --current --direction "$direction" --focus | jq -r '.result.pane.pane_id')
 herdr pane run "$pane_id" "$*"

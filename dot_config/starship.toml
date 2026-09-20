@@ -210,4 +210,3 @@ symbol = "ﯣ "
 when = "jj-starship detect"
 shell = ["jj-starship"]
 format = "$output "
-

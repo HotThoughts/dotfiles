@@ -19,10 +19,10 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 BREWFILE="$REPO_ROOT/Brewfile"
 
 # Check if atuin is installed
-if ! command -v atuin &> /dev/null; then
-    echo -e "${RED}Error: atuin is not installed${NC}"
-    echo "Install it with: brew install atuin"
-    exit 1
+if ! command -v atuin &>/dev/null; then
+	echo -e "${RED}Error: atuin is not installed${NC}"
+	echo "Install it with: brew install atuin"
+	exit 1
 fi
 
 echo -e "${BLUE}=== Analyzing Brew Commands from Atuin History ===${NC}\n"
@@ -30,23 +30,23 @@ echo -e "${BLUE}=== Analyzing Brew Commands from Atuin History ===${NC}\n"
 # Create temp files
 installs=$(mktemp)
 uninstalls=$(mktemp)
-trap "rm -f $installs $uninstalls" EXIT
+trap 'rm -f "${installs}" "${uninstalls}"' EXIT
 
 # Extract successful brew install commands
 echo -e "${YELLOW}Extracting brew install commands...${NC}"
 atuin search --exit 0 "brew install" 2>&1 | grep "brew install" | awk -F'\t' '{print $2}' | while read -r line; do
-    # Extract package name(s) from command
-    # Remove brew install and flags
-    packages=$(echo "$line" | sed 's/brew install //' | sed 's/--[a-z-]*//g' | sed 's/  */ /g')
-    echo "$packages" >> "$installs"
+	# Extract package name(s) from command
+	# Remove brew install and flags
+	packages=$(echo "$line" | sed 's/brew install //' | sed 's/--[a-z-]*//g' | sed 's/  */ /g')
+	echo "$packages" >>"$installs"
 done
 
-# Extract successful brew uninstall commands  
+# Extract successful brew uninstall commands
 echo -e "${YELLOW}Extracting brew uninstall commands...${NC}"
 atuin search --exit 0 "brew uninstall" 2>&1 | grep "brew uninstall" | awk -F'\t' '{print $2}' | while read -r line; do
-    # Extract package name(s) from command
-    packages=$(echo "$line" | sed 's/brew uninstall //' | sed 's/--[a-z-]*//g' | sed 's/-f$//' | sed 's/  */ /g')
-    echo "$packages" >> "$uninstalls"
+	# Extract package name(s) from command
+	packages=$(echo "$line" | sed 's/brew uninstall //' | sed 's/--[a-z-]*//g' | sed 's/-f$//' | sed 's/  */ /g')
+	echo "$packages" >>"$uninstalls"
 done
 
 # Show statistics
@@ -59,16 +59,16 @@ echo -e "${YELLOW}Found ${uninstall_count} unique packages uninstalled${NC}\n"
 # Show what would be added
 echo -e "${BLUE}Packages in history but not in Brewfile:${NC}"
 while read -r pkg; do
-    if ! grep -q "\"$pkg\"" "$BREWFILE" && ! grep -q " $pkg$" "$BREWFILE" && ! grep -q "/$pkg\"" "$BREWFILE"; then
-        echo -e "  ${GREEN}+ $pkg${NC}"
-    fi
+	if ! grep -q "\"$pkg\"" "$BREWFILE" && ! grep -q " $pkg$" "$BREWFILE" && ! grep -q "/$pkg\"" "$BREWFILE"; then
+		echo -e "  ${GREEN}+ $pkg${NC}"
+	fi
 done < <(sort -u "$installs" | grep -v "^$")
 
 echo -e "\n${BLUE}Packages uninstalled but still in Brewfile:${NC}"
 while read -r pkg; do
-    if grep -q "\"$pkg\"" "$BREWFILE" || grep -q " $pkg$" "$BREWFILE" || grep -q "/$pkg\"" "$BREWFILE"; then
-        echo -e "  ${RED}- $pkg${NC}"
-    fi
+	if grep -q "\"$pkg\"" "$BREWFILE" || grep -q " $pkg$" "$BREWFILE" || grep -q "/$pkg\"" "$BREWFILE"; then
+		echo -e "  ${RED}- $pkg${NC}"
+	fi
 done < <(sort -u "$uninstalls" | grep -v "^$")
 
 echo -e "\n${YELLOW}Note: This is a dry-run analysis.${NC}"
