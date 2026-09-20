@@ -45,3 +45,6 @@ display:
 autolearn:
   enabled: true
 hideThinkingBlock: true
+disabledProviders:
+  - amazon-bedrock
+  - bedrock-mantle
