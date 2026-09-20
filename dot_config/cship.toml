@@ -56,4 +56,3 @@ critical_style     = "bold fg:#f7768e"
 when = "jj-starship detect"
 shell = ["jj-starship"]
 format = "$output "
-

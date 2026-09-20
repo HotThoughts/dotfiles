@@ -39,9 +39,11 @@ cd ~/.local/share/chezmoi
 ./install.sh
 ```
 
-`install.sh` bootstraps chezmoi if needed, then runs `chezmoi init --apply`
-against this source directory. On macOS, the one-time setup template installs
-Xcode Command Line Tools, Homebrew, packages from `Brewfile`, and Fish plugins.
+`install.sh` bootstraps chezmoi from its official installer if needed, then runs
+`chezmoi init --apply` against this source directory. The first initialization
+prompts for Git/Jujutsu identity data. On macOS, chezmoi installs Homebrew once
+and reruns package or Fish-plugin setup only when the corresponding manifest
+changes. Existing Homebrew packages are not upgraded implicitly.
 
 ## What Gets Managed
 
@@ -55,6 +57,7 @@ Xcode Command Line Tools, Homebrew, packages from `Brewfile`, and Fish plugins.
 ### Editors
 
 - Neovim/LazyVim configuration and plugins
+- A committed Lazy plugin lockfile for reproducible Neovim installs
 - Zed settings, keymap, and tasks
 
 ### Agents
@@ -64,6 +67,7 @@ Xcode Command Line Tools, Homebrew, packages from `Brewfile`, and Fish plugins.
 ### Terminals
 
 - Ghostty configuration
+- The custom Ghostty cursor shader referenced by that configuration
 - Herdr terminal workspace configuration
 - Kitty and Alacritty configuration
 - Tokyo Night-themed shell and terminal colors
@@ -71,6 +75,7 @@ Xcode Command Line Tools, Homebrew, packages from `Brewfile`, and Fish plugins.
 ### Version Control
 
 - Git configuration template
+- Global Git ignore rules and Git LFS support
 - Jujutsu configuration, aliases, signing, and private revsets
 - lazygit, lazyjj, and hunk configuration
 
@@ -125,6 +130,28 @@ brew upgrade <tool>
 ./scripts/snapshot-tool-versions.sh
 ```
 
+tmux plugins, the Zellij status plugin, Neovim plugins, and global
+agent skills are pinned independently of Homebrew. Update their recorded commit,
+version, digest, or checksum explicitly and review the resulting diff.
+
+`Operator Mono Lig`, used by Ghostty, is a licensed font and remains a manual
+installation. `Brewfile` installs Hack Nerd Font for Zed's configured fallback.
+
+### Agent instructions and skills
+
+Chezmoi renders one shared global policy into Codex, Claude Code, and OpenCode.
+Repository-specific rules live in `AGENTS.md`; `CLAUDE.md` imports them. Global
+skills are source- and commit-pinned in `skills.yaml`:
+
+```bash
+./scripts/sync-skills.sh          # Read-only upstream audit
+./scripts/sync-skills.sh --write  # Deliberately refresh pinned refs
+./scripts/install-skills.sh       # Install the exact manifest revisions
+```
+
+The install command changes global agent state, so it is intentionally separate
+from chezmoi application.
+
 ### Local Changes
 
 1. Edit files in `~/.local/share/chezmoi`.
@@ -147,13 +174,16 @@ brew upgrade <tool>
 ## Development Workflow
 
 ```bash
-trunk check   # Run linters
-trunk fmt     # Format files
-trunk upgrade # Update Trunk plugins
+bash tests/run.sh     # Focused bootstrap, render, and wrapper tests
+prek run --all-files # The same repository hooks used by CI
+trunk check           # Additional linting
+trunk fmt             # Formatting
+trunk upgrade         # Update Trunk plugins
 ```
 
 Prek is configured as a fast pre-commit replacement for shell scripts, Python,
-Markdown, YAML, JSON, TOML, secret scanning, and related checks.
+Markdown, YAML, JSON, TOML, secret scanning, and related checks. GitHub Actions
+runs the focused test suite and all prek hooks on pushes and pull requests.
 
 ### Jujutsu Shortcuts
 

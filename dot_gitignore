@@ -1,0 +1,24 @@
+.vscode
+*.DS_Store
+
+# LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.run.xml
+*.bcf
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.snm
+*.vrb
+*.nav
+*.out
+*.bbl
+*.blg
+
+# Generated PDFs are usually project-specific build output.
+*.pdf
+
+# Claude Code creates this per-project local settings file.
+**/.claude/settings.local.json

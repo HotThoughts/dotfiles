@@ -1,33 +1,28 @@
-# Copilot CLI Skills Manifest
-# Managed by sync-skills.sh
-#
-# This file tracks all installed Copilot CLI skills.
-# Skills are automatically extracted from 'npx skills list -g'.
-#
-# To install skills from this manifest: ./scripts/install-skills.sh
-# To update this file: ./scripts/sync-skills.sh (or @update-dotfiles)
+# Global agent skills installed by scripts/install-skills.sh.
+# Repository refs are immutable; update them deliberately with
+# scripts/sync-skills.sh --write.
+version: 1
+cli_version: "1.7.0"
 
-skills:
-  - algorithmic-art
-  - brand-guidelines
-  - canvas-design
-  - devops-engineer
-  - doc-coauthoring
-  - docx
-  - find-skills
-  - frontend-design
-  - internal-comms
-  - jj-workflow
-  - kubernetes-specialist
-  - mcp-builder
-  - pdf
-  - pptx
-  - skill-creator
-  - slack-gif-creator
-  - sre-engineer
-  - template-skill
-  - theme-factory
-  - update-dotfiles
-  - web-artifacts-builder
-  - webapp-testing
-  - xlsx
+sources:
+  - repository: "HotThoughts/jj-skills"
+    ref: "dae28e5882b1fd417bd2116f7f488990d4c8ca2f"
+    skills:
+      - "skills/jj-create-pr"
+      - "skills/jj-update-pr"
+      - "skills/jj-workflow"
+  - repository: "vercel-labs/skills"
+    ref: "7407f3893ad4dceab546ac002c3ef806e4000c73"
+    skills:
+      - "skills/find-skills"
+  - repository: "github/gh-stack"
+    ref: "2bd699a544a09cb5c45a013d03416e0894b0454e"
+    skills:
+      - "skills/gh-stack"
+  - repository: "kepano/obsidian-skills"
+    ref: "3ccff5338ea700537839b21900aa5358a0402c98"
+    skills:
+      - "skills/json-canvas"
+      - "skills/obsidian-bases"
+      - "skills/obsidian-cli"
+      - "skills/obsidian-markdown"

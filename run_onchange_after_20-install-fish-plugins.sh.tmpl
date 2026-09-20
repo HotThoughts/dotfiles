@@ -1,0 +1,14 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ -x /opt/homebrew/bin/brew ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+	eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Re-run only when fish_plugins changes. Fisher is installed by Homebrew.
+# fish_plugins hash: {{ include "dot_config/fish/fish_plugins" | sha256sum }}
+fish -c 'fisher update'
+{{- end }}

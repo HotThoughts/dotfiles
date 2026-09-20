@@ -1,0 +1,9 @@
+^http://127\.0\.0\.1
+^https://github\.com/(\$\{|\$%7B)
+^https://github/?$
+^https://github\.com/xkbcommon/.*xkbcommon-
+^https://harfbuzz\.github\.io/harfbuzz-hb-
+^https://sw\.kovidgoyal\.net/kitty/keyboard-
+^https://github\.com/folke/tokyonight\.nvim/raw/
+^https://raw\.githubusercontent\.com/datreeio/CRDs-catalog/
+^https://stackoverflow\.com/a/

@@ -1,3 +1,26 @@
 install.sh
 dot_config/chezmoi/chezmoi.toml.tmpl
 setup.sh
+
+# Repository-only documentation, automation, and inventories.
+AGENTS.md
+CLAUDE.md
+README.md
+Brewfile
+Brewfile.versions
+CHEZMOI_TO_NIX_MIGRATION_PLAN.md
+example.pre-commit-config.yaml
+skills.yaml
+fig/**
+scripts/**
+skills/**
+tests/**
+
+# Repository metadata and developer tooling, not files for $HOME.
+.github/**
+.lycheeignore
+.pre-commit-config.yaml
+.typos.toml
+.trunk/**
+.DS_Store
+**/.DS_Store

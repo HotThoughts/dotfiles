@@ -92,7 +92,7 @@ layout {
 
     default_tab_template {
         pane size=1 borderless=true {
-            plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
                 format_left   "{mode} {tabs}"
                 format_center ""
                 format_right  "#[fg=#32344a]#[bg=#32344a,fg=#7aa2f7,bold]{swap_layout}#[bg=#24283b,fg=#32344a,bold] #[fg=#565f89] Zellij: #[fg=#565f89]{session}"

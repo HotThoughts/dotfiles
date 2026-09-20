@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "12:00"
+    pull-request-branch-name:
+      separator: "-"
+    open-pull-requests-limit: 10
+    reviewers:
+      - HotThoughts
+    labels:
+      - dependencies
+    groups:
+      github-actions:
+        patterns:
+          - "*"

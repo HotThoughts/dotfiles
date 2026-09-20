@@ -1,0 +1,15 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ -x /opt/homebrew/bin/brew ]]; then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+	eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Re-run only when the Brewfile changes. Existing packages are never upgraded
+# implicitly; upgrades remain an explicit, reviewable operation.
+# Brewfile hash: {{ include "Brewfile" | sha256sum }}
+brew bundle --file={{ .chezmoi.sourceDir | quote }}/Brewfile --no-upgrade
+{{- end }}
