@@ -105,6 +105,16 @@ chezmoi update    # Pull the repo and apply changes
 chezmoi doctor    # Check chezmoi health and environment details
 ```
 
+Two repository scripts reconcile `$HOME` with source state without rendering
+templates, so they keep working while a template is broken:
+
+```bash
+./scripts/sync-managed-files.sh          # Audit drift against source state
+./scripts/sync-managed-files.sh --write  # Re-add clean drift
+./scripts/sync-new-configs.sh            # Audit unmanaged config files
+./scripts/sync-new-configs.sh --write    # Add the reviewed candidates
+```
+
 ### Tool versions and updates
 
 `Brewfile` declares the tools and `Brewfile.versions` records the versions
@@ -174,7 +184,7 @@ from chezmoi application.
 ## Development Workflow
 
 ```bash
-bash tests/run.sh     # Focused bootstrap, render, and wrapper tests
+bash tests/run.sh     # Focused bootstrap, render, wrapper, and sync tests
 prek run --all-files # The same repository hooks used by CI
 trunk check           # Additional linting
 trunk fmt             # Formatting

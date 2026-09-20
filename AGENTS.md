@@ -12,4 +12,9 @@
   read from the system keychain or another external secret store.
 - Keep dependency revisions explicit and update them deliberately with their
   checksums or lockfiles.
+- Reconcile local config with source state using `./scripts/sync-managed-files.sh`
+  (destination drift) and `./scripts/sync-new-configs.sh` (new files); details in
+  `skills/update-dotfiles/SKILL.md`.
+- `chezmoi status|diff|apply` currently abort on the Zed keyring template; prefer
+  the sync scripts.
 - Preserve unrelated user changes and keep commits free of agent attribution.
