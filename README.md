@@ -57,6 +57,10 @@ Xcode Command Line Tools, Homebrew, packages from `Brewfile`, and Fish plugins.
 - Neovim/LazyVim configuration and plugins
 - Zed settings, keymap, and tasks
 
+### Agents
+
+- omp (Oh My Pi) agent configuration, including vim mode
+
 ### Terminals
 
 - Ghostty configuration

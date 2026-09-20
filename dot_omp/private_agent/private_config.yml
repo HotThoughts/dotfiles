@@ -1,0 +1,47 @@
+modelRoles:
+  tiny: github-copilot/gpt-5.6-luna:auto
+  default: deepseek/deepseek-v4-flash:high
+symbolPreset: nerd
+composer:
+  shape: band
+theme:
+  dark: dark-tokyo-night
+  light: light-tokyo-night
+setupVersion: 2
+statusLine:
+  separator: none
+  preset: default
+  transparent: true
+  contextLine: embedded
+bash:
+  enabled: false
+vault:
+  enabled: true
+github:
+  enabled: true
+checkpoint:
+  enabled: true
+security:
+  enabled: true
+plan:
+  defaultOnStartup: true
+skills:
+  enableSkillCommands: true
+commands:
+  enableOpencodeProject: false
+  enableClaudeUser: true
+dev:
+  autoqaConsent: granted
+terminal:
+  showProgress: true
+tui:
+  vimMode: true
+  codexResetFireworks: true
+  titleSpinner: pulse
+  hyperlinks: auto
+  mouse: true
+display:
+  shimmer: kitt
+autolearn:
+  enabled: true
+hideThinkingBlock: true
