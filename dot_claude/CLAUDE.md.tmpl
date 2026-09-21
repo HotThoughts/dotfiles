@@ -1,1 +1,54 @@
 {{ template "global-agent-policy.md" . }}
+
+# Global Preferences
+
+## Code Style
+
+Primary languages: Python, YAML (Helm/CI), TypeScript, Markdown. When making code changes, always run the project's formatter (e.g., prettier for TS, ruff/black for Python) before committing.
+
+## Version Control
+
+- This repo uses `jj` (Jujutsu), not git. Never use `git stash` - it can revert tracked changes. Use `jj` commands for all VCS operations.
+- Before rebuilding or rewriting commits, always check `jj status` for working-copy changes and preserve them explicitly.
+
+## Git Workflow
+
+- When modifying a PR branch, always build on top of existing commits. Never reset the branch to origin/main unless explicitly asked to do so.
+
+## PR Scope Discipline
+
+- Keep each PR focused on a single concern. Do NOT mix unrelated fixes (e.g., pre-existing lint errors, unrelated deployment changes) into a feature PR.
+- If you notice unrelated issues while working, surface them to the user as a separate suggestion rather than fixing them inline.
+- Never commit or push without explicit user confirmation unless they've said 'push it' for this task.
+
+## CI/CD & GitHub Actions
+
+- When creating dependabot.yml configs, always include grouping strategies and commit-message prefix configuration. Ask for the user's preferred format if not specified.
+- For CI workflows on ubuntu-slim runners: Docker-based GitHub Actions are NOT supported. Always use curl/binary installation approaches instead of Docker container actions.
+
+## Code Review / PR Workflow
+
+- Always run an adversarial review (Codex/parallel agents) against your own fix before opening a PR, and verify proposed changes against the real source and prod behavior — proposed fixes have broken prod.
+
+## Communication / Slack
+
+- When drafting Slack messages, default to short, casual tone with no blockquote formatting, and ask for incident/PIP background context up front before writing.
+
+## Issue & PR Conventions
+
+- Do not include fix code in Linear/Jira issue descriptions — describe the approach in prose only.
+- Always assign the user (GitHub handle: `HotThoughts`) as assignee on every PR opened (`gh pr create --assignee HotThoughts` or `gh pr edit <num> --add-assignee HotThoughts` for PRs already open).
+- PR titles/descriptions: keep them minimal — conventional-commit title (e.g. `fix(values): ...`) and a 2-3 sentence body, no headers/sections. Add `Stacked on #X` when part of a stack.
+- When the work relates to a Linear issue, use the issue number as the conventional-commit scope in the PR title (e.g. `fix(DEP-1234): ...`), never in the PR description.
+
+## Memory & Config Scope
+
+- When saving learned context/memory, default to the GLOBAL scope (`~/.claude/`) unless the note is specific to one repo.
+- When adding MCP servers, ask the user if they want user-level or project-level scope before registering.
+
+## Testing
+
+- When writing tests for model outputs or numerical comparisons, use generous tolerances (especially for FP16/quantized models) and avoid strict ordering assertions for near-tied scores.
+- After every code change that touches handlers, protobuf fields, or tests, run the relevant test suite and type checks locally before pushing; do not push until CI-equivalent checks pass.
+
+@/Users/yiyao.wei/.claude/local.md
