@@ -83,7 +83,10 @@ detach = "prefix+d"
 # next_agent = ""         # optional, unset by default
 focus_agent = "prefix+alt+1..9"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
-# new_tab = "prefix+c"
+# Ghostty sends Cmd+N as ESC N (dot_config/ghostty/config), which Herdr
+# interprets as alt+shift+n. The native action creates and focuses a tab
+# in the active workspace.
+new_tab = ["prefix+c", "alt+shift+n"]
 # rename_tab = "prefix+shift+t"
 # Ghostty maps Cmd+[ / Cmd+] to Alt+Shift+T / Alt+T.
 previous_tab = ["prefix+p", "alt+shift+t"]
@@ -106,8 +109,9 @@ copy_mode = "ctrl+s"
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
-# Ghostty maps Cmd+Enter / Cmd+Shift+Enter to Alt+N / Alt+Shift+D.
-# Use native actions so splits target the active pane without a shell command.
+# Ghostty sends Cmd+Enter as ESC n (alt+n) and Cmd+Shift+Enter as ESC D
+# (alt+shift+d) for split_horizontal below. Use native actions so splits
+# target the active pane without a shell command.
 split_vertical = ["prefix+v", "alt+n"]
 split_horizontal = ["prefix+minus", "alt+shift+d"]
 # close_pane = "prefix+x"
@@ -169,13 +173,6 @@ key = "alt+right"
 type = "shell"
 command = "herdr pane focus --direction right --current"
 description = "focus pane right"
-
-# Cmd+N -> new tab. Ghostty sends cmd+n as ESC N (alt+shift+n).
-[[keys.command]]
-key = "alt+shift+n"
-type = "shell"
-command = "herdr tab create --workspace \"$HERDR_WORKSPACE_ID\" --focus"
-description = "new tab"
 
 # Cmd+Shift+M -> toggle zoom (enlarge) the focused pane, alongside the
 # built-in prefix+z default. Ghostty sends cmd+shift+m as ESC M (alt+shift+m).
@@ -239,7 +236,7 @@ description = "toggle zoom pane"
 
 # Ask for a tab name before creating a new tab.
 # Set false to create tabs immediately with generated names.
-# prompt_new_tab_name = true
+prompt_new_tab_name = false
 
 # Draw borders around split panes.
 # pane_borders = true
