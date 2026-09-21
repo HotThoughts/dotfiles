@@ -12,6 +12,14 @@ if not set -q HOMEBREW_PREFIX
 end
 
 # -----------------------------------------------------------------------------
+# File descriptor limit
+# -----------------------------------------------------------------------------
+# Default soft ulimit (often 8192) is too low for Claude Code, Docker, and other
+# dev tooling that opens many files/sockets. Kernel hard limits are already high
+# (kern.maxfiles/kern.maxfilesperproc), so raise the soft limit per-shell.
+ulimit -n 65536
+
+# -----------------------------------------------------------------------------
 # Abbreviations
 # -----------------------------------------------------------------------------
 abbr -a -- k kubectl
