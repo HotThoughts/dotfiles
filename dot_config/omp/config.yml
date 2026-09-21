@@ -1,6 +1,6 @@
 modelRoles:
   tiny: github-copilot/gpt-5.6-luna:auto
-  default: deepseek/deepseek-v4-flash:high
+  default: anthropic/claude-sonnet-5:high
 symbolPreset: nerd
 composer:
   shape: band
@@ -27,6 +27,7 @@ plan:
   defaultOnStartup: true
 skills:
   enableSkillCommands: true
+  enableCodexUser: true
 commands:
   enableOpencodeProject: false
   enableClaudeUser: true
@@ -48,3 +49,5 @@ hideThinkingBlock: true
 disabledProviders:
   - amazon-bedrock
   - bedrock-mantle
+enabledProviders:
+  - claude
