@@ -8,6 +8,8 @@ CLAUDE.md
 README.md
 Brewfile
 Brewfile.versions
+# Disabled run script: Homebrew package install is no longer driven by `chezmoi apply`.
+_run_onchange_before_10-install-packages.sh
 CHEZMOI_TO_NIX_MIGRATION_PLAN.md
 example.pre-commit-config.yaml
 skills.yaml

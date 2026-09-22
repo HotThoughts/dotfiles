@@ -32,7 +32,7 @@ for target in \
 	grep -Fxq -- "${target}" <<<"${managed}" || fail "${target} is not managed"
 done
 
-for repo_only in Brewfile README.md AGENTS.md skills.yaml scripts tests .lycheeignore .typos.toml; do
+for repo_only in Brewfile README.md AGENTS.md skills.yaml scripts tests .lycheeignore .typos.toml _run_onchange_before_10-install-packages.sh; do
 	if grep -Fxq -- "${repo_only}" <<<"${managed}"; then
 		fail "repository-only path ${repo_only} would be copied into HOME"
 	fi
@@ -40,7 +40,6 @@ done
 
 for template in \
 	run_once_before_00-install-homebrew.sh.tmpl \
-	run_onchange_before_10-install-packages.sh.tmpl \
 	run_onchange_after_20-install-fish-plugins.sh.tmpl; do
 	HOME="${test_root}/home" chezmoi --config "${config}" --source "${repo_root}" \
 		--cache "${test_root}/cache" execute-template --file "${repo_root}/${template}" \
