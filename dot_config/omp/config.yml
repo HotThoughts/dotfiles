@@ -40,7 +40,7 @@ tui:
   codexResetFireworks: true
   titleSpinner: pulse
   hyperlinks: auto
-  mouse: true
+  mouse: false
 display:
   shimmer: kitt
 autolearn:
