@@ -1,4 +1,7 @@
 .cursor/
 .specify/
+.agents/
+.goose/
+.claude/
 specs/
 dot_config/chezmoi/chezmoi.toml.tmpl
