@@ -3,5 +3,6 @@
 .agents/
 .goose/
 .claude/
+.pi/
 specs/
 dot_config/chezmoi/chezmoi.toml.tmpl
