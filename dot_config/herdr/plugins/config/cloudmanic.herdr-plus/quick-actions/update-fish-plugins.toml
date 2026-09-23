@@ -1,0 +1,7 @@
+# Updates fish plugins. fisher is a fish function (not a $PATH binary), so the
+# headless quick action must run it through `fish -c`. The trailing read is
+# herdr-plus's keep-open pattern: it holds the launcher open so the output is
+# readable instead of flashing by (press Enter to dismiss).
+name = "Update fish plugins"
+description = "Update fish plugins with fisher"
+command = "fish -c 'fisher update' && read -r _ </dev/tty"

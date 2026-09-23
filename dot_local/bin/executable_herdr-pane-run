@@ -5,12 +5,40 @@
 # generic "run a program in a pane" primitive.
 set -euo pipefail
 
-direction="${1:?usage: herdr-pane-run <right|down> <command...>}"
+# Optional --name LABEL renames the new pane after splitting.
+name=""
+if [ "${1:-}" = "--name" ]; then
+	[ "$#" -ge 3 ] || {
+		echo "usage: herdr-pane-run [--name NAME] <right|down> <command...>" >&2
+		exit 1
+	}
+	name="$2"
+	shift 2
+fi
+
+direction="${1:?usage: herdr-pane-run [--name NAME] <right|down> <command...>}"
 shift
 [ "$#" -ge 1 ] || {
-	echo "usage: herdr-pane-run <right|down> <command...>" >&2
+	echo "usage: herdr-pane-run [--name NAME] <right|down> <command...>" >&2
 	exit 1
 }
 
-pane_id=$(herdr pane split --current --direction "$direction" --focus | jq -r '.result.pane.pane_id')
+# Split in the directory the caller was launched from. herdr-plus sets
+# HERDR_PLUS_WORKDIR to the focused pane's cwd when the quick action fired;
+# herdr's own custom commands set HERDR_ACTIVE_PANE_CWD. Falling back to $PWD
+# keeps direct invocations working. Passing --cwd explicitly beats relying on
+# herdr's new_cwd=follow policy, which needs to detect the source shell's cwd.
+cwd="${HERDR_PLUS_WORKDIR:-${HERDR_ACTIVE_PANE_CWD:-$PWD}}"
+
+# Split target: herdr-plus exports the originally focused pane's id as
+# HERDR_PLUS_PANE_ID (captured when the picker opened). Prefer it over
+# --current, which resolves via HERDR_PANE_ID — under the popup picker that
+# points at the popup pane, which is already gone when the split runs.
+if [ -n "${HERDR_PLUS_PANE_ID:-}" ]; then
+	split_target="$HERDR_PLUS_PANE_ID"
+else
+	split_target="--current"
+fi
+pane_id=$(herdr pane split "$split_target" --direction "$direction" --cwd "$cwd" --focus | jq -r '.result.pane.pane_id')
+[ -z "$name" ] || herdr pane rename "$pane_id" "$name"
 herdr pane run "$pane_id" "$*"

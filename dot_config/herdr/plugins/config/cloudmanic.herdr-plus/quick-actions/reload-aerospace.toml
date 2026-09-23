@@ -1,0 +1,5 @@
+# Reloads AeroSpace's configuration. Headless: the CLI tells the running
+# AeroSpace process to reload its config and exits — no pane needed.
+name = "Reload AeroSpace"
+description = "Reload AeroSpace window manager configuration"
+command = "aerospace reload-config"

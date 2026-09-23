@@ -91,6 +91,11 @@ new_tab = ["prefix+c", "alt+shift+n"]
 # Ghostty maps Cmd+[ / Cmd+] to Alt+Shift+T / Alt+T.
 previous_tab = ["prefix+p", "alt+shift+t"]
 next_tab = ["prefix+n", "alt+t"]
+# Cmd+Shift+[ / Cmd+Shift+] (dot_config/ghostty/config) send ESC J / ESC K,
+# which herdr sees as alt+shift+j / alt+shift+k. Brackets themselves can't be
+# used: ESC[ starts a CSI escape sequence.
+previous_workspace = "alt+shift+j"
+next_workspace = "alt+shift+k"
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
@@ -144,6 +149,15 @@ key = "prefix+a"
 type = "plugin_action"
 command = "cloudmanic.herdr-plus.quick-actions"
 description = "herdr-plus: quick actions"
+
+# Opens herdr-plus's Projects browser (workspace templates from
+# projects/*.toml, e.g. "admin"). prefix+b: b for browser; free since
+# copy_mode moved to ctrl+s.
+[[keys.command]]
+key = "prefix+b"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.projects"
+description = "herdr-plus: projects"
 
 # Cmd+arrow pane focus, matching the zellij "Alt left/down/up/right" binds.
 # Ghostty (dot_config/ghostty/config) already remaps cmd+arrow to the same

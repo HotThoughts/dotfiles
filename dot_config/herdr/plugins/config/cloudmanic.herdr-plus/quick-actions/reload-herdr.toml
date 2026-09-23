@@ -1,0 +1,6 @@
+# Reloads herdr's config.toml in the running server. Headless, like
+# open-repo-github: the command talks to the herdr socket and exits — no pane
+# needed. Handy after editing keybindings or theme settings.
+name = "Reload herdr config"
+description = "Reload config.toml in the running herdr server"
+command = "herdr server reload-config"

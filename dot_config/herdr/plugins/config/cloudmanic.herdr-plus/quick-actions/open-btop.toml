@@ -1,0 +1,5 @@
+# Opens btop (system monitor TUI) in a new pane. Interactive, so it goes
+# through herdr-pane-run like jjui/gh-dash — it needs a real pane/pty.
+name = "Open btop"
+description = "Open btop system monitor in a new pane"
+command = "herdr-pane-run --name btop right btop"

@@ -1,0 +1,7 @@
+# Updates Homebrew in a pane: brew upgrade can take a while and the live
+# output is worth watching. The whole chain is quoted so herdr-pane-run types
+# it into the new pane as one command, instead of the quick action's own shell
+# running the tail half itself after &&.
+name = "Update Homebrew"
+description = "brew update, outdated, upgrade, cleanup in a new pane"
+command = 'herdr-pane-run --name brew right "brew update && brew outdated && brew upgrade && brew cleanup"'

@@ -65,6 +65,11 @@ keybind = cmd+7=text:\x1b7
 keybind = cmd+8=text:\x1b8
 keybind = cmd+9=text:\x1b9
 keybind = cmd+shift+m=text:\x1bM
+# Cmd+Shift+[ / Cmd+Shift+] → herdr previous/next workspace. Brackets can't
+# cross the wire themselves (ESC[ starts a CSI sequence), so Ghostty sends
+# alt+shift+j / alt+shift+k, which herdr binds to workspace movement.
+keybind = cmd+shift+[=text:\x1bJ
+keybind = cmd+shift+]=text:\x1bK
 keybind = cmd+/=text:\x1bs
 
 keybind = alt+left=unbind

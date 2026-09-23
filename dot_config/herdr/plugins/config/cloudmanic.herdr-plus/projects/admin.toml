@@ -1,0 +1,19 @@
+# Workspace template for dotfile maintenance. Opens a new herdr workspace
+# with a tab whose shell lands in the chezmoi source repo via `chezmoi cd`.
+# Open it from the Projects browser (herdr-plus: Projects).
+name = "admin"
+description = "Dotfiles (chezmoi source repo)"
+working_dir = "~"
+
+[[tabs]]
+name = "chezmoi"
+
+[[tabs.panes]]
+label = "firstmate"
+working_dir = "~/repos/firstmate"
+command = "omp"
+
+[[tabs.panes]]
+label = "chezmoi"
+command = "chezmoi cd"
+split = "right"

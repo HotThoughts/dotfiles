@@ -1,0 +1,6 @@
+# Opens gh-dash in a new herdr pane, split from wherever the Quick Actions
+# picker was launched. herdr-pane-run inherits that directory, and gh-dash
+# scopes to the surrounding repo when run inside one. --name labels the pane.
+name = "Open gh-dash"
+description = "Open gh-dash for the current repo in a new pane"
+command = "herdr-pane-run --name gh-dash right gh dash"

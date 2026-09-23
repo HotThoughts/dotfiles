@@ -1,0 +1,5 @@
+# Reloads sketchybar's configuration. Headless: the CLI signals the running
+# sketchybar process and exits — no pane needed.
+name = "Reload sketchybar"
+description = "Reload sketchybar configuration"
+command = "sketchybar --reload"

@@ -1,0 +1,7 @@
+# Opens the current repo on GitHub. Runs headless in the launch directory
+# (herdr-plus sets it to the focused pane's cwd), so `gh repo view` resolves
+# the surrounding repo; gh opens the browser and the action exits — no pane
+# needed, unlike jjui/gh-dash which are interactive TUIs.
+name = "Open repo on GitHub"
+description = "Open the current repo on GitHub in the browser"
+command = "gh repo view --web"

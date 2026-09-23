@@ -1,0 +1,18 @@
+# herdr-plus global settings, read from herdr's managed plugin config dir.
+# ~/.config/herdr-plus/config.toml is a symlink to this file so the short path
+# stays usable (inside herdr, HERDR_PLUGIN_CONFIG_DIR always points here — a
+# real file only at the short path would be ignored by the picker).
+
+[quick_actions]
+# How the picker opens: overlay (default), popup, split, tab, or zoomed.
+# Popup opens as a session-modal popup without touching the tab layout.
+placement = "popup"
+
+[projects]
+# Same placement options for the Projects browser (built-in default: zoomed).
+# Popup opens it as a session-modal popup, like the quick-actions picker.
+placement = "popup"
+
+[worktree]
+# Prefix prepended to bare branch names typed in the projects browser (ctrl+g).
+# branch_prefix = "dvic/"

@@ -6,6 +6,6 @@
 # not a generic "run a program in a pane" primitive, and jjui exited
 # immediately (code 1) when launched through it. herdr-pane-run instead
 # splits a pane and runs the command in it, same as our cmd+enter binding.
-name = "jjui"
+name = "Open jjui"
 description = "Open jjui (Jujutsu TUI) in a new pane"
-command = "herdr-pane-run right jjui"
+command = "herdr-pane-run --name jjui right jjui"
