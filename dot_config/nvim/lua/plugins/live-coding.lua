@@ -30,8 +30,7 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "tidal",
         callback = function(args)
-          vim.opt_local.dictionary:append(
-            vim.fn.expand("~/PersonalProjects/Tidal/samples/tidal-dictionary.txt"))
+          vim.opt_local.dictionary:append(vim.fn.expand("~/PersonalProjects/Tidal/samples/tidal-dictionary.txt"))
 
           -- Auto-launch Tidal once per session: tidal.nvim fails silently
           -- until :TidalLaunch has run.
@@ -69,28 +68,45 @@ return {
           map("x", "<CR>", "<Esc><Cmd>lua require('tidal').api.send_visual()<CR>gv", "Tidal: evaluate selection")
           map("x", "<leader>te", "<Esc><Cmd>lua require('tidal').api.send_visual()<CR>gv", "Tidal: evaluate selection")
           -- hush all tracks
-          map("n", "<leader>th", send(function() message.tidal.send_line("hush", { 0, 0 }) end), "Tidal: hush")
+          map(
+            "n",
+            "<leader>th",
+            send(function()
+              message.tidal.send_line("hush", { 0, 0 })
+            end),
+            "Tidal: hush"
+          )
           -- send the expression under the cursor (needs haskell treesitter)
           map("n", "<leader>tn", send(api.send_node), "Tidal: send node")
           -- silence a channel: 2<leader>td silences d2 (default d1), or
           -- directly via <leader>td1 .. <leader>td9
           map("n", "<leader>td", send(api.send_silence), "Tidal: silence channel")
           for channel = 1, 9 do
-            map("n", "<leader>td" .. channel, send(function()
-              message.tidal.send_line(("d%d silence"):format(channel), { 0, 0 })
-            end), "Tidal: silence d" .. channel)
+            map(
+              "n",
+              "<leader>td" .. channel,
+              send(function()
+                message.tidal.send_line(("d%d silence"):format(channel), { 0, 0 })
+              end),
+              "Tidal: silence d" .. channel
+            )
           end
           -- session control + the rest of the API surface
           map("n", "<leader>tl", "<cmd>TidalLaunch<cr>", "Tidal: launch")
           map("n", "<leader>tq", "<cmd>TidalQuit<cr>", "Tidal: quit")
           map("n", "<leader>tp", "<cmd>TidalNotification<cr>", "Tidal: post window")
-          map("n", "<leader>tx", send(function()
-            vim.ui.input({ prompt = "tidal> " }, function(expr)
-              if expr and expr ~= "" then
-                api.send(expr)
-              end
-            end)
-          end), "Tidal: send expression")
+          map(
+            "n",
+            "<leader>tx",
+            send(function()
+              vim.ui.input({ prompt = "tidal> " }, function(expr)
+                if expr and expr ~= "" then
+                  api.send(expr)
+                end
+              end)
+            end),
+            "Tidal: send expression"
+          )
         end,
       })
 
