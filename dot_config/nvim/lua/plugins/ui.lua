@@ -1,3 +1,10 @@
+-- One which-key entry per tidal silence channel (<leader>td1 .. td9);
+-- unpacked into the spec below (must stay the last entry).
+local silence_channels = {}
+for i = 1, 9 do
+  table.insert(silence_channels, { ("<leader>td%d"):format(i), desc = "silence d" .. i })
+end
+
 return {
   {
     "folke/tokyonight.nvim",
@@ -58,12 +65,16 @@ return {
         {
           mode = { "n", "v" },
           { "<leader>t", desc = "tidal cycles", icon = { icon = "󱍙 ", color = "blue" } },
-          { "<leader>te", icon = { icon = "󰝚 ", color = "blue" } },
-          { "<leader>th", icon = { icon = "󰝛 ", color = "blue" } },
-          { "<leader>tm", desc = "Mute Channels", icon = { icon = " ", color = "blue" } },
-          { "<leader>tu", desc = "Unmute Channels", icon = { icon = " ", color = "blue" } },
-          { "<leader>ts", desc = "Silence Channels", icon = { icon = "󰎊 ", color = "blue" } },
+          { "<leader>te", desc = "evaluate (block/selection)", icon = { icon = "󰝚 ", color = "blue" } },
+          { "<leader>th", desc = "hush (tidal)", icon = { icon = "󰝛 ", color = "blue" } },
+          { "<leader>tn", desc = "send node", icon = { icon = "󰎇 ", color = "blue" } },
+          { "<leader>td", desc = "silence channel", icon = { icon = "󰎊 ", color = "blue" } },
+          { "<leader>tl", desc = "launch tidal", icon = { icon = "󱓞 ", color = "blue" } },
+          { "<leader>tq", desc = "quit tidal", icon = { icon = "󰅖 ", color = "blue" } },
+          { "<leader>tp", desc = "post window", icon = { icon = "", color = "blue" } },
+          { "<leader>tx", desc = "send expression", icon = { icon = "󰎍 ", color = "blue" } },
           { "<leader>j", desc = "jj", icon = { icon = " ", color = "green" } },
+          unpack(silence_channels),
         },
       },
     },
