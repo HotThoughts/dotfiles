@@ -24,7 +24,7 @@ checkpoint:
 security:
   enabled: true
 plan:
-  defaultOnStartup: true
+  defaultOnStartup: false
 skills:
   enableSkillCommands: true
   enableCodexUser: true
@@ -40,9 +40,12 @@ tui:
   codexResetFireworks: true
   titleSpinner: pulse
   hyperlinks: auto
-  mouse: false
+  mouse: true
+  tight: true
 display:
   shimmer: kitt
+  hideToolActivity: true
+  pinnedAgents: collapsed
 autolearn:
   enabled: true
 hideThinkingBlock: true
@@ -51,3 +54,5 @@ disabledProviders:
   - bedrock-mantle
 enabledProviders:
   - claude
+retry:
+  usageAwareFallback: true
