@@ -211,13 +211,22 @@ return {
           -- Not on PATH; lives inside the app bundle
           cmd = "/Applications/SuperCollider.app/Contents/MacOS/sclang",
         },
-        -- Post window along the bottom, like the old terminal layout
+        -- Post window along the bottom, like the old terminal layout.
+        -- fixed_size pins the height on every open; without it scnvim
+        -- remembers whatever the window was last resized to and the post
+        -- window slowly eats the screen. A quarter of the terminal height,
+        -- re-evaluated on each Neovim start.
         postwin = {
           horizontal = true,
           direction = "bot",
-          size = 14,
+          size = math.floor(vim.o.lines / 4),
+          fixed_size = math.floor(vim.o.lines / 4),
         },
       })
+
+      -- The rig module resolves scnvim.sclang internally; call it with no
+      -- arguments (the main scnvim module exposes no .sclang field).
+      dofile("/Users/hotthoughts/PersonalProjects/Tidal/practice/nature-set/nvim-autoload.lua")()
 
       -- Start SuperCollider whenever Tidal launches. TidalLaunch fires at
       -- most once per session (tidal.nvim guards it), so no extra guard is

@@ -8,3 +8,6 @@ vim.keymap.set("n", "<C-\\>", function()
 end, { desc = "Terminal (Root Dir)" })
 
 vim.keymap.set("t", "<C-\\>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+
+-- Built-in undotree (<leader>u is taken by LazyVim's UI toggles)
+vim.keymap.set("n", "<leader>U", "<cmd>Undotree<cr>", { desc = "Undo Tree" })

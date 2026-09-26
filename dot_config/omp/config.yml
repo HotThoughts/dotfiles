@@ -14,7 +14,7 @@ statusLine:
   transparent: true
   contextLine: embedded
 bash:
-  enabled: false
+  enabled: true
 vault:
   enabled: true
 github:
@@ -40,7 +40,7 @@ tui:
   codexResetFireworks: true
   titleSpinner: pulse
   hyperlinks: auto
-  mouse: true
+  mouse: false
   tight: true
 display:
   shimmer: kitt
