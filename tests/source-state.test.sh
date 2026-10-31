@@ -28,6 +28,7 @@ for target in \
 	.claude/CLAUDE.md \
 	.config/opencode/AGENTS.md \
 	.config/nvim/lazy-lock.json \
+	.config/rex/init.lua \
 	.config/ghostty/shaders/cursor_blaze.glsl; do
 	grep -Fxq -- "${target}" <<<"${managed}" || fail "${target} is not managed"
 done
