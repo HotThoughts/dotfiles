@@ -107,7 +107,10 @@ prefix on top. Herdr workspaces correspond to Rex sessions.
 | Ctrl+B, V / - | Split right / down |
 | Ctrl+B, H/J/K/L | Focus pane; with Shift, move it |
 | Ctrl+B, R | Resize mode; H/J/K/L or arrows, Enter/Escape to leave |
+| Ctrl+B, M | Move mode; H/J/K/L or arrows, Enter/Escape to leave |
 | Ctrl+B, Shift+P | Rename pane |
+| Ctrl+B, F | Show/hide the floating pane |
+| Alt+Cmd+C | Center the focused floating pane |
 
 The common Ctrl+B tab, pane, and workspace sequences are also retained.
 Ctrl+B, D closes the Rex window while sessions keep running. Herdr's workspace

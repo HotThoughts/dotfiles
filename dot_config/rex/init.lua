@@ -33,11 +33,14 @@ for index = 1, 9 do
 	rex.bind("ctrl+b>" .. index, "client.tab.goto", { index = index })
 end
 
--- Resize mode: Ctrl+B, R; H/J/K/L or arrows; Enter/Escape to leave.
-rex.mode("resize", { exclusive = true })
-rex.bind("ctrl+b>r", "client.mode.enter", { name = "resize" })
-rex.bind("resize/enter", "client.mode.exit")
-rex.bind("resize/escape", "client.mode.exit")
+-- Resize (Ctrl+B, R) and move (Ctrl+B, M) modes: H/J/K/L or arrows act on the
+-- focused pane; Enter/Escape to leave.
+for mode, key in pairs({ resize = "r", move = "m" }) do
+	rex.mode(mode, { exclusive = true })
+	rex.bind("ctrl+b>" .. key, "client.mode.enter", { name = mode })
+	rex.bind(mode .. "/enter", "client.mode.exit")
+	rex.bind(mode .. "/escape", "client.mode.exit")
+end
 
 for _, movement in ipairs({
 	{ key = "h", direction = "left" },
@@ -50,7 +53,45 @@ for _, movement in ipairs({
 	rex.bind("ctrl+b>shift+" .. key, "pane.move", { direction = direction })
 	rex.bind("resize/" .. key, "pane.resize", { direction = direction })
 	rex.bind("resize/" .. direction, "pane.resize", { direction = direction })
+	rex.bind("move/" .. key, "pane.move", { direction = direction })
+	rex.bind("move/" .. direction, "pane.move", { direction = direction })
 end
+
+-- Floating panes: Alt+Cmd+Enter floats one, Ctrl+B, F shows/hides it, and
+-- Alt+Cmd+C centers it.
+rex.bind("ctrl+b>f", "pane.minimize_floating")
+rex.action({
+	name = "center_floating",
+	title = "Center Floating Pane",
+	run = function(ctx)
+		local view, err = rex.call("session.view", { session_id = ctx.session_id })
+		if err ~= nil then
+			error(err, 0)
+		end
+		for _, window in ipairs(view.windows) do
+			for _, layer in ipairs(window.layers) do
+				for _, block in ipairs(layer.blocks or {}) do
+					if layer.kind ~= "tiled" and block.block_id == ctx.block_id then
+						local _, resize_err = rex.call("session.resize_layer", {
+							session_id = ctx.session_id,
+							layer_id = layer.layer_id,
+							bounds = { 0.15, 0.1, 0.7, 0.8 },
+						})
+						if resize_err ~= nil then
+							error(resize_err, 0)
+						end
+						return
+					end
+				end
+			end
+		end
+		error("The focused pane isn't floating", 0)
+	end,
+})
+rex.bind("alt+cmd+c", "center_floating")
+
+-- Cmd+P opens the command palette instead of Go to Anything (pane.go_to).
+rex.bind("cmd+p", "client.palette.toggle")
 
 -- Herdr-only bindings stay unbound here: Ctrl+S copy mode, plugin launchers
 -- (Ctrl+B, A/B), worktrees, agent selection and scrollback editing.
