@@ -112,28 +112,33 @@ Herdr workspaces correspond to Rex sessions.
 | Cmd+/ | Toggle sidebar |
 | Cmd+P | Command palette |
 | Ctrl+B, R | Resize mode; H/J/K/L or arrows, Enter/Escape to leave |
+| Ctrl+B, Shift+P | Rename pane |
 
 The common Ctrl+B tab, pane, and workspace sequences are also retained.
 Ctrl+B, D closes the Rex window while sessions keep running. Herdr's workspace
 and Goto pickers both open Rex's session picker. Herdr-only plugin, worktree,
-agent, pane rename, scrollback editor, and Ctrl+S copy-mode bindings are omitted.
+agent, scrollback editor, and Ctrl+S copy-mode bindings are omitted.
 
-Customized GUI preferences (themes, font, sidebar, tabs, updates, and server
-options) live in `dot_config/rex/run_onchange_after_preferences.sh.tmpl`.
-On macOS, chezmoi restores those keys with `defaults write` when the script's
-contents change. Edit that source script to keep later GUI changes managed.
+Edit `init.lua` rather than using the app's **Change Shortcut...** (see the
+file's header); `rex keymap` shows the merged result.
+
+Customized GUI preferences (themes, font, tabs, updates, and server options)
+live in `dot_config/rex/run_onchange_after_preferences.sh.tmpl`. On macOS,
+chezmoi restores those keys with `defaults write` when the script's contents
+change. Edit that source script to keep later GUI changes managed.
 Preferences without an explicit override keep Rex's defaults. Window geometry,
-session history, host records, and cached connection IDs stay local.
+session history, host records, and cached connection IDs stay local. The keys
+are undocumented and may change between Rex versions (see the script's header).
 
 Apply only Rex's configuration, including its preferences script:
 
 ```bash
 chezmoi apply --parent-dirs --skip-secrets --refresh-externals=never ~/.config/rex
-rex config reload
 ```
 
-Reopen the Rex app to load changed GUI preferences; `rex config reload` reloads
-Lua bindings only. Passing `--exclude scripts` skips GUI preference restoration.
+When `init.lua` changes, chezmoi validates it with `rex config check` and runs
+`rex config reload` on a running server. Reopen the Rex app to load changed GUI
+preferences. Passing `--exclude scripts` skips both.
 
 ### Chezmoi
 

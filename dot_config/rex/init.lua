@@ -1,6 +1,8 @@
 -- Match the Herdr + Ghostty shortcuts using native Rex actions.
 -- Herdr workspaces are Rex sessions; tabs and panes keep the same meaning.
 -- https://www.superlogical.com/rex/docs/customize/keyboard-shortcuts
+-- Shortcuts recorded in the app (Change Shortcut...) override this file, so
+-- make changes here instead. Debug the merged result with `rex keymap`.
 
 -- Direct Cmd shortcuts (Ghostty's escape-sequence translations aren't needed).
 rex.bind("cmd+n", "client.tab.new")
@@ -36,6 +38,7 @@ rex.bind("ctrl+b>shift+tab", "pane.focus_previous")
 rex.bind("ctrl+b>v", "pane.split", { direction = "right" })
 rex.bind("ctrl+b>-", "pane.split", { direction = "down" })
 rex.bind("ctrl+b>x", "pane.close")
+rex.bind("ctrl+b>shift+p", "pane.rename")
 rex.bind("ctrl+b>z", "pane.zoom")
 
 for index = 1, 9 do
@@ -64,4 +67,4 @@ for _, movement in ipairs({
 end
 
 -- Herdr-only bindings stay unbound here: Ctrl+S copy mode, plugin launchers
--- (Ctrl+B, A/B), worktrees, agent selection, pane renaming and scrollback editing.
+-- (Ctrl+B, A/B), worktrees, agent selection and scrollback editing.
