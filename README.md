@@ -97,22 +97,20 @@ changes. Existing Homebrew packages are not upgraded implicitly.
 
 ### Rex
 
-`dot_config/rex/init.lua` carries the Herdr/Ghostty shortcuts into Rex using
-[native bindings](https://www.superlogical.com/rex/docs/customize/keyboard-shortcuts).
-Herdr workspaces correspond to Rex sessions.
+`dot_config/rex/init.lua` keeps Rex's
+[default Cmd shortcuts](https://www.superlogical.com/rex/docs/reference/mac-actions)
+(e.g. Cmd+Enter splits in the best-fit direction) and adds Herdr's Ctrl+B
+prefix on top. Herdr workspaces correspond to Rex sessions.
 
 | Shortcut | Action |
 | --- | --- |
-| Cmd+N | New tab |
-| Cmd+Enter / Cmd+Shift+Enter | Split right / down |
-| Cmd+[ / Cmd+] | Previous / next tab |
-| Cmd+Shift+[ / Cmd+Shift+] | Previous / next session |
-| Cmd+arrow / Alt+arrow | Focus pane in that direction |
-| Cmd+Shift+M | Toggle pane zoom |
-| Cmd+/ | Toggle sidebar |
-| Cmd+P | Command palette |
+| Ctrl+B, V / - | Split right / down |
+| Ctrl+B, H/J/K/L | Focus pane; with Shift, move it |
 | Ctrl+B, R | Resize mode; H/J/K/L or arrows, Enter/Escape to leave |
+| Ctrl+B, M | Move mode; H/J/K/L or arrows, Enter/Escape to leave |
 | Ctrl+B, Shift+P | Rename pane |
+| Ctrl+B, F | Show/hide the floating pane |
+| Alt+Cmd+C | Center the focused floating pane |
 
 The common Ctrl+B tab, pane, and workspace sequences are also retained.
 Ctrl+B, D closes the Rex window while sessions keep running. Herdr's workspace
