@@ -95,3 +95,40 @@ rex.bind("cmd+p", "client.palette.toggle")
 
 -- Herdr-only bindings stay unbound here: Ctrl+S copy mode, plugin launchers
 -- (Ctrl+B, A/B), worktrees, agent selection and scrollback editing.
+
+-- tmux (Ctrl+A prefix) and zellij (~/.config/zellij/config.kdl) are intentionally
+-- not migrated: the Ctrl+B prefix covers them, and zellij's
+-- normal-mode Ctrl/Alt keys would shadow shell and editor shortcuts.
+
+-- ============================================================================
+-- Migrated from kitty (~/.config/kitty/kitty.conf). kitty_mod is ctrl+shift.
+-- ============================================================================
+rex.bind("f2", "client.tab.rename") -- :1271
+rex.bind("ctrl+shift+up", "pane.move", { direction = "up" }) -- :1293
+rex.bind("ctrl+shift+left", "pane.move", { direction = "left" }) -- :1294
+rex.bind("ctrl+shift+right", "pane.move", { direction = "right" }) -- :1295
+rex.bind("ctrl+shift+down", "pane.move", { direction = "down" }) -- :1296
+rex.bind("shift+left", "pane.focus", { direction = "left" }) -- :1299
+rex.bind("shift+right", "pane.focus", { direction = "right" }) -- :1300
+rex.bind("shift+up", "pane.focus", { direction = "up" }) -- :1301
+rex.bind("shift+down", "pane.focus", { direction = "down" }) -- :1302
+-- cmd+1 to cmd+9 (:1359-1367) are Rex's own defaults.
+
+-- ============================================================================
+-- Migrated from Herdr (~/.config/herdr/config.toml). Its ctrl+b> keys that
+-- init.lua already binds (c, p, n, v, -) are kept as written above.
+-- ============================================================================
+rex.bind("alt+shift+n", "client.tab.new") -- :89
+rex.bind("alt+shift+t", "client.tab.previous") -- :92
+rex.bind("alt+t", "client.tab.next") -- :93
+rex.bind("alt+shift+j", "session.previous") -- :97
+rex.bind("alt+shift+k", "session.next") -- :98
+rex.bind("alt+n", "pane.split", { direction = "right" }) -- :120
+rex.bind("alt+shift+d", "pane.split", { direction = "down" }) -- :121
+rex.bind("alt+s", "client.sidebar.toggle") -- :127
+
+-- ============================================================================
+-- Ghostty (~/.config/ghostty/config): cmd+p stays as init.lua:94 above;
+-- cmd+t is Rex's default. Nothing else is written.
+-- Alacritty (~/.alacritty.yml): no key bindings to migrate.
+-- ============================================================================
