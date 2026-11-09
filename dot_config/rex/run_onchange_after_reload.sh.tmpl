@@ -1,0 +1,19 @@
+{{ if ne .chezmoi.os "windows" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Rex doesn't watch init.lua. init.lua hash: {{ include "dot_config/rex/init.lua" | sha256sum }}
+command -v rex >/dev/null 2>&1 || exit 0
+
+rex config check {{ joinPath .chezmoi.destDir ".config/rex/init.lua" | quote }}
+
+# Exit status 4 means no server is running; don't start one just for this.
+status=0
+output="$(rex --autostart=false config reload 2>&1)" || status=$?
+if [[ ${status} -eq 4 ]]; then
+	echo "Rex server not running; it reads init.lua on its next start."
+elif [[ ${status} -ne 0 ]]; then
+	echo "rex config reload failed; the server keeps its last good keymap:" >&2
+	echo "${output}" >&2
+fi
+{{- end }}

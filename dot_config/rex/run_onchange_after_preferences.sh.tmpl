@@ -1,0 +1,36 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Restore customized GUI preferences one key at a time. Keep runtime state,
+# window positions, remote host records, and all other preferences intact.
+# Rex documents no config file for these; the keys are undocumented plist
+# internals. After a Rex update, compare with `defaults read com.superlogical.rex`.
+domain="com.superlogical.rex"
+
+# A running app may write its in-memory settings back over these on quit.
+if pgrep -xq Rex; then
+	echo "Rex is running; quit and reopen it so these preferences stick."
+fi
+
+# Appearance, terminal font, and tabs.
+defaults write "${domain}" Workspace.appearance -string "dark"
+defaults write "${domain}" Workspace.darkThemeID -string "velvet-dusk"
+defaults write "${domain}" Workspace.lightThemeID -string "merino-light"
+defaults write "${domain}" Workspace.terminalFontName -string "Operator Mono"
+defaults write "${domain}" Workspace.terminalFontPointSize -float 14
+defaults write "${domain}" Workspace.terminalFontStyle -string "Book"
+defaults write "${domain}" Workspace.inactivePaneFadeMode -string "both"
+defaults write "${domain}" Workspace.usesStandardInactiveWindowPaneStyles -bool true
+defaults write "${domain}" Workspace.tabIconTintMode -string "off"
+
+# Updates and the bundled server.
+defaults write "${domain}" SUAutomaticallyUpdate -bool true
+defaults write "${domain}" SUEnableAutomaticChecks -bool true
+defaults write "${domain}" rex.server.automatic-restart-enabled -bool true
+defaults write "${domain}" rex.server.block-plugin-reload-enabled -bool false
+defaults write "${domain}" rex.server.run-mode -string "bundled"
+defaults write "${domain}" rex.server.web-client-origin-patterns -array "https://rex.superlogical.com"
+
+echo "Rex GUI preferences restored. Reopen the Rex app to load them."
+{{- end }}
