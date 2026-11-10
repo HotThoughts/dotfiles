@@ -37,14 +37,18 @@ prek = [
 pr = ["util", "exec", "--", "fish", "-c", "jjpr"]
 push = ["util", "exec", "--", "fish", "-c", "jj prek && jj git push"]
 push-pr = ["util", "exec", "--", "fish", "-c", "jj prek && jjpr"]
+cleanup = ["util", "exec", "--", "jj-cleanup"]
+cl = ["util", "exec", "--", "jj-cleanup"]
 
 [templates]
 git_push_bookmark = '"yw/push-" ++ change_id.short()'
 
 [git]
 private-commits = 'blacklist()'
-sign-on-push = true
 colocate = true
+
+[revsets]
+git-sign-on-push = "~signed() & mine()"
 
 [remote.origin]
 auto-track-bookmark = "glob:*"
